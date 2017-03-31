@@ -5,6 +5,12 @@
             @yield('title', 'Default') / Panel de Administración
         </title>
         <link href="{{ asset ('plugins/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+            <link href="{{asset('plugins/datepicker/css/bootstrap-datepicker3.css')}}" rel="stylesheet">
+                <link href="{{asset('plugins/datepicker/css/bootstrap-standalone.css')}}" rel="stylesheet">
+                    <script src="{{asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js')}}">
+                    </script>
+                </link>
+            </link>
         </link>
     </head>
     <body>
@@ -25,6 +31,11 @@
             </script>
             <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }} ">
             </script>
+            <script src="{{asset('plugins/datepicker/js/bootstrap-datepicker.js')}}">
+            </script>
+            <script src="{{asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js')}}">
+            </script>
         </div>
+        @yield('js')
     </body>
 </html>

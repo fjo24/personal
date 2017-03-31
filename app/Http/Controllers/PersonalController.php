@@ -12,7 +12,7 @@ class PersonalController extends Controller
     public function index()
     {
 
-        $personal = Personal::orderBy('PERSON_ID', 'ASC')->paginate();
+        $personal = Personal::orderBy('PERSON_ID', 'ASC')->paginate(120);
         return view('hr.personal.index')->with('personal', $personal);
     }
 
@@ -54,7 +54,7 @@ class PersonalController extends Controller
      */
     public function edit($id)
     {
-        //
+                return view('hr.personal.edit');
     }
 
     public function update(Request $request, $id)

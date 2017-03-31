@@ -42,7 +42,6 @@ class AddPersonTable extends Migration
             //$table->foreign('idtipo_doc')->references('idtipo_doc')->on('tipo_docs');
            // $table->foreign('idposition')->references('idposition')->on('position');
 
-
             $table->timestamps();
         });
     }

@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('DATE_OF_BIRTH', 'Fecha de Nacimiento') !!}
-                            {!! Form::text('DATE_OF_BIRTH', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                            {!! Form::text('DATE_OF_BIRTH', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
                                     </div>
                                     <div class="form-group">
                                         <label for="nombre">
@@ -102,11 +102,11 @@
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('EFFECTIVE_START_DATE', 'Fecha de Ingreso') !!}
-                            {!! Form::text('EFFECTIVE_START_DATE', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                            {!! Form::text('EFFECTIVE_START_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('EFFECTIVE_END_DATE', 'Fecha de Cese') !!}
-                            {!! Form::text('EFFECTIVE_END_DATE', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                            {!! Form::text('EFFECTIVE_END_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('idposition', 'Puesto') !!}
@@ -181,4 +181,13 @@
 
 </div>
 {!! Form::close() !!}
-@stop
+@section('js')
+
+<script>
+$('.datepicker').datepicker({
+    format: "yyyy-mm-dd",
+    language: "es",
+    autoclose: true
+});
+</script>
+@endsection
