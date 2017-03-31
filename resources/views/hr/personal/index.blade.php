@@ -9,7 +9,7 @@
 <a class="btn btn-info" href="{{ route('hr.personal.create') }}">
     Registro
 </a>
-<table cellspacing="0" class="table table-striped table-bordered" id="example" width="100%">
+<table class="table table-striped">
     <thead>
         <th>
             NOMBRE COMPLETO
@@ -31,18 +31,19 @@
         @foreach($personal as $person)
         <tr>
             <td>
-                {{ $persona->FIRST_NAME }}
+                {{ $person->FIRST_NAME }}
             </td>
             <td>
-                {{ $persona->EFFECTIVE_END_DATE }}
+                {{ $person->EFFECTIVE_END_DATE }}
             </td>
             <td>
-                {{ $persona->SALARY }}
+                {{ $person->SALARY }}
             </td>
             <td>
-                {{ $persona->SOLD_MIN }}
+                {{ $person->SOLD_MIN }}
             </td>
             <td>
+                FALTA RELACIONAR
             </td>
         </tr>
         @endforeach

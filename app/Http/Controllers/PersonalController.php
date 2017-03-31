@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Personal;
 use Illuminate\Http\Request;
+use App\Http\Requests\PersonalRequest;
 
 class PersonalController extends Controller
 {
 
-    public function index(Request $request)
+    public function index()
     {
-        $personal = Personal::orderBy('PERSON_ID', 'ASC');
+
+        $personal = Personal::orderBy('PERSON_ID', 'ASC')->paginate();
         return view('hr.personal.index')->with('personal', $personal);
     }
 
@@ -30,7 +32,7 @@ class PersonalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PersonalRequest $request)
     {
 
         $personal = new Personal($request->all());
