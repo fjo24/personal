@@ -1,20 +1,16 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class AddPersonTable extends Migration
+class AddPersonalTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('HR_PER_PEOPLE_inf', function (Blueprint $table) {
-         
-            $table->increments('PERSON_ID');
+
+            $table->increments('id');
             $table->string('FIRST_NAME', 50);
             $table->string('SECOND_NAME', 50);
             $table->string('first_LAST_NAME', 50);
@@ -36,21 +32,16 @@ class AddPersonTable extends Migration
             $table->integer('SOLD_MIN');
             $table->integer('DISCCOUNT');
 
-            $table->string('COUNTY');
-            $table->string('ADDRESS');
+            $table->string('COUNTY', 50);
+            $table->string('ADDRESS', 50);
 
-       //     $table->foreign('idtipo_doc')->references('idtipo_doc')->on('tipo_docs');
-     //       $table->foreign('idposition')->references('idposition')->on('position');
+            //$table->foreign('idtipo_doc')->references('idtipo_doc')->on('tipo_docs');
+            //$table->foreign('idposition')->references('idposition')->on('position');
 
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::drop('HR_PER_PEOPLE_inf');

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class AddPositionTable extends Migration
 {
@@ -16,14 +16,12 @@ class AddPositionTable extends Migration
             $table->increments('idposition');
             $table->string('name');
             $table->string('condicion');
+            $table->timestamps();
+
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::drop('position');
