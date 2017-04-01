@@ -11,7 +11,7 @@ return [
     | the validator class. Some of these rules have multiple versions such
     | as the size rules. Feel free to tweak each of these messages here.
     |
-    */
+     */
 
     'accepted'             => 'El campo :attribute debe ser aceptado.',
     'active_url'           => 'El campo :attribute no es una URL válida.',
@@ -21,7 +21,7 @@ return [
     'alpha_num'            => 'El campo :attribute sólo puede contener letras y números.',
     'array'                => 'El campo :attribute debe ser un array.',
     'before'               => 'El campo :attribute debe ser una fecha anterior a :date.',
-    
+
     'between'              => [
         'numeric' => 'El campo :attribute debe ser un valor entre :min y :max.',
         'file'    => 'El archivo :attribute debe pesar entre :min y :max kilobytes.',
@@ -92,9 +92,9 @@ return [
     | convention "attribute.rule" to name the lines. This makes it quick to
     | specify a specific custom language line for a given attribute rule.
     |
-    */
+     */
 
-    'custom' => [
+    'custom'               => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
@@ -109,10 +109,27 @@ return [
     | with something more reader friendly such as E-Mail Address instead
     | of "email". This simply helps us make messages a little cleaner.
     |
-    */
+     */
 
-    'attributes' => [
-    'ADDRESS' => 'direccion',
+    'attributes'           => [
+    
+        'SEX'                  => 'sexo',
+        'EMPLOYEE_NUMBER'      => 'numero de documento',
+        'FIRST_NAME'           => 'primer nombre',
+        'SECOND_NAME'          => 'segundo nombre',
+        'first_LAST_NAME'      => 'primer apellido',
+        'SECOND_LAST_NAME'     => 'segundo apellido',
+        'DATE_OF_BIRTH'        => 'fecha de nacimiento',
+        'EMAIL_ADDRESS'        => 'correo electronico',
+        'EFFECTIVE_START_DATE' => 'fecha de ingreso',
+        'EFFECTIVE_END_DATE'   => 'fecha de cese',
+        'TELEF1'               => 'telefono',
+        'TELEF2'               => 'celular',
+        'SALARY'               => 'salario',
+        'SOLD_MIN'             => 'venta minima',
+        'DISCCOUNT'            => 'descuento',
+        'COUNTY'               => 'distrito',
+        'ADDRESS'              => 'direccion',
 
     ],
 

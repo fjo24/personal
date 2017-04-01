@@ -20,6 +20,11 @@ class PersonalRequest extends Request
             'SECOND_NAME'        => 'max:50|required',
             'first_LAST_NAME'    => 'max:50|required',
             'SECOND_LAST_NAME'   => 'max:50|required',
+
+            'SALARY'             => 'numeric',
+            'SOLD_MIN'           => 'numeric',
+            'DISCCOUNT'          => 'numeric',
+
             'EFFECTIVE_END_DATE' => 'required|date|after:EFFECTIVE_START_DATE',
 
             'COUNTY'             => 'max:50|required',
