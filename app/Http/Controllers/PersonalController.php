@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PersonalRequest;
+use App\Tipo_docs;
+use App\Position;
+use App\Per_ventas;
 use App\Personal;
 use Illuminate\Http\Request;
-use App\Http\Requests\PersonalRequest;
+use Laracasts\Flash\Flash;
 
 class PersonalController extends Controller
 {
 
     public function index()
     {
+
+    
 
         $personal = Personal::orderBy('PERSON_ID', 'ASC')->paginate(120);
         return view('hr.personal.index')->with('personal', $personal);
@@ -23,7 +29,12 @@ class PersonalController extends Controller
      */
     public function create()
     {
-        return view('hr.personal.create');
+
+        $Tipo_docs = Tipo_docs::orderBy('nombre', 'ASC')->lists('nombre', 'idtipo_doc');
+
+        $Position = Position::orderBy('name', 'ASC')->lists('name', 'idposition');
+
+        return view('hr.personal.create')->with('Tipo_docs', $Tipo_docs)->with('Position', $Position);
     }
 
     /**
@@ -37,27 +48,21 @@ class PersonalController extends Controller
 
         $personal = new Personal($request->all());
         $personal->save();
-
+        Flash::success("Se ha registrado de manera exitosa!")->important();
         return redirect()->route('hr.personal.index');
     }
 
-    public function show($id)
+    public function show($PERSON_ID)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit($PERSON_ID)
     {
-                return view('hr.personal.edit');
+        return view('hr.personal.edit');
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $PERSON_ID)
     {
         //
     }
@@ -68,8 +73,10 @@ class PersonalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($PERSON_ID)
     {
-        //
-    }
+        $personal = Personal::find($PERSON_ID);
+        $personal->delete();
+
+        return redirect()->route('admin.users.index');}
 }

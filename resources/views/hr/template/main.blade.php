@@ -6,9 +6,11 @@
         </title>
         <link href="{{ asset ('plugins/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
             <link href="{{asset('plugins/datepicker/css/bootstrap-datepicker3.css')}}" rel="stylesheet">
-                <link href="{{asset('plugins/datepicker/css/bootstrap-standalone.css')}}" rel="stylesheet">
-                    <script src="{{asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js')}}">
-                    </script>
+                <link href="{{ asset ('plugins/chosen/chosen.css') }}" rel="stylesheet">
+                    <link href="{{asset('plugins/datepicker/css/bootstrap-standalone.css')}}" rel="stylesheet">
+                        <script src="{{asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js')}}">
+                        </script>
+                    </link>
                 </link>
             </link>
         </link>
@@ -20,6 +22,8 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">
                             @yield('title')
+                                        @include('flash::message')
+            @include('hr.template.errors')
                         </h3>
                     </div>
                     <div class="panel-body">
@@ -32,6 +36,8 @@
             <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }} ">
             </script>
             <script src="{{asset('plugins/datepicker/js/bootstrap-datepicker.js')}}">
+            </script>
+            <script src="{{ asset('plugins/chosen/chosen.jquery.js') }} ">
             </script>
             <script src="{{asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js')}}">
             </script>

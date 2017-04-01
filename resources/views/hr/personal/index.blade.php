@@ -28,22 +28,25 @@
         </th>
     </thead>
     <tbody>
-        @foreach($personal as $person)
+        @foreach($personal as $personal)
         <tr>
             <td>
-                {{ $person->FIRST_NAME }}
+                {{ $personal->FIRST_NAME }}
             </td>
             <td>
-                {{ $person->EFFECTIVE_END_DATE }}
+                {{ $personal->EFFECTIVE_END_DATE }}
             </td>
             <td>
-                {{ $person->SALARY }}
+                {{ $personal->SALARY }}
             </td>
             <td>
-                {{ $person->SOLD_MIN }}
+                
             </td>
             <td>
-                FALTA RELACIONAR
+            <a href="{{ route('hr.personal.destroy', $personal->PERSON_ID) }}" onclick="return confirm('¿Realmente deseas borrar el usuario?')" class="btn btn-danger glyphicon glyphicon-remove"></a>
+                <a class="btn btn-info" href="{{ route('hr.personal.edit', $personal->PERSON_ID) }}" role="button">
+                    Editar
+                </a>
             </td>
         </tr>
         @endforeach

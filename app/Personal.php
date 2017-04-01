@@ -11,12 +11,21 @@ class Personal extends Model
 
 //CODIGO PARA RELACIONAR CON LAS TABLAS
 
-    /*public function tipo_doc()
+    public function tipo_doc()
+    {
+        return $this->belongsTo('App\Tipo_docs');
+    }
+    public function position()
+    {
+        return $this->belongsTo('App\Position');
+    }
+    public function per_ventas()
+    {
+        return $this->hasMany('App\Per_ventas');
+    }
+
+    /*public function category()
 {
-return $this->belongsTo('App\Tipo_doc');
-}
-public function position()
-{
-return $this->belongsTo('App\Position');
+return $this->belongsTo('App\Category');
 }*/
 }
