@@ -43,7 +43,7 @@
                 
             </td>
             <td>
-            <a href="{{ route('hr.personal.destroy', $personal->PERSON_ID) }}" onclick="return confirm('¿Realmente deseas borrar el usuario?')" class="btn btn-danger glyphicon glyphicon-remove"></a>
+            <a href="{{ route('hr.personal.create') }}" onclick="return confirm('¿Realmente deseas borrar el usuario?')" class="btn btn-danger glyphicon glyphicon-remove"></a>
                 <a class="btn btn-info" href="{{ route('hr.personal.edit', $personal->PERSON_ID) }}" role="button">
                     Editar
                 </a>

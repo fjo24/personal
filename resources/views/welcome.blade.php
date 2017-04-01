@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
-
+        <title>
+            Laravel
+        </title>
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
+            <link href="{{ asset ('plugins/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+                <style>
+                    html, body {
                 height: 100%;
             }
 
@@ -33,13 +34,22 @@
             .title {
                 font-size: 96px;
             }
-        </style>
+                </style>
+            </link>
+        </link>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">
+                    APP PERSONAL
+                </div>
+                <a class="btn btn-danger" href="{{ route('hr.personal.index') }}">
+                    Ingreso
+                </a>
             </div>
         </div>
+        <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }} ">
+        </script>
     </body>
 </html>

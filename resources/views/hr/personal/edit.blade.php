@@ -1,10 +1,11 @@
 @extends('hr.template.main')
 @section('title', 'Crear usuario')
 
+@section('errors')
 
 @section('content')
 <div class="container">
-    {!! Form::open(['route' => ['hr.personal.update', $personal->PERSON_ID], 'method' => 'PUT']) !!}
+    {!! Form::open(['route' => 'hr.personal.store', 'method' => 'POST']) !!}
     <div class="row">
         <div class="col-md-12">
             <div class="box">
@@ -37,7 +38,7 @@
                                         </div>
                                         <div class="form-group">
                                             {!! Form::label('FIRST_NAME', 'Primer Nombre') !!}
-                            {!! Form::text('FIRST_NAME', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                            {!! Form::text('FIRST_NAME', $Tipo_docs, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
                                         </div>
                                         <div class="form-group">
                                             {!! Form::label('SECOND_NAME', 'Segundo Nombre') !!}
@@ -84,6 +85,14 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            {!! Form::label('idtipo_doc', 'Tipo de documento') !!}
+                            {!! Form::select('idtipo_doc', $Tipo_docs, null, ['class' => 'form-control documento', 'required'])!!}
+                                        </div>
+                                        <div class="form-group">
+                                            {!! Form::label('EMPLOYEE_NUMBER', 'Numero de Documento') !!}
+                            {!! Form::text('EMPLOYEE_NUMBER', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +136,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     {!! Form::label('idposition', 'Puesto') !!}
-                            {!! Form::select('idposition', ['' => 'Seleccione un nivel de usuario', 'member' => 'Miembro', 'admin' => 'Administrador'], null, ['class' => 'form-control']) !!}
+                            {!! Form::select('idposition', $Position, null, ['class' => 'form-control puesto', 'required'])!!}
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -179,12 +188,6 @@
                             {!! Form::text('ADDRESS', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="tab4default">
-                                                    Default 4
-                                                </div>
-                                                <div class="tab-pane fade" id="tab5default">
-                                                    Default 5
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -214,7 +217,15 @@
     format: "yyyy-mm-dd",
     language: "es",
     autoclose: true
-});
+    });
+
+    //chosen
+    $('.documento').chosen({
+    placeholder_text_single:"Tipo de documento"
+    });
+   $('.puesto').chosen({
+    placeholder_text_single:"Tipo de documento"
+    });
 
     // phone mask
 </script>

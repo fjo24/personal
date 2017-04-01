@@ -18,10 +18,9 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'hr'], function () {
     Route::resource('personal', 'PersonalController');
-        Route::get('personal/{PERSON_ID}/destroy', [// aca pasamos el parámetro del id que se va a eliminar
-        'uses' => 'PersonalController@destroy',
-        'as'    => 'hr.personal.destroy'
-        ]);
+       // Route::get('personal/{PERSON_ID}/destroy', [// 
+        //'uses' => 'PersonalController@destroy',
+       // 'as'    => 'hr.personal.destroy'
+  //      ]);
 });
 
- 
