@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('idposition', 'Puesto') !!}
-                                        {!! Form::select('idposition', $Position, null, ['class' => 'form-control puesto'])!!}
+                                        {!! Form::select('idposition', $position, null, ['class' => 'form-control puesto'])!!}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
