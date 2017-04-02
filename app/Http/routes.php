@@ -9,20 +9,15 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::group(['prefix' => 'hr'], function () {
     Route::resource('personal', 'PersonalController');
-       // Route::get('personal/{PERSON_ID}/destroy', [// 
-        //'uses' => 'PersonalController@destroy',
-       // 'as'    => 'hr.personal.destroy'
-  //      ]);
 
 });
 
-    Route::resource('excel','ExcelController');
+Route::resource('excel', 'ExcelController');

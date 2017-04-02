@@ -23,20 +23,20 @@ class PersonalController extends Controller
     {
         $tipo_docs = Tipo_docs::orderBy('nombre', 'ASC')->lists('nombre', 'idtipo_doc');
         $position  = Position::orderBy('name', 'ASC')->lists('name', 'idposition');
-        return view('hr.personal.create')->with('Tipo_docs', $tipo_docs)->with('Position', $position);
+        return view('hr.personal.create')->with('tipo_docs', $tipo_docs)->with('position', $position);
     }
 
     public function store(PersonalRequest $request)
     {
         $request = $request->all();
 
-        $date = new \Carbon\Carbon($request['DATE_OF_BIRTH']);
+        $date                     = new \Carbon\Carbon($request['DATE_OF_BIRTH']);
         $request['DATE_OF_BIRTH'] = $date->format('Y-m-d');
 
-        $date = new \Carbon\Carbon($request['EFFECTIVE_START_DATE']);
-        $request['EFFECTIVE_START_DATE'] =  $date->format('Y-m-d');
+        $date                            = new \Carbon\Carbon($request['EFFECTIVE_START_DATE']);
+        $request['EFFECTIVE_START_DATE'] = $date->format('Y-m-d');
 
-        $date = new \Carbon\Carbon($request['EFFECTIVE_END_DATE']);
+        $date                          = new \Carbon\Carbon($request['EFFECTIVE_END_DATE']);
         $request['EFFECTIVE_END_DATE'] = $date->format('Y-m-d');
 
         $personal = new Personal($request);
@@ -48,38 +48,33 @@ class PersonalController extends Controller
 
     public function show($id)
     {
-        //
+        $persona = Personal::find($id);
+        return view('hr.personal.show')->with('persona', $persona);
+
     }
 
     public function edit($id)
     {
-        $personal = Personal::find($id);
-       // $personal->tipo_doc;
-       // $personal->position;
-       // $Tipo_docs = Tipo_docs::orderBy('nombre', 'ASC')->lists('nombre', 'idtipo_doc');
-       // $Positions = Position::orderBy('name', 'ASC')->lists('name', 'idposition');
-        return view('hr.personal.edit')->with('personal', $personal);
-        //->with('Tipo_docs', $Tipo_docs)->with('Positions', $Positions)
+        $tipo_docs = Tipo_docs::orderBy('nombre', 'ASC')->lists('nombre', 'idtipo_doc');
+        $position  = Position::orderBy('name', 'ASC')->lists('name', 'idposition');
+        $personal  = Personal::find($id);
+        return view('hr.personal.edit', compact('personal', 'tipo_docs', 'position'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Personal $personal)
     {
-       /*
-        $personal = Personal::find($id);
-        $personal->fill($request->all());
-        $personal->save();
+        $personal->update($request->all());
+        Flash::success("El empleado ha sido editado con exito!")->important();
 
-        flash('El empleado ha sido editado con exito!!', 'success')->important();
         return redirect()->route('hr.personal.index');
-        */
     }
 
     public function destroy($id)
     {
-       /* 
-       $personal = Personal::find($id);
-        $personal->delete();
-        return redirect()->route('admin.users.index');
-        */
+        /*
+    $personal = Personal::find($id);
+    $personal->delete();
+    return redirect()->route('admin.users.index');
+     */
     }
 }
