@@ -19,7 +19,7 @@ class AddPERVENTASTable extends Migration
             $table->string('invoice_id');
             $table->string('status');
             
-            $table->foreign('employee_id')->references('PERSON_ID')->on('HR_PER_PEOPLE_inf');
+           // $table->foreign('employee_id')->references('PERSON_ID')->on('HR_PER_PEOPLE_inf');
             $table->timestamps();
         });
     }
