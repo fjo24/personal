@@ -26,7 +26,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            {!! Form::text('EFFECTIVE_START_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
+                                            {!! Form::text('EFFECTIVE_START_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '']) !!}
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -35,12 +35,12 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            {!! Form::text('EFFECTIVE_END_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
+                                            {!! Form::text('EFFECTIVE_END_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '']) !!}
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('idposition', 'Puesto') !!}
-                                        {!! Form::select('idposition', $Position, null, ['class' => 'form-control puesto', 'required'])!!}
+                                        {!! Form::select('idposition', $Position, null, ['class' => 'form-control puesto'])!!}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -48,21 +48,21 @@
                                         {!! Form::label('EMAIL_ADDRESS', 'Correo') !!}
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                            {!! Form::email('EMAIL_ADDRESS', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                            {!! Form::email('EMAIL_ADDRESS', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('TELEF1', 'Telefono') !!}
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                            {!! Form::text('TELEF1', null, ['class' => 'form-control phonemask', 'placeholder' => '', 'required']) !!}
+                                            {!! Form::text('TELEF1', null, ['class' => 'form-control phonemask', 'placeholder' => '']) !!}
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('TELEF2', 'Celular') !!}
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                            {!! Form::text('TELEF2', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                            {!! Form::text('TELEF2', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -75,17 +75,17 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         {!! Form::label('SALARY', 'Salario') !!}
-                                        {!! Form::text('SALARY', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                        {!! Form::text('SALARY', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('SOLD_MIN', 'Venta Minima') !!}
-                                        {!! Form::text('SOLD_MIN', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                        {!! Form::text('SOLD_MIN', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         {!! Form::label('DISCCOUNT', 'Descuento') !!}
-                                        {!! Form::text('DISCCOUNT', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                        {!! Form::text('DISCCOUNT', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -94,11 +94,11 @@
                     <div class="tab-pane fade" id="tab3default">
                         <div class="form-group">
                             {!! Form::label('COUNTRY', 'Distrito') !!}
-                            {!! Form::text('COUNTRY', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                            {!! Form::text('COUNTRY', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('ADDRESS', 'Direccion') !!}
-                            {!! Form::text('ADDRESS', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                            {!! Form::text('ADDRESS', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                         </div>
                     </div>
                 </div>
