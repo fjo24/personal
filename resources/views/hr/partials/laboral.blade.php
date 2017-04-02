@@ -4,19 +4,13 @@
             <div class="panel-heading">
                 <ul class="nav nav-tabs">
                     <li class="active">
-                        <a data-toggle="tab" href="#tab1default">
-                            Informacion Laboral
-                        </a>
+                        <a data-toggle="tab" href="#tab1default">Informacion Laboral</a>
                     </li>
                     <li>
-                        <a data-toggle="tab" href="#tab2default">
-                            Informacion Salarial
-                        </a>
+                        <a data-toggle="tab" href="#tab2default">Informacion Salarial</a>
                     </li>
                     <li>
-                        <a data-toggle="tab" href="#tab3default">
-                            Ubicacion Geografica
-                        </a>
+                        <a data-toggle="tab" href="#tab3default">Ubicacion Geografica</a>
                     </li>
                 </ul>
             </div>
@@ -28,11 +22,21 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         {!! Form::label('EFFECTIVE_START_DATE', 'Fecha de Ingreso') !!}
-                                        {!! Form::text('EFFECTIVE_START_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            {!! Form::text('EFFECTIVE_START_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('EFFECTIVE_END_DATE', 'Fecha de Cese') !!}
-                                        {!! Form::text('EFFECTIVE_END_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            {!! Form::text('EFFECTIVE_END_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('idposition', 'Puesto') !!}
@@ -42,15 +46,24 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         {!! Form::label('EMAIL_ADDRESS', 'Correo') !!}
-                                        {!! Form::email('EMAIL_ADDRESS', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                            {!! Form::email('EMAIL_ADDRESS', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('TELEF1', 'Telefono') !!}
-                                        {!! Form::text('TELEF1', null, ['class' => 'form-control phonemask', 'placeholder' => '', 'required']) !!}
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                            {!! Form::text('TELEF1', null, ['class' => 'form-control phonemask', 'placeholder' => '', 'required']) !!}
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('TELEF2', 'Celular') !!}
-                                        {!! Form::text('TELEF2', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                            {!! Form::text('TELEF2', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

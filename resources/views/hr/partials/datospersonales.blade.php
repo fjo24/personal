@@ -3,9 +3,15 @@
         <div class="box-header with-border">
             <h3 class="box-title">Datos personales</h3>
         </div>
+
         <div class="form-group">
             {!! Form::label('DATE_OF_BIRTH', 'Fecha de Nacimiento') !!}
-            {!! Form::text('DATE_OF_BIRTH', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
+            <div class="input-group date">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                {!! Form::text('DATE_OF_BIRTH', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
+            </div>
         </div>
         <div class="form-group">
             <label for="nombre">Sexo</label>
