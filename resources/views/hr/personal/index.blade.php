@@ -49,9 +49,10 @@
                                     <td>{{ $person->SALARY }}</td>
                                     <td>{{ $person->SALARY }}</td>
                                     <td>
-                                        <a class="btn btn-info"
-                                           href="{{ route('hr.personal.edit', $person->id) }}"
-                                           role="button">
+                                        <a class="btn btn-primary" href="{{ route('hr.personal.show', $person->id) }}" role="button">
+                                            Show
+                                        </a>
+                                        <a class="btn btn-info" href="{{ route('hr.personal.edit', $person->id) }}" role="button">
                                             Editar
                                         </a>
                                     </td>
