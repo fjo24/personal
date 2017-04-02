@@ -27,9 +27,9 @@ class PersonalRequest extends Request
             'TELEF2'               => 'numeric|required',
             'EMAIL_ADDRESS'        => 'required',
 
-            'SALARY'               => 'numeric|required',
-            'SOLD_MIN'             => 'numeric|required',
-            'DISCCOUNT'            => 'numeric|required',
+            'SALARY'               => 'numeric|required|between:100,1000|integer',
+            'SOLD_MIN'             => 'numeric|required|max:500|integer',
+            'DISCCOUNT'            => 'numeric|required|max:100|integer',
 
             'EFFECTIVE_END_DATE'   => 'required|date|after:EFFECTIVE_START_DATE',
             'EFFECTIVE_START_DATE' => 'required|date',
