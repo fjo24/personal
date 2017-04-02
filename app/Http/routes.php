@@ -22,5 +22,7 @@ Route::group(['prefix' => 'hr'], function () {
         //'uses' => 'PersonalController@destroy',
        // 'as'    => 'hr.personal.destroy'
   //      ]);
+
 });
 
+    Route::resource('excel','ExcelController');
