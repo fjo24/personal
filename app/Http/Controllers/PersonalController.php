@@ -15,22 +15,19 @@ class PersonalController extends Controller
 
     public function index()
     {
-
-        $personal = Personal::orderBy('id', 'ASC')->paginate(120);
+        $personal = Personal::orderBy('id', 'ASC')->paginate(20);
         return view('hr.personal.index')->with('personal', $personal);
     }
 
     public function create()
     {
-
-        $Tipo_docs = Tipo_docs::orderBy('nombre', 'ASC')->lists('nombre', 'idtipo_doc');
-        $Position  = Position::orderBy('name', 'ASC')->lists('name', 'idposition');
-        return view('hr.personal.create')->with('Tipo_docs', $Tipo_docs)->with('Position', $Position);
+        $tipo_docs = Tipo_docs::orderBy('nombre', 'ASC')->lists('nombre', 'idtipo_doc');
+        $position  = Position::orderBy('name', 'ASC')->lists('name', 'idposition');
+        return view('hr.personal.create')->with('Tipo_docs', $tipo_docs)->with('Position', $position);
     }
 
     public function store(PersonalRequest $request)
     {
-
         $personal = new Personal($request->all());
         $personal->save();
         Flash::success("Se ha registrado de manera exitosa!")->important();
@@ -44,7 +41,6 @@ class PersonalController extends Controller
 
     public function edit($id)
     {
-
         $personal = Personal::find($id);
        // $personal->tipo_doc;
        // $personal->position;

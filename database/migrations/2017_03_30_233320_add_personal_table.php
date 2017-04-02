@@ -32,7 +32,7 @@ class AddPersonalTable extends Migration
             $table->integer('SOLD_MIN');
             $table->integer('DISCCOUNT');
 
-            $table->string('COUNTY', 50);
+            $table->string('COUNTRY', 50);
             $table->string('ADDRESS', 50);
 
             //$table->foreign('idtipo_doc')->references('idtipo_doc')->on('tipo_docs');
