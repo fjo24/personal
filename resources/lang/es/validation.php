@@ -112,7 +112,7 @@ return [
      */
 
     'attributes'           => [
-    
+
         'SEX'                  => 'sexo',
         'EMPLOYEE_NUMBER'      => 'numero de documento',
         'FIRST_NAME'           => 'primer nombre',
@@ -128,7 +128,7 @@ return [
         'SALARY'               => 'salario',
         'SOLD_MIN'             => 'venta minima',
         'DISCCOUNT'            => 'descuento',
-        'COUNTY'               => 'distrito',
+        'COUNTRY'              => 'distrito',
         'ADDRESS'              => 'direccion',
 
     ],
