@@ -45,7 +45,7 @@
                                     <td>
                                         {{ $person->first_LAST_NAME ." ". $person->SECOND_LAST_NAME .", ". $person->FIRST_NAME ." ". $person->SECOND_NAME  }}
                                     </td>
-                                    <td>{{ $person->EFFECTIVE_END_DATE }} </td>
+                                    <td>{{ \Carbon\Carbon::parse($person->EFFECTIVE_END_DATE)->format('d/m/Y') }} </td>
                                     <td>{{ $person->SALARY }}</td>
                                     <td>{{ $person->SALARY }}</td>
                                     <td>

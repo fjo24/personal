@@ -28,18 +28,18 @@ class PersonalController extends Controller
 
     public function store(PersonalRequest $request)
     {
+        $request = $request->all();
 
-        $date = new \Carbon\Carbon($request->DATE_OF_BIRTH);
+        $date = new \Carbon\Carbon($request['DATE_OF_BIRTH']);
+        $request['DATE_OF_BIRTH'] = $date->format('Y-m-d');
 
-        $request->DATE_OF_BIRTH = $date->format('Y-m-d');
+        $date = new \Carbon\Carbon($request['EFFECTIVE_START_DATE']);
+        $request['EFFECTIVE_START_DATE'] =  $date->format('Y-m-d');
 
-        $date = new \Carbon\Carbon($request->EFFECTIVE_START_DATE);
-        $request->EFFECTIVE_START_DATE =  $date->format('Y-m-d');
+        $date = new \Carbon\Carbon($request['EFFECTIVE_END_DATE']);
+        $request['EFFECTIVE_END_DATE'] = $date->format('Y-m-d');
 
-        $date = new \Carbon\Carbon($request->EFFECTIVE_START_DATE);
-        $request->EFFECTIVE_END_DATE = $date->format('Y-m-d');
-
-        $personal = new Personal($request->all());
+        $personal = new Personal($request);
         $personal->save();
 
         Flash::success("Se ha registrado de manera exitosa!")->important();
