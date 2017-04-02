@@ -25,11 +25,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-                                    </link>
-                                </link>
-                            </link>
-                        </link>
-                    </link>
+<link href="{{ asset ('AdminLTE/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css">
                 </meta>
             </meta>
         </meta>
@@ -638,9 +634,11 @@
         <!-- AdminLTE for demo purposes -->
         <script src="{{asset('AdminLTE/dist/js/demo.js')}}">
         </script>
-        <script src="{{asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js')}}">
+        <script src="{{asset('AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.es.js')}}">
         </script>
-        <script src="{{asset('plugins/datepicker/js/bootstrap-datepicker.js')}}">
+        <script src="{{asset('AdminLTE/plugins/datepicker/bootstrap-datepicker.js')}}">
         </script>
+        <script type="text/javascript" src="{{ asset('AdminLTE/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('AdminLTE/plugins/mask/jquery.mask.min.js') }}"></script>
     </body>
 </html>
