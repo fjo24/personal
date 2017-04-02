@@ -28,12 +28,20 @@ class PersonalController extends Controller
 
     public function store(PersonalRequest $request)
     {
-       /* $request->DATE_OF_BIRTH = Carbon::createFromFormat('Y-m-d', $request->DATE_OF_BIRTH);
-        $request->EFFECTIVE_START_DATE = Carbon::createFromFormat('Y-m-d', $request->EFFECTIVE_START_DATE);
-        $request->EFFECTIVE_END_DATE = Carbon::createFromFormat('Y-m-d', $request->EFFECTIVE_END_DATE);*/
 
-        $personal = new Personal($request);
+        $date = new \Carbon\Carbon($request->DATE_OF_BIRTH);
+
+        $request->DATE_OF_BIRTH = $date->format('Y-m-d');
+
+        $date = new \Carbon\Carbon($request->EFFECTIVE_START_DATE);
+        $request->EFFECTIVE_START_DATE =  $date->format('Y-m-d');
+
+        $date = new \Carbon\Carbon($request->EFFECTIVE_START_DATE);
+        $request->EFFECTIVE_END_DATE = $date->format('Y-m-d');
+
+        $personal = new Personal($request->all());
         $personal->save();
+
         Flash::success("Se ha registrado de manera exitosa!")->important();
         return redirect()->route('hr.personal.index');
     }

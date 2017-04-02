@@ -2,7 +2,7 @@
 
 @section('title', 'Crear usuario')
 
-@section('errors')
+
 
 @section('content')
     {!! Form::open(['route' => 'hr.personal.store', 'method' => 'POST']) !!}
@@ -10,6 +10,7 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
+                    @include('hr.partials.errors')
                     <h3 class="box-title">Nuevo Empleado</h3>
                 </div>
                 <!-- /.box-header -->

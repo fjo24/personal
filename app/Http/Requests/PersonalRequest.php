@@ -34,7 +34,7 @@ class PersonalRequest extends Request
             'EFFECTIVE_END_DATE'   => 'required|date|after:EFFECTIVE_START_DATE',
             'EFFECTIVE_START_DATE' => 'required|date',
 
-            'COUNTY'               => 'max:50|required',
+            'COUNTRY'               => 'max:50|required',
             'ADDRESS'              => 'max:50|required',
 
         ];

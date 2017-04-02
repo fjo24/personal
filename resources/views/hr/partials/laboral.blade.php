@@ -93,8 +93,8 @@
                     </div>
                     <div class="tab-pane fade" id="tab3default">
                         <div class="form-group">
-                            {!! Form::label('COUNTY', 'Distrito') !!}
-                            {!! Form::text('COUNTY', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                            {!! Form::label('COUNTRY', 'Distrito') !!}
+                            {!! Form::text('COUNTRY', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('ADDRESS', 'Direccion') !!}
