@@ -84,7 +84,7 @@
         $(document).ready(function () {
             $('#table').DataTable({
                 "language": {
-                    "url": "{{ asset('plugins/datatable/lang/esp.lang') }}"
+                    "url": "{{ asset('AdminLTE/plugins/datatables/esp.lang') }}"
                 }
             });
         });
