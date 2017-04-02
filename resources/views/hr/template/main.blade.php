@@ -9,6 +9,7 @@
                 <link href="{{ asset ('plugins/datatable/media/css/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css">
                     <link href="{{asset('plugins/datepicker/css/bootstrap-standalone.css')}}" rel="stylesheet">
                         <link href="{{asset('plugins/datepicker/css/bootstrap-datepicker3.css')}}" rel="stylesheet">
+                        <link href="{{asset('plugins/datatable/datatables.min.css')}}" rel="stylesheet">
 
     </head>
     <body>
@@ -18,8 +19,8 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">
                             @yield('title')
-                                        @include('flash::message')
-            @include('hr.template.errors')
+                            @include('flash::message')
+                            @include('hr.template.errors')
                         </h3>
                     </div>
                     <div class="panel-body">
@@ -37,6 +38,8 @@
             </script>
             <script src="{{ asset('plugins/chosen/chosen.jquery.js') }} ">
             </script>
+            <script type="text/javascript" src="{{ asset('plugins/datatable/datatables.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('plugins/mask/jquery.mask.min.js') }}"></script>
         </div>
         @yield('js')
     </body>

@@ -16,19 +16,26 @@ class PersonalRequest extends Request
     {
         return [
 
-            'FIRST_NAME'         => 'max:50|required',
-            'SECOND_NAME'        => 'max:50|required',
-            'first_LAST_NAME'    => 'max:50|required',
-            'SECOND_LAST_NAME'   => 'max:50|required',
+            'FIRST_NAME'           => 'max:50|required',
+            'SECOND_NAME'          => 'max:50|required',
+            'first_LAST_NAME'      => 'max:50|required',
+            'SECOND_LAST_NAME'     => 'max:50|required',
+            'SEX'                  => 'required',
+            'EMPLOYEE_NUMBER'      => 'required',
+            'DATE_OF_BIRTH'        => 'required|date',
+            'TELEF1'               => 'required',
+            'TELEF2'               => 'numeric|required',
+            'EMAIL_ADDRESS'        => 'required',
 
-            'SALARY'             => 'numeric',
-            'SOLD_MIN'           => 'numeric',
-            'DISCCOUNT'          => 'numeric',
+            'SALARY'               => 'numeric|required',
+            'SOLD_MIN'             => 'numeric|required',
+            'DISCCOUNT'            => 'numeric|required',
 
-            'EFFECTIVE_END_DATE' => 'required|date|after:EFFECTIVE_START_DATE',
+            'EFFECTIVE_END_DATE'   => 'required|date|after:EFFECTIVE_START_DATE',
+            'EFFECTIVE_START_DATE' => 'required|date',
 
-            'COUNTY'             => 'max:50|required',
-            'ADDRESS'            => 'max:50|required',
+            'COUNTY'               => 'max:50|required',
+            'ADDRESS'              => 'max:50|required',
 
         ];
     }

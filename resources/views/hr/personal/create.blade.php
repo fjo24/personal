@@ -146,7 +146,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     {!! Form::label('TELEF1', 'Telefono') !!}
-                            {!! Form::text('TELEF1', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                            {!! Form::text('TELEF1', null, ['class' => 'form-control phonemask', 'placeholder' => '', 'required']) !!}
                                                                 </div>
                                                                 <div class="form-group">
                                                                     {!! Form::label('TELEF2', 'Celular') !!}
@@ -214,7 +214,6 @@
     //datepicker
 
 
-
     $('.datepicker').datepicker({
     format: "yyyy-mm-dd",
     language: "es",
@@ -230,5 +229,42 @@
     });
 
     // phone mask
+
+
+$(document).ready(function(){
+  $('.date').mask('00/00/0000');
+  $('.time').mask('00:00:00');
+  $('.date_time').mask('00/00/0000 00:00:00');
+  $('.cep').mask('00000-000');
+  $('.phone').mask('0000-0000');
+  $('.phone_with_ddd').mask('(00) 0000-0000');
+  $('.phone_us').mask('(000) 000-0000');
+  $('.mixed').mask('AAA 000-S0S');
+  $('.cpf').mask('000.000.000-00', {reverse: true});
+  $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+  $('.money').mask('000.000.000.000.000,00', {reverse: true});
+  $('.money2').mask("#.##0,00", {reverse: true});
+  $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+    translation: {
+      'Z': {
+        pattern: /[0-9]/, optional: true
+      }
+    }
+  });
+  $('.ip_address').mask('099.099.099.099');
+  $('.percent').mask('##0,00%', {reverse: true});
+  $('.clear-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
+  $('.phonemask').mask("(000)000000000", {placeholder: "(___)_________"});
+  $('.fallback').mask("00r00r0000", {
+      translation: {
+        'r': {
+          pattern: /[\/]/,
+          fallback: '/'
+        },
+        placeholder: "(___)_________"
+      }
+    });
+  $('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
+});
 </script>
 @endsection
