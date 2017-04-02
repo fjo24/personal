@@ -23,7 +23,7 @@ class PersonalController extends Controller
     {
         $tipo_docs = Tipo_docs::orderBy('nombre', 'ASC')->lists('nombre', 'idtipo_doc');
         $position = Position::orderBy('name', 'ASC')->lists('name', 'idposition');
-        return view('hr.personal.create')->with('Tipo_docs', $tipo_docs)->with('Position', $position);
+        return view('hr.personal.create')->with('tipo_docs', $tipo_docs)->with('position', $position);
     }
 
     public function store(PersonalRequest $request)
@@ -48,7 +48,8 @@ class PersonalController extends Controller
 
     public function show($id)
     {
-        //
+        $persona = Personal::findOrFail($id);
+        return view('hr.personal.show', compact('persona'));
     }
 
     public function edit($id)
