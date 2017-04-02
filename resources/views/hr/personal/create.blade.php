@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         @include('hr.partials.laboral')
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
