@@ -5,7 +5,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('FIRST_NAME', 'Primer Nombre') !!}
-            {!! Form::text('FIRST_NAME', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+            {!! Form::text('FIRST_NAME',  old('FIRST_NAME'), ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('SECOND_NAME', 'Segundo Nombre') !!}

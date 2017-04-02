@@ -1,201 +1,27 @@
-@extends('hr.template.main')
+@extends('layouts.layout')
+
 @section('title', 'Crear usuario')
 
-@section('errors')
+
 
 @section('content')
-
-<div class="container">
-    {!! Form::open(['route' => 'hr.personal.store', 'method' => 'POST']) !!}
+    {!! Form::model($personal, ['route' => ['hr.personal.update', $personal], 'method' => 'PUT']) !!}
     <div class="row">
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">
-                        Panel para el Personal
-                    </h3>
+                    @include('hr.partials.errors')
+                    <h3 class="box-title">Nuevo Empleado</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-12">
                             <!--Contenido-->
-                            @section('content')
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <h3>
-                                            Nuevo Empleado
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <!--Datos generales-->
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title">
-                                                    Datos Generales
-                                                </h3>
-                                            </div>
-                                            <div class="form-group">
-                                                {!! Form::label('FIRST_NAME', 'Primer Nombre') !!}
-                                                {!! Form::text('FIRST_NAME', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                            </div>
-                                            <div class="form-group">
-                                                {!! Form::label('SECOND_NAME', 'Segundo Nombre') !!}
-                                                {!! Form::text('SECOND_NAME', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                            </div>
-                                            <div class="form-group">
-                                                {!! Form::label('first_LAST_NAME', 'Apellido Paterno') !!}
-                                                {!! Form::text('first_LAST_NAME', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                            </div>
-                                            <div class="form-group">
-                                                {!! Form::label('SECOND_LAST_NAME', 'Apellido Materno') !!}
-                                                {!! Form::text('SECOND_LAST_NAME', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <!--Datos Personales-->
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title">
-                                                    Datos Personales
-                                                </h3>
-                                            </div>
-                                            <div class="form-group">
-                                                {!! Form::label('DATE_OF_BIRTH', 'Fecha de Nacimiento') !!}
-                                                {!! Form::text('DATE_OF_BIRTH', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="nombre">
-                                                    Sexo
-                                                </label>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input checked="" id="SEX" name="SEX" type="radio"
-                                                               value="M">
-                                                        Hombre
-                                                        </input>
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input id="SEX" name="SEX" type="radio" value="F">
-                                                        Mujer
-                                                        </input>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                {!! Form::label('idtipo_doc', 'Tipo de documento') !!}
-                                                {!! Form::select('idtipo_doc', $Tipo_docs, null, ['class' => 'form-control documento', 'required'])!!}
-                                            </div>
-                                            <div class="form-group">
-                                                {!! Form::label('EMPLOYEE_NUMBER', 'Numero de Documento') !!}
-                                                {!! Form::text('EMPLOYEE_NUMBER', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            @include('hr.partials.datosgenerales')
+                            @include('hr.partials.datospersonales')
                         </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="panel with-nav-tabs panel-default">
-                                        <div class="panel-heading">
-                                            <ul class="nav nav-tabs">
-                                                <li class="active">
-                                                    <a data-toggle="tab" href="#tab1default">
-                                                        Informacion Laboral
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-toggle="tab" href="#tab2default">
-                                                        Informacion Salarial
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-toggle="tab" href="#tab3default">
-                                                        Ubicacion Geografica
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="tab-content">
-                                                <div class="tab-pane fade in active" id="tab1default">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    {!! Form::label('EFFECTIVE_START_DATE', 'Fecha de Ingreso') !!}
-                                                                    {!! Form::text('EFFECTIVE_START_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    {!! Form::label('EFFECTIVE_END_DATE', 'Fecha de Cese') !!}
-                                                                    {!! Form::text('EFFECTIVE_END_DATE', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    {!! Form::label('idposition', 'Puesto') !!}
-                                                                    {!! Form::select('idposition', $Position, null, ['class' => 'form-control puesto', 'required'])!!}
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    {!! Form::label('EMAIL_ADDRESS', 'Correo') !!}
-                                                                    {!! Form::email('EMAIL_ADDRESS', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    {!! Form::label('TELEF1', 'Telefono') !!}
-                                                                    {!! Form::text('TELEF1', null, ['class' => 'form-control phonemask', 'placeholder' => '', 'required']) !!}
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    {!! Form::label('TELEF2', 'Celular') !!}
-                                                                    {!! Form::text('TELEF2', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="tab2default">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    {!! Form::label('SALARY', 'Salario') !!}
-                                                                    {!! Form::text('SALARY', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    {!! Form::label('SOLD_MIN', 'Venta Minima') !!}
-                                                                    {!! Form::text('SOLD_MIN', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    {!! Form::label('DISCCOUNT', 'Descuento') !!}
-                                                                    {!! Form::text('DISCCOUNT', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="tab3default">
-                                                    <div class="form-group">
-                                                        {!! Form::label('COUNTY', 'Distrito') !!}
-                                                        {!! Form::text('COUNTY', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                                    </div>
-                                                    <div class="form-group">
-                                                        {!! Form::label('ADDRESS', 'Direccion') !!}
-                                                        {!! Form::text('ADDRESS', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @include('hr.partials.laboral')
                     </div>
                 </div>
             </div>
@@ -207,7 +33,6 @@
             Cancelar
         </a>
     </div>
-</div>
     {!! Form::close() !!}
 @endsection
 
@@ -215,9 +40,8 @@
     <script>
         //datepicker
 
-
         $('.datepicker').datepicker({
-            format: "yyyy-mm-dd",
+            format: "dd-mm-yyyy",
             language: "es",
             autoclose: true
         });
@@ -231,7 +55,6 @@
         });
 
         // phone mask
-
 
         $(document).ready(function () {
             $('.date').mask('00/00/0000');
@@ -256,23 +79,17 @@
             $('.ip_address').mask('099.099.099.099');
             $('.percent').mask('##0,00%', {reverse: true});
             $('.clear-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
-            $('.phonemask').mask("(000)000000000", {placeholder: "(___)_________"});
+            $('.phonemask').mask("(000)000000000", {placeholder: "(__)____"});
             $('.fallback').mask("00r00r0000", {
                 translation: {
                     'r': {
                         pattern: /[\/]/,
                         fallback: '/'
                     },
-                    placeholder: "(___)_________"
+                    placeholder: "(__)____"
                 }
             });
             $('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
         });
     </script>
-@endsection
-
-
-
-
-
 @endsection

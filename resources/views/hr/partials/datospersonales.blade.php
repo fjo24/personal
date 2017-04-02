@@ -28,7 +28,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('idtipo_doc', 'Tipo de documento') !!}
-            {!! Form::select('idtipo_doc', $Tipo_docs, null, ['class' => 'form-control documento', 'required'])!!}
+            {!! Form::select('idtipo_doc', $tipo_docs, null, ['class' => 'form-control documento', 'required'])!!}
         </div>
         <div class="form-group">
             {!! Form::label('EMPLOYEE_NUMBER', 'Numero de Documento') !!}
