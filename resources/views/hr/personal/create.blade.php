@@ -5,27 +5,20 @@
 @section('errors')
 
 @section('content')
-<div class="container">
     {!! Form::open(['route' => 'hr.personal.store', 'method' => 'POST']) !!}
     <div class="row">
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">
-                        Panel para el Personal
-                    </h3>
+                    <h3 class="box-title">Nuevo Empleado</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-12">
                             <!--Contenido-->
-
-@include('hr.partials.titulo')
-                            <div class="row">
-                                @include('hr.partials.datosgenerales')
-@include('hr.partials.datospersonales')
-                            </div>
+                            @include('hr.partials.datosgenerales')
+                            @include('hr.partials.datospersonales')
                         </div>
                         @include('hr.partials.laboral')
                         </div>
@@ -39,13 +32,12 @@
             Cancelar
         </a>
     </div>
-</div>
-{!! Form::close() !!}
+    {!! Form::close() !!}
 @endsection
 
 @section('js')
-<script>
-    //datepicker
+    <script>
+        //datepicker
 
 
         $('.datepicker').datepicker({
@@ -88,23 +80,17 @@
             $('.ip_address').mask('099.099.099.099');
             $('.percent').mask('##0,00%', {reverse: true});
             $('.clear-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
-            $('.phonemask').mask("(000)000000000", {placeholder: "(___)_________"});
+            $('.phonemask').mask("(000)000000000", {placeholder: "(__)____"});
             $('.fallback').mask("00r00r0000", {
                 translation: {
                     'r': {
                         pattern: /[\/]/,
                         fallback: '/'
                     },
-                    placeholder: "(___)_________"
+                    placeholder: "(__)____"
                 }
             });
             $('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
         });
-</script>
-@endsection
-
-
-
-
-
+    </script>
 @endsection

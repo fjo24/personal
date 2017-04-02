@@ -9,7 +9,7 @@ class Tipo_docs extends Model
     protected $table    = "tipo_docs";
     protected $fillable = ['idtipo_doc', 'codigo', 'nombre'];
 
-    public function articles()
+    public function personal()
     {
         return $this->hasMany('App\Personal');
     }
