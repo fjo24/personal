@@ -6,7 +6,7 @@ use App\Http\Requests\PersonalRequest;
 use App\Personal;
 use App\Position;
 use App\Tipo_docs;
-//use App\Per_ventas;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 
@@ -28,7 +28,11 @@ class PersonalController extends Controller
 
     public function store(PersonalRequest $request)
     {
-        $personal = new Personal($request->all());
+       /* $request->DATE_OF_BIRTH = Carbon::createFromFormat('Y-m-d', $request->DATE_OF_BIRTH);
+        $request->EFFECTIVE_START_DATE = Carbon::createFromFormat('Y-m-d', $request->EFFECTIVE_START_DATE);
+        $request->EFFECTIVE_END_DATE = Carbon::createFromFormat('Y-m-d', $request->EFFECTIVE_END_DATE);*/
+
+        $personal = new Personal($request);
         $personal->save();
         Flash::success("Se ha registrado de manera exitosa!")->important();
         return redirect()->route('hr.personal.index');
