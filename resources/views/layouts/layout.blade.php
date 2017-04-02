@@ -640,5 +640,5 @@
         </script>
         <script type="text/javascript" src="{{ asset('AdminLTE/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('AdminLTE/plugins/mask/jquery.mask.min.js') }}"></script>
-    </body>
+        </body>
 </html>
