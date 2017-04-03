@@ -15,7 +15,7 @@ class PersonalController extends Controller
 
     public function index()
     {
-        $personal = Personal::orderBy('id', 'ASC')->paginate(20);
+        $personal = Personal::orderBy('id', 'ASC')->paginate(300);
         return view('hr.personal.index')->with('personal', $personal);
     }
 

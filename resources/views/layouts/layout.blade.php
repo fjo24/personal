@@ -26,9 +26,7 @@ folder instead of downloading all of them to reduce the load. -->
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="{{ asset ('AdminLTE/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css">
-    </meta>
-    </meta>
-    </meta>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -633,7 +631,9 @@ folder instead of downloading all of them to reduce the load. -->
 <script src="{{asset('AdminLTE/dist/js/demo.js')}}"></script>
 <script src="{{asset('AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.es.js')}}"></script>
 <script src="{{asset('AdminLTE/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
-<script type="text/javascript" src="{{ asset('AdminLTE/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('AdminLTE/plugins/datatables/datatables.min.js') }}"></script>
+         
+
 <script type="text/javascript" src="{{ asset('AdminLTE/plugins/mask/jquery.mask.min.js') }}"></script>
 @yield('js')
 </body>
