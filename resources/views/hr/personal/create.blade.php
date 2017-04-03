@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Crear usuario')
+@section('title', 'Nuevo Empleado')
 
 
 
@@ -45,14 +45,6 @@
             format: "dd-mm-yyyy",
             language: "es",
             autoclose: true
-        });
-
-        $('.documento').chosen({
-            placeholder_text_single: "Tipo de documento"
-        });
-
-        $('.puesto').chosen({
-            placeholder_text_single: "Tipo de documento"
         });
 
     </script>
