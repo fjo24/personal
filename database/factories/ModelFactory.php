@@ -36,10 +36,10 @@ $factory->define(App\Position::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Personal::class, function (Faker\Generator $faker) use ($factory) {
     return [
-        'FIRST_NAME' => str_random(5),
-        'SECOND_NAME' => str_random(5),
-        'first_LAST_NAME' => str_random(5),
-        'SECOND_LAST_NAME' => str_random(5),
+        'FIRST_NAME' => $faker->firstName,
+        'SECOND_NAME' =>  $faker->firstName,
+        'first_LAST_NAME' => $faker->lastName,
+        'SECOND_LAST_NAME' => $faker->lastName,
         'DATE_OF_BIRTH' => date('yyyy/mmm/dd'),
         'SEX'=> array_rand(['M','F']),
         'EMPLOYEE_NUMBER' => random_int(1, 100),
