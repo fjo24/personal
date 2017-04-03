@@ -14,7 +14,7 @@
                     <a class="btn btn-danger btn-sm" href="{{ route('hr.personal.create') }}">
                         NUEVO REGISTRO
                     </a>
-                    <a class="btn btn-success btn-sm" href="/excel">
+                    <a class="btn btn-success btn-sm" href="{{route('export')}}">
                         IMPRIMIR REPORTE
                     </a>
                 </div>

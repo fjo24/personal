@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'hr'], function () {
     Route::resource('personal', 'PersonalController');
-
 });
 
-Route::resource('excel', 'ExcelController');
+Route::get('excel',  'PersonalController@export')->name('export');

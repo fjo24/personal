@@ -6,9 +6,9 @@ use App\Http\Requests\PersonalRequest;
 use App\Personal;
 use App\Position;
 use App\Tipo_docs;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PersonalController extends Controller
 {
@@ -30,8 +30,8 @@ class PersonalController extends Controller
     {
         $request = $request->all();
 
-       /* $date = new \Carbon\Carbon($request['DATE_OF_BIRTH']);
-        $request['DATE_OF_BIRTH'] = $date->format('Y-m-d');*/
+        $date = new \Carbon\Carbon($request['DATE_OF_BIRTH']);
+        $request['DATE_OF_BIRTH'] = $date->format('Y-m-d');
 
         $date = new \Carbon\Carbon($request['EFFECTIVE_START_DATE']);
         $request['EFFECTIVE_START_DATE'] = $date->format('Y-m-d');
@@ -66,6 +66,20 @@ class PersonalController extends Controller
         Flash::success("El empleado ha sido editado con exito!")->important();
         
         return redirect()->route('hr.personal.index');
+    }
+
+    public function export(Request $request, Personal $personal)
+    {
+        Excel::create('Lista de empleados', function ($excel) {
+
+            $excel->sheet('Listado', function ($sheet) {
+
+                $personal = Personal::all();
+
+                $sheet->fromArray($personal);
+
+            });
+        })->export('xls');
     }
 
     public function destroy($id)
