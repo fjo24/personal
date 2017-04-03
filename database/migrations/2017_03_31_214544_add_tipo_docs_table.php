@@ -10,7 +10,7 @@ class AddTipoDocsTable extends Migration
     {
         Schema::create('tipo_docs', function (Blueprint $table) {
 
-            $table->increments('idtipo_doc');
+            $table->increments('idtipo_doc')->unsigned();
             $table->string('codigo');
             $table->string('nombre');
 

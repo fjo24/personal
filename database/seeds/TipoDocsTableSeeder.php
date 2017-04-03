@@ -11,11 +11,6 @@ class TipoDocsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 2; $i++) {
-            DB::table('tipo_docs')->insert([
-                'codigo' => str_random(5),
-                'nombre' => str_random(10),
-            ]);
-        }
+        factory(App\Tipo_docs::class, 20)->create();
     }
 }

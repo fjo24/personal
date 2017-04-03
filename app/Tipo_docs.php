@@ -11,7 +11,7 @@ class Tipo_docs extends Model
 
     public function personal()
     {
-        return $this->hasMany('App\Personal');
+        return $this->belongsTo('App\Personal');
     }
 
 }

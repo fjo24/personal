@@ -11,12 +11,7 @@ class PositionTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 2; $i++) {
-            DB::table('position')->insert([
-                'name' => str_random(10),
-                'condicion' => rand(0,1),
-            ]);
-        }
+        factory(App\Position::class, 10)->create();
 
     }
 }

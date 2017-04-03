@@ -13,12 +13,14 @@ class Personal extends Model
 
     public function tipo_doc()
     {
-        return $this->belongsTo('App\Tipo_docs');
+        return $this->hasOne('App\Tipo_docs');
     }
+
     public function position()
     {
-        return $this->belongsTo('App\Position');
+        return $this->hasOne('App\Position');
     }
+
     public function per_ventas()
     {
         return $this->hasMany('App\Per_ventas');

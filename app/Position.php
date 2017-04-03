@@ -11,6 +11,6 @@ class Position extends Model
 
     public function personal()
     {
-        return $this->hasMany('App\Personal');
+        return $this->belongsTo('App\Personal');
     }
 }

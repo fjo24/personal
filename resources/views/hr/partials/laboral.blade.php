@@ -4,13 +4,13 @@
             <div class="panel-heading">
                 <ul class="nav nav-tabs">
                     <li class="active">
-                        <a data-toggle="tab" href="#tab1default">Información Laboral</a>
+                        <a data-toggle="tab" href="#tab1default">Informacion Laboral</a>
                     </li>
                     <li>
-                        <a data-toggle="tab" href="#tab2default">Información Salarial</a>
+                        <a data-toggle="tab" href="#tab2default">Informacion Salarial</a>
                     </li>
                     <li>
-                        <a data-toggle="tab" href="#tab3default">Ubicación Geográfica</a>
+                        <a data-toggle="tab" href="#tab3default">Ubicacion Geografica</a>
                     </li>
                 </ul>
             </div>
@@ -52,7 +52,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::label('TELEF1', 'Teléfono') !!}
+                                        {!! Form::label('TELEF1', 'Telefono') !!}
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                                             {!! Form::text('TELEF1', null, ['class' => 'form-control phonemask', 'placeholder' => '']) !!}
@@ -78,7 +78,7 @@
                                         {!! Form::text('SALARY', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::label('SOLD_MIN', 'Venta Mínima') !!}
+                                        {!! Form::label('SOLD_MIN', 'Venta Minima') !!}
                                         {!! Form::text('SOLD_MIN', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                             {!! Form::text('COUNTRY', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('ADDRESS', 'Dirección') !!}
+                            {!! Form::label('ADDRESS', 'Direccion') !!}
                             {!! Form::text('ADDRESS', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                         </div>
                     </div>

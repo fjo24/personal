@@ -13,7 +13,7 @@ class AddPositionTable extends Migration
     public function up()
     {
         Schema::create('position', function (Blueprint $table) {
-            $table->increments('idposition');
+            $table->increments('idposition')->unsigned();
             $table->string('name');
             $table->string('condicion');
             $table->timestamps();

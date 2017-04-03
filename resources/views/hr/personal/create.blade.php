@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="for text-center">
+    <div class="for center-text">
         {!! Form::submit('Registrar', ['class'=> 'btn btn-primary']) !!}
         <a class="btn btn-danger" href="{{ route('hr.personal.index')}}">
             Cancelar
