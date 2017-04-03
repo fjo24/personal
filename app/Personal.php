@@ -24,8 +24,5 @@ class Personal extends Model
         return $this->hasMany('App\Per_ventas');
     }
 
-    /*public function category()
-{
-return $this->belongsTo('App\Category');
-}*/
+
 }
