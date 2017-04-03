@@ -31,7 +31,7 @@
             {!! Form::select('idtipo_doc', $tipo_docs, null, ['class' => 'form-control documento', 'required'])!!}
         </div>
         <div class="form-group">
-            {!! Form::label('EMPLOYEE_NUMBER', 'Numero de Documento') !!}
+            {!! Form::label('EMPLOYEE_NUMBER', 'Número de Documento') !!}
             {!! Form::text('EMPLOYEE_NUMBER', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
         </div>
     </div>
