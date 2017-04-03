@@ -23,7 +23,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Tipo_docs::class, function (Faker\Generator $faker) {
     return [
         'codigo' => $faker->word,
-        'nombre' => $faker->words(2),
+        'nombre' => $faker->word,
     ];
 });
 
