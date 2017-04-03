@@ -57,9 +57,6 @@
                                         <a  href="{{ route('hr.personal.edit', $person->id) }}">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
-                                        <a  href="{{ route('hr.personal.edit', $person->id) }}">
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
-                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

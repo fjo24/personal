@@ -69,3 +69,11 @@ $factory->define(App\Per_ventas::class, function (Faker\Generator $faker) use ($
 
     ];
 });
+
+$factory->define(App\User::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->email,
+        'password' => bcrypt('admin')
+    ];
+});
