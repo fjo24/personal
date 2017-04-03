@@ -16,7 +16,8 @@ class PersonalController extends Controller
 
     public function index()
     {
-        $personal = Personal::orderBy('first_LAST_NAME', 'ASC')->get();
+        $date = Carbon::now()->format('Y-m-d');
+        $personal = Personal::orderBy('first_LAST_NAME', 'ASC')->where('EFFECTIVE_END_DATE','>=',$date)->get();
         return view('hr.personal.index')->with('personal', $personal);
     }
 
@@ -86,7 +87,9 @@ class PersonalController extends Controller
 
             $excel->sheet('Listado', function ($sheet) {
 
-                $personal = Personal::all();
+                //$personal = Personal::all();
+                $date = Carbon::now()->format('Y-m-d');
+                $personal = Personal::orderBy('first_LAST_NAME', 'ASC')->where('EFFECTIVE_END_DATE','>=',$date)->get();
 
                 $sheet->fromArray($personal);
 
@@ -96,10 +99,6 @@ class PersonalController extends Controller
 
     public function destroy($id)
     {
-        /*
-        $personal = Personal::find($id);
-         $personal->delete();
-         return redirect()->route('admin.users.index');
-         */
+
     }
 }
