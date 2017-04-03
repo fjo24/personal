@@ -30,18 +30,18 @@ $factory->define(App\Tipo_docs::class, function (Faker\Generator $faker) {
 $factory->define(App\Position::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
-        'condicion' => rand(0,1),
+        'condicion' => rand(0, 1),
     ];
 });
 
 $factory->define(App\Personal::class, function (Faker\Generator $faker) use ($factory) {
     return [
         'FIRST_NAME' => $faker->firstName,
-        'SECOND_NAME' =>  $faker->firstName,
+        'SECOND_NAME' => $faker->firstName,
         'first_LAST_NAME' => $faker->lastName,
         'SECOND_LAST_NAME' => $faker->lastName,
         'DATE_OF_BIRTH' => date('yyyy/mmm/dd'),
-        'SEX'=> array_rand(['M','F']),
+        'SEX' => array_rand(['M', 'F']),
         'EMPLOYEE_NUMBER' => random_int(1, 100),
         'EFFECTIVE_START_DATE' => date('yyyy/mmm/dd'),
         'EFFECTIVE_END_DATE' => date('yyyy/mmm/dd'),
@@ -55,5 +55,17 @@ $factory->define(App\Personal::class, function (Faker\Generator $faker) use ($fa
         'ADDRESS' => $faker->address,
         'idtipo_doc' => $factory->create(App\Tipo_docs::class)->id,
         'idposition' => $factory->create(App\Position::class)->id,
+    ];
+});
+
+$factory->define(App\Per_ventas::class, function (Faker\Generator $faker) use ($factory) {
+    return [
+
+        'date' => $faker->date(),
+        'amount' => $faker->randomDigit,
+        'invoice_id' => $faker->randomDigit,
+        'status' => $faker->randomElement(['v', 'c']),
+        'personal_id' => $factory->create(App\Personal::class)->id,
+
     ];
 });

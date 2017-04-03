@@ -24,7 +24,7 @@ class PersonalRequest extends Request
             'EMPLOYEE_NUMBER'      => 'required|unique:HR_PER_PEOPLE_inf',
             'DATE_OF_BIRTH'        => 'required|date',
             'TELEF1'               => 'required',
-            'TELEF2'               => 'numeric|required',
+            'TELEF2'               => 'required',
             'EMAIL_ADDRESS'        => 'required',
 
             'SALARY'               => 'numeric|required|between:100,1000|integer',

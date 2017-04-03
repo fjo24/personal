@@ -13,13 +13,16 @@ class AddPERVENTASTable extends Migration
     public function up()
     {
         Schema::create('PER_VENTAS', function (Blueprint $table) {
-            $table->integer('employee_id')->unsigned();
+
+            $table->increments('id');
             $table->date('date');
             $table->string('amount');
             $table->string('invoice_id');
             $table->string('status');
-            
-           // $table->foreign('employee_id')->references('PERSON_ID')->on('HR_PER_PEOPLE_inf');
+
+            $table->integer('personal_id')->unsigned();
+            $table->foreign('personal_id')->references('id')->on('HR_PER_PEOPLE_inf');
+
             $table->timestamps();
         });
     }

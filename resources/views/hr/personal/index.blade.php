@@ -48,7 +48,7 @@
                                         {{ $person->SALARY }}
                                     </td>
                                     <td>
-                                        {{ $person->SALARY }}
+                                        {{ $person->amount }}
                                     </td>
                                     <td>
                                         <a href="{{ route('hr.personal.show', $person->id) }}">
