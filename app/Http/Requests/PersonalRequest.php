@@ -21,7 +21,7 @@ class PersonalRequest extends Request
             'first_LAST_NAME'      => 'max:50|required',
             'SECOND_LAST_NAME'     => 'max:50|required',
             'SEX'                  => 'required',
-            'EMPLOYEE_NUMBER'      => 'required',
+            'EMPLOYEE_NUMBER'      => 'required|unique:HR_PER_PEOPLE_inf',
             'DATE_OF_BIRTH'        => 'required|date',
             'TELEF1'               => 'required',
             'TELEF2'               => 'numeric|required',

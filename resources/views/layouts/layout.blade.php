@@ -625,8 +625,6 @@ folder instead of downloading all of them to reduce the load. -->
 <script src="{{asset('AdminLTE/bootstrap/js/bootstrap.min.js')}}"></script>
 <!-- SlimScroll -->
 <script src="{{asset('AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{asset('AdminLTE/lugins/fastclick/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('AdminLTE/dist/js/app.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
@@ -634,13 +632,10 @@ folder instead of downloading all of them to reduce the load. -->
 <script src="{{asset('AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.es.js')}}"></script>
 <script src="{{asset('AdminLTE/plugins/datepicker/bootstrap-datepicker.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('AdminLTE/plugins/datatables/datatables.min.js') }}"></script>
-         
 <script type="text/javascript" src="{{ asset('AdminLTE/plugins/input-mask/jquery.inputmask.js') }}"></script>
 <script type="text/javascript" src="{{ asset('AdminLTE/plugins/input-mask/jquery.inputmask.phone.extensions.js') }}"></script>
-
 <script type="text/javascript" src="{{ asset('AdminLTE/plugins/mask/jquery.mask.min.js') }}"></script>
 
-
 @yield('js')
-</body>jquery.inputmask.phone.extensions
+</body>
 </html>
