@@ -39,6 +39,9 @@ class PersonalController extends Controller
 
         $date = new \Carbon\Carbon($request['EFFECTIVE_END_DATE']);
         $request['EFFECTIVE_END_DATE'] = $date->format('Y-m-d');
+        
+        $request['CREATED_BY'] = Auth()->user()->id; 
+        $request['FULL_NAME'] = $request['first_LAST_NAME']." ".$request['SECOND_LAST_NAME']." ".$request['FIRST_NAME']." ".$request['SECOND_NAME'];
 
         $request['CREATED_BY'] = Auth()->user()->id;
         $request['FULL_NAME'] = $request['first_LAST_NAME']." ".$request['SECOND_LAST_NAME']." ".$request['FIRST_NAME']." ".$request['SECOND_NAME'];
