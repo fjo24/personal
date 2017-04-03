@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="for center-text">
+    <div class="for text-center">
         {!! Form::submit('Registrar', ['class'=> 'btn btn-primary']) !!}
         <a class="btn btn-danger" href="{{ route('hr.personal.index')}}">
             Cancelar
@@ -39,7 +39,7 @@
 
 @section('js')
     <script>
-        //datepicker
+        $(".inputmask").inputmask("(999) 999999999");
 
         $('.datepicker').datepicker({
             format: "dd-mm-yyyy",
@@ -47,99 +47,13 @@
             autoclose: true
         });
 
-        //chosen
         $('.documento').chosen({
             placeholder_text_single: "Tipo de documento"
         });
+
         $('.puesto').chosen({
             placeholder_text_single: "Tipo de documento"
         });
 
-        // phone mask
-
-        $(document).ready(function () {
-            $('.date').mask('00/00/0000');
-            $('.time').mask('00:00:00');
-            $('.date_time').mask('00/00/0000 00:00:00');
-            $('.cep').mask('00000-000');
-            $('.phone').mask('0000-0000');
-            $('.phone_with_ddd').mask('(00) 0000-0000');
-            $('.phone_us').mask('(000) 000-0000');
-            $('.mixed').mask('AAA 000-S0S');
-            $('.cpf').mask('000.000.000-00', {reverse: true});
-            $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
-            $('.money').mask('000.000.000.000.000,00', {reverse: true});
-            $('.money2').mask("#.##0,00", {reverse: true});
-            $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
-                translation: {
-                    'Z': {
-                        pattern: /[0-9]/, optional: true
-                    }
-                }
-            });
-            $('.ip_address').mask('099.099.099.099');
-            $('.percent').mask('##0,00%', {reverse: true});
-            $('.clear-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
-            $('.phonemask').mask("(000)000000000", {placeholder: "(__)____"});
-            $('.fallback').mask("00r00r0000", {
-                translation: {
-                    'r': {
-                        pattern: /[\/]/,
-                        fallback: '/'
-                    },
-                    placeholder: "(__)____"
-                }
-            });
-            $('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
-        });
     </script>
-
-
-
-
-
-<script>
-    var maskList = $.masksSort($.masksLoad("phone-codes.json"), ['#'], /[0-9]|#/, "mask");
-    var maskOpts = {
-        inputmask: {
-            definitions: {
-                '#': {
-                    validator: "[0-9]",
-                    cardinality: 1
-                }
-            },
-            //clearIncomplete: true,
-            showMaskOnHover: false,
-            autoUnmask: true
-        },
-        match: /[0-9]/,
-        replace: '#',
-        list: maskList,
-        listKey: "mask",
-        onMaskChange: function(maskObj, completed) {
-            if (completed) {
-                var hint = maskObj.name_ru;
-                if (maskObj.desc_ru && maskObj.desc_ru != "") {
-                    hint += " (" + maskObj.desc_ru + ")";
-                }
-                $("#descr").html(hint);
-            } else {
-                $("#descr").html("Маска ввода");
-            }
-            $(this).attr("placeholder", $(this).inputmask("getemptymask"));
-        }
-    };
-
-    $('#phone_mask').change(function() {
-        if ($('#phone_mask').is(':checked')) {
-            $('#customer_phone').inputmasks(maskOpts);
-        } else {
-            $('#customer_phone').inputmask("+[####################]", maskOpts.inputmask)
-            .attr("placeholder", $('#customer_phone').inputmask("getemptymask"));
-            $("#descr").html("Маска ввода");
-        }
-    });
-
-    $('#phone_mask').change();
-</script>
 @endsection
