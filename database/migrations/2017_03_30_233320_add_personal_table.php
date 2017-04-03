@@ -15,6 +15,7 @@ class AddPersonalTable extends Migration
             $table->string('SECOND_NAME', 50);
             $table->string('first_LAST_NAME', 50);
             $table->string('SECOND_LAST_NAME', 50);
+            $table->string('FULL_NAME', 100);
 
             $table->date('DATE_OF_BIRTH');
             $table->enum('SEX', ['M', 'F']);

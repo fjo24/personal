@@ -24,5 +24,8 @@ class Personal extends Model
         return $this->hasMany('App\Per_ventas');
     }
 
+    public function getFULL_NAMEAttribute(){
 
+        return $this->FIRST_NAME.' '.$this->SECOND_NAME.' '.$this->first_LAST_NAME.' '.$this->SECOND_LAST_NAME;
+    }
 }
