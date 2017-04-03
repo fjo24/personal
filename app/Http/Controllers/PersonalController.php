@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PersonalRequest;
 use App\Personal;
 use App\Position;
+use Carbon\Carbon;
 use App\Tipo_docs;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
@@ -39,6 +40,9 @@ class PersonalController extends Controller
         $date = new \Carbon\Carbon($request['EFFECTIVE_END_DATE']);
         $request['EFFECTIVE_END_DATE'] = $date->format('Y-m-d');
 
+        $request['CREATED_BY'] = Auth()->user()->id;
+        $request['FULL_NAME'] = $request['first_LAST_NAME']." ".$request['SECOND_LAST_NAME']." ".$request['FIRST_NAME']." ".$request['SECOND_NAME'];
+
         $personal = new Personal($request);
         $personal->save();
 
@@ -62,7 +66,12 @@ class PersonalController extends Controller
 
     public function update(Request $request, Personal $personal)
     {
-        $personal->update($request->all());
+
+        $request = $request->all();
+        $request['LAST_UPDATE_DATE'] = Carbon::now();
+        $request['LAST_UPDATED_BY'] = Auth()->user()->id;
+        $request['FULL_NAME'] = $request['first_LAST_NAME']." ".$request['SECOND_LAST_NAME']." ".$request['FIRST_NAME']." ".$request['SECOND_NAME'];
+        $personal->update($request);
         Flash::success("El empleado ha sido editado con exito!")->important();
         
         return redirect()->route('hr.personal.index');

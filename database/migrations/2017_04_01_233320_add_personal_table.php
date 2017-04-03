@@ -18,6 +18,9 @@ class AddPersonalTable extends Migration
             $table->string('FULL_NAME', 100)->nullable();
             $table->date('DATE_OF_BIRTH');
             $table->enum('SEX', ['M', 'F']);
+            $table->datetime('LAST_UPDATE_DATE');
+            $table->integer('LAST_UPDATED_BY');
+            $table->integer('CREATED_BY');
             $table->integer('EMPLOYEE_NUMBER');
             $table->date('EFFECTIVE_START_DATE');
             $table->date('EFFECTIVE_END_DATE');

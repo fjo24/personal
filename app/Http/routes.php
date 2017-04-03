@@ -20,3 +20,6 @@ Route::group(['prefix' => 'hr'], function () {
 });
 
 Route::get('excel',  'PersonalController@export')->name('export');
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
