@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'hr'], function () {
+    Route::post('/personal/{flag}', 'PersonalController@index')->name('all');
     Route::resource('personal', 'PersonalController');
 });
 

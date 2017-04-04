@@ -14,17 +14,21 @@ use Maatwebsite\Excel\Facades\Excel;
 class PersonalController extends Controller
 {
 
-    public function index()
+    public function index($flag = null)
     {
         $date = Carbon::now()->format('Y-m-d');
-        $personal = Personal::orderBy('first_LAST_NAME', 'ASC')->where('EFFECTIVE_END_DATE','>=',$date)->get();
-        return view('hr.personal.index')->with('personal', $personal);
+        if ($flag) {
+            $personal = Personal::orderBy('first_LAST_NAME', 'ASC')->get();
+        } else {
+            $personal = Personal::orderBy('first_LAST_NAME', 'ASC')->where('EFFECTIVE_END_DATE', '>=', $date)->get();
+        }
+        return view('hr.personal.index')->with('personal', $personal)->with('flag',$flag);
     }
 
     public function create()
     {
         $tipo_docs = Tipo_docs::orderBy('nombre', 'ASC')->lists('nombre', 'idtipo_doc');
-        $position = Position::orderBy('name', 'ASC')->where('condicion',1)->lists('name', 'idposition');
+        $position = Position::orderBy('name', 'ASC')->where('condicion', 1)->lists('name', 'idposition');
         return view('hr.personal.create')->with('tipo_docs', $tipo_docs)->with('position', $position);
     }
 
@@ -40,12 +44,12 @@ class PersonalController extends Controller
 
         $date = new \Carbon\Carbon($request['EFFECTIVE_END_DATE']);
         $request['EFFECTIVE_END_DATE'] = $date->format('Y-m-d');
-        
-        $request['CREATED_BY'] = Auth()->user()->id; 
-        $request['FULL_NAME'] = $request['first_LAST_NAME']." ".$request['SECOND_LAST_NAME']." ".$request['FIRST_NAME']." ".$request['SECOND_NAME'];
 
         $request['CREATED_BY'] = Auth()->user()->id;
-        $request['FULL_NAME'] = $request['first_LAST_NAME']." ".$request['SECOND_LAST_NAME']." ".$request['FIRST_NAME']." ".$request['SECOND_NAME'];
+        $request['FULL_NAME'] = $request['first_LAST_NAME'] . " " . $request['SECOND_LAST_NAME'] . " " . $request['FIRST_NAME'] . " " . $request['SECOND_NAME'];
+
+        $request['CREATED_BY'] = Auth()->user()->id;
+        $request['FULL_NAME'] = $request['first_LAST_NAME'] . " " . $request['SECOND_LAST_NAME'] . " " . $request['FIRST_NAME'] . " " . $request['SECOND_NAME'];
 
         $personal = new Personal($request);
         $personal->save();
@@ -63,7 +67,7 @@ class PersonalController extends Controller
     public function edit($id)
     {
         $tipo_docs = Tipo_docs::orderBy('nombre', 'ASC')->lists('nombre', 'idtipo_doc');
-        $position = Position::orderBy('name', 'ASC')->where('condicion',1)->lists('name', 'idposition');
+        $position = Position::orderBy('name', 'ASC')->where('condicion', 1)->lists('name', 'idposition');
         $personal = Personal::find($id);
         return view('hr.personal.edit', compact('personal', 'tipo_docs', 'position'));
     }
@@ -74,10 +78,10 @@ class PersonalController extends Controller
         $request = $request->all();
         $request['LAST_UPDATE_DATE'] = Carbon::now();
         $request['LAST_UPDATED_BY'] = Auth()->user()->id;
-        $request['FULL_NAME'] = $request['first_LAST_NAME']." ".$request['SECOND_LAST_NAME']." ".$request['FIRST_NAME']." ".$request['SECOND_NAME'];
+        $request['FULL_NAME'] = $request['first_LAST_NAME'] . " " . $request['SECOND_LAST_NAME'] . " " . $request['FIRST_NAME'] . " " . $request['SECOND_NAME'];
         $personal->update($request);
         Flash::success("El empleado ha sido editado con exito!")->important();
-        
+
         return redirect()->route('hr.personal.index');
     }
 
@@ -89,7 +93,7 @@ class PersonalController extends Controller
 
                 //$personal = Personal::all();
                 $date = Carbon::now()->format('Y-m-d');
-                $personal = Personal::orderBy('first_LAST_NAME', 'ASC')->where('EFFECTIVE_END_DATE','>=',$date)->get();
+                $personal = Personal::orderBy('first_LAST_NAME', 'ASC')->where('EFFECTIVE_END_DATE', '>=', $date)->get();
 
                 $sheet->fromArray($personal);
 

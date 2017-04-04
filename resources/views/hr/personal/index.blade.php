@@ -74,9 +74,15 @@
         </div>
         <!-- /.box -->
     </div>
-{{ Form::checkbox('name', 'value') }}
-{!! Form::label('', 'Mostrar empleados inactivos') !!}
-
+    @if($flag)
+        <a class="btn btn-sm btn-primary" href="{{ route('hr.personal.index') }}">
+            Mostrar personal activo
+        </a>
+    @else
+        {!! Form::open(['route' => ['all',1], 'method' => 'POST']) !!}
+        {!! Form::submit('Mostrar todo el personal', ['class'=> 'btn btn-sm btn-primary']) !!}
+        {!! Form::close() !!}
+    @endif
 @endsection
 
 @section('js')
