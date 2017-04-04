@@ -365,7 +365,7 @@ folder instead of downloading all of them to reduce the load. -->
         </section>
         <!-- Main content -->
         <section class="content">
-            @yield('content')
+            @yield('contenido')
         </section>
         <!-- /.content -->
     </div>

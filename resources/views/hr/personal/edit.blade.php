@@ -1,10 +1,10 @@
-@extends('layouts.layout')
+@extends('layouts.admin')
 
 @section('title', 'Editar Empleado')
 
 
 
-@section('content')
+@section('contenido')
     {!! Form::model($personal, ['route' => ['hr.personal.update', $personal], 'method' => 'PUT']) !!}
     <div class="row">
         <div class="col-md-12">

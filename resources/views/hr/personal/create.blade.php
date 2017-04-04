@@ -1,10 +1,10 @@
-@extends('layouts.layout')
+@extends('layouts.admin')
 
 @section('title', 'Nuevo Empleado')
 
 
 
-@section('content')
+@section('contenido')
     {!! Form::open(['route' => 'hr.personal.store', 'method' => 'POST']) !!}
     <div class="row">
         <div class="col-md-12">

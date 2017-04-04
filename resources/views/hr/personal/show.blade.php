@@ -1,8 +1,8 @@
-@extends('layouts.layout')
+@extends('layouts.admin')
 
 @section('title', 'Crear usuario')
 
-@section('content')
+@section('contenido')
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">
