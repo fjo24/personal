@@ -74,6 +74,9 @@
         </div>
         <!-- /.box -->
     </div>
+    <form>
+    <label><input type="checkbox"> Mostrar empleados inactivos</label>
+    </form>
 @endsection
 
 @section('js')
