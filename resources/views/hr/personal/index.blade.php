@@ -74,9 +74,9 @@
         </div>
         <!-- /.box -->
     </div>
-    <form>
-    <label><input type="checkbox"> Mostrar empleados inactivos</label>
-    </form>
+{{ Form::checkbox('name', 'value') }}
+{!! Form::label('', 'Mostrar empleados inactivos') !!}
+
 @endsection
 
 @section('js')
