@@ -49,7 +49,7 @@ class PersonalController extends Controller
         $request['FULL_NAME'] = $request['first_LAST_NAME'] . " " . $request['SECOND_LAST_NAME'] . " " . $request['FIRST_NAME'] . " " . $request['SECOND_NAME'];
 
         $request['CREATED_BY'] = Auth()->user()->id;
-        $request['FULL_NAME'] = $request['first_LAST_NAME'] . " " . $request['SECOND_LAST_NAME'] . " " . $request['FIRST_NAME'] . " " . $request['SECOND_NAME'];
+
 
         $personal = new Personal($request);
         $personal->save();
