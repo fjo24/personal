@@ -4,6 +4,7 @@
 
 @section('contenido')
     <div class="box">
+        @include('hr.partials.success')
         <div class="box-header with-border">
             <h3 class="box-title">
                 Listado de empleados

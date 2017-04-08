@@ -36,15 +36,6 @@ class PersonalController extends Controller
     {
         $request = $request->all();
 
-        $date = new \Carbon\Carbon($request['DATE_OF_BIRTH']);
-        $request['DATE_OF_BIRTH'] = $date->format('Y-m-d');
-
-        $date = new \Carbon\Carbon($request['EFFECTIVE_START_DATE']);
-        $request['EFFECTIVE_START_DATE'] = $date->format('Y-m-d');
-
-        $date = new \Carbon\Carbon($request['EFFECTIVE_END_DATE']);
-        $request['EFFECTIVE_END_DATE'] = $date->format('Y-m-d');
-
         $request['CREATED_BY'] = Auth()->user()->id;
         $request['FULL_NAME'] = $request['first_LAST_NAME'] . " " . $request['SECOND_LAST_NAME'] . " " . $request['FIRST_NAME'] . " " . $request['SECOND_NAME'];
 
