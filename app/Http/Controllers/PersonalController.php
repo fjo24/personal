@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use App\Tipo_docs;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Facades\Excel; 
 
 class PersonalController extends Controller
 {
@@ -63,7 +63,7 @@ class PersonalController extends Controller
         return view('hr.personal.edit', compact('personal', 'tipo_docs', 'position'));
     }
 
-    public function update(Request $request, Personal $personal)
+    public function update(PersonalRequest $request, Personal $personal)
     {
 
         $request = $request->all();

@@ -38,8 +38,8 @@
 
 @section('js')
     <script>
-        $(".inputmask").inputmask("(999) 999999999");
-
+        $(".inputmask1").inputmask("(999) 9999999");
+        $(".inputmask2").inputmask("(999) 999999999");
         $('.datepicker').datepicker({
             format: "dd-mm-yyyy",
             language: "es",

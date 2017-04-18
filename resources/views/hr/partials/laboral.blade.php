@@ -55,14 +55,14 @@
                                         {!! Form::label('TELEF1', 'Telefono') !!}
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                            {!! Form::text('TELEF1', null, ['class' => 'form-control inputmask', 'placeholder' => '']) !!}
+                                            {!! Form::text('TELEF1', null, ['class' => 'form-control inputmask1', 'placeholder' => '']) !!}
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('TELEF2', 'Celular') !!}
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                            {!! Form::text('TELEF2', null, ['class' => 'form-control inputmask', 'placeholder' => '']) !!}
+                                            {!! Form::text('TELEF2', null, ['class' => 'form-control inputmask2', 'placeholder' => '']) !!}
                                         </div>
                                     </div>
                                 </div>

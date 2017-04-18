@@ -13,18 +13,11 @@
                 {!! Form::text('DATE_OF_BIRTH', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'required']) !!}
             </div>
         </div>
+
         <div class="form-group">
-            <label for="nombre">Sexo</label>
-            <div class="radio">
-                <label>
-                    <input checked="" id="SEX" name="SEX" type="radio" value="M">Hombre</input>
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input id="SEX" name="SEX" type="radio" value="F">Mujer</input>
-                </label>
-            </div>
+            {{ Form::radio('SEX', 'M', false) }} Hombre
+        <br>
+            {{ Form::radio('SEX', 'F', false) }} Mujer
         </div>
         <div class="form-group">
             {!! Form::label('idtipo_doc', 'Tipo de documento') !!}
