@@ -21,7 +21,7 @@ class AddPERVENTASTable extends Migration
             $table->string('status');
 
             $table->integer('personal_id')->unsigned();
-            $table->foreign('personal_id')->references('id')->on('HR_PER_PEOPLE_inf');
+            $table->foreign('personal_id')->references('PERSON_ID')->on('HR_PER_PEOPLE_inf');
 
             $table->timestamps();
         });

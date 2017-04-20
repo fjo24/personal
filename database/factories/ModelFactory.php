@@ -65,7 +65,7 @@ $factory->define(App\Per_ventas::class, function (Faker\Generator $faker) use ($
         'amount' => $faker->randomDigit,
         'invoice_id' => $faker->randomDigit,
         'status' => $faker->randomElement(['v', 'c']),
-        'personal_id' => $factory->create(App\Personal::class)->id,
+        'personal_id' => $factory->create(App\Personal::class)->PERSON_ID,
 
     ];
 });

@@ -10,7 +10,7 @@ class AddPersonalTable extends Migration
     {
         Schema::create('HR_PER_PEOPLE_inf', function (Blueprint $table) {
 
-            $table->increments('id');
+            $table->increments('PERSON_ID');
             $table->string('FIRST_NAME', 50);
             $table->string('SECOND_NAME', 50);
             $table->string('first_LAST_NAME', 50);
