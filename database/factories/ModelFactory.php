@@ -77,3 +77,48 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'password' => bcrypt('admin')
     ];
 });
+
+//factories de vehiculo:
+
+$factory->define(App\Cliente::class, function (Faker\Generator $faker) {
+    return [
+        'full_name' => $faker->name,
+        'effective_end_date' => $faker->date,
+    ];
+});
+
+$factory->define(App\Marca::class, function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->name,
+        'condicion' => rand(0, 1),
+    ];
+});
+
+$factory->define(App\Modelo::class, function (Faker\Generator $faker) use ($factory) {
+    return [
+
+        'idmarca' => $factory->create(App\Marca::class)->idmarca,
+        'nombre' => $faker->name,
+        'condicion' => rand(0, 1),
+    ];
+});
+
+$factory->define(App\Vehiculo::class, function (Faker\Generator $faker) use ($factory) {
+    return [
+        'placa' => $faker->firstName,
+        'idmarca' => $factory->create(App\Marca::class)->idmarca,
+        'idmodelo' => $factory->create(App\Modelo::class)->idmodelo,
+        'año' => $faker->date(),
+        'color' => $faker->firstName,
+        'combustion_gas' => array_rand(['si', 'no']),
+        'combustion_glp' => array_rand(['si', 'no']),
+        'combustion_gnv' => array_rand(['si', 'no']),
+        'combustion_petroleo' => array_rand(['si', 'no']),
+        'num_motor' => random_int(1, 200000),
+        'km' => random_int(1, 200000),
+        'proxima_visita' => $faker->date(),
+        'no_atender' => array_rand(['atendido', 'no_atendido']),
+        'idcliente' => $factory->create(App\Cliente::class)->idcliente,
+        'motivo_no_atencion' => $faker->text,
+    ];
+});
