@@ -22,6 +22,7 @@ Route::group(['prefix' => 'hr'], function () {
 });
 
 Route::get('excel',  'PersonalController@export')->name('export');
+Route::get('excelvehiculos',  'VehiculosController@export')->name('exportvehiculos');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
