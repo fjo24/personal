@@ -16,24 +16,22 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class VehiculosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {    
+            $vehiculos = Vehiculo::orderBy('placa', 'DESC')->get();
+            $vehiculos -> each(function($vehiculos){
+            $vehiculos->modelo;
+            $vehiculos->marca;
+            $vehiculos->cliente;
+        });
 
-        $vehiculos = Vehiculo::orderBy('placa', 'ASC')->get();
+
         return view('hr.vehiculos.index')->with('vehiculos', $vehiculos);
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $marcas = Marca::orderBy('nombre', 'ASC')->lists('nombre', 'idmarca');
@@ -42,12 +40,7 @@ class VehiculosController extends Controller
         return view('hr.vehiculos.create')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(VehiculosRequest $request)
     {
         $request = $request->all();
@@ -87,7 +80,7 @@ class VehiculosController extends Controller
         $modelos = Modelo::orderBy('nombre', 'ASC')->lists('nombre', 'idmodelo');
         $clientes = Cliente::orderBy('full_name', 'ASC')->lists('full_name', 'idcliente');
         $vehiculos = Vehiculo::find($id);
-        return view('hr.vehiculos.edit', compact('marcas', 'modelos', 'clientes', 'vehiculos'));
+        return view('hr.vehiculos.edit')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes)->with('vehiculos', $vehiculos);
     }
 
     /**

@@ -11,7 +11,7 @@
             <div class="box">
                 <div class="box-header with-border">
                     @include('hr.partials.errors')
-                    <h3 class="box-title">Nuevo Vehiculo</h3>
+                    <h3 class="box-title">Edición de Registro <del></del> Vehiculo</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -44,15 +44,15 @@
                                               {!! Form::text('color', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
                                           </div>
                                           <div class="form-group">
-                                                  {!! Form::label('combustion', 'Tipo de Combustión:') !!}
-                                              <br>
-                                                  {{ Form::checkbox('combustion_gas', 'si', false) }} Combustión GAS
-                                              <br>
-                                                  {{ Form::checkbox('combustion_glp', 'si', false) }} Combustión GLP
-                                              <br>
-                                                  {{ Form::checkbox('combustion_gnv', 'si', false) }} Combustión GNV
-                                              <br>
-                                                  {{ Form::checkbox('combustion_petroleo', 'si', false')) }} Combustión Petróleo
+                                              {!! Form::label('combustion', 'Tipo de Combustión:') !!}
+                                          <br>
+                                              {{ Form::checkbox('combustion_gas', 'si', false) }} Combustión GAS
+                                          <br>
+                                              {{ Form::checkbox('combustion_glp', 'si', false) }} Combustión GLP
+                                          <br>
+                                              {{ Form::checkbox('combustion_gnv', 'si', false) }} Combustión GNV
+                                          <br>
+                                              {{ Form::checkbox('combustion_petroleo', 'si', false) }} Combustión Petróleo
                                           </div>
                                           <div class="form-group">
                                               {!! Form::label('num_motor', 'Numero de Motor') !!}
@@ -104,13 +104,10 @@
 
 @section('js')
     <script>
-        $(".inputmask1").inputmask("(999) 9999999");
-        $(".inputmask2").inputmask("(999) 999999999");
         $('.datepicker').datepicker({
             format: "dd-mm-yyyy",
             language: "es",
             autoclose: true
         });
-
     </script>
 @endsection

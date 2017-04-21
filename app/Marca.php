@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class Marca extends Model
 {
@@ -10,12 +11,12 @@ class Marca extends Model
     protected $table    = "marca";
     protected $fillable = ['idmarca', 'nombre', 'condicion'];
 
-    public function modelo()
+    public function modelos()
     {
         return $this->hasMany('App\Modelo');
     }
     
-    public function vehiculo()
+    public function vehiculos()
     {
         return $this->hasMany('App\Vehiculo');
     }

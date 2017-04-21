@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class Cliente extends Model
 {
@@ -10,7 +11,7 @@ class Cliente extends Model
     protected $table    = "cliente";
     protected $fillable = ['idcliente', 'full_name', 'effective_end_date'];
 
-    public function vehiculo()
+    public function vehiculos()
     {
         return $this->hasMany('App\Vehiculo');
     }

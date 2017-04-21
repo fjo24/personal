@@ -44,16 +44,16 @@
                                         {{ $vehiculo->placa }}
                                     </td>
                                     <td>
-                                        {{ $vehiculo->color }}
+                                        {{ $vehiculo->marca->nombre }}
                                     </td>
                                     <td>
-                                        {{ $vehiculo->placa }}
+                                        {{ $vehiculo->modelo->nombre }}
                                     </td>
                                     <td>
-                                        {{ $vehiculo->placa }}
+                                        {{ $vehiculo->km }}
                                     </td>
                                     <td>
-                                        {{ $vehiculo->placa }}
+                                        {{ $vehiculo->cliente->full_name }}
                                     </td>
                                     <td>
                                         <a href="{{ route('hr.vehiculos.show', $vehiculo) }}">
