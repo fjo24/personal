@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\VehiculosRequest;
 use App\Vehiculo;
 use App\Marca;
+use App\User;
+use App\createby;
 use App\Modelo;
 use App\Cliente;
 use Laracasts\Flash\Flash;
@@ -65,6 +67,10 @@ class VehiculosController extends Controller
     public function show($id)
     {
         $vehiculo = Vehiculo::findOrFail($id);
+        $vehiculo->user;
+        $vehiculo->marca;
+        $vehiculo->modelo;
+        $vehiculo->createby;
         return view('hr.vehiculos.show', compact('vehiculo'));
     }
 

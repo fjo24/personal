@@ -8,11 +8,15 @@ class User extends Authenticatable
 {
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'id', 'name', 'email', 'password',
     ];
 
 
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function vehiculos()
+    {
+        return $this->hasMany('App\Vehiculo');
+    }
 }

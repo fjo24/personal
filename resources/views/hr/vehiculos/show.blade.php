@@ -34,11 +34,11 @@
                             <td>{{ $vehiculo->placa }}</td>
                         </tr>
                         <tr>
-                            <td>idmarca:</td>
-                            <td>{{ $vehiculo->idmarca }}</td>
+                            <td>Marca:</td>
+                            <td>{{ $vehiculo->marca->nombre }}</td>
                         </tr>
-                            <td>idmodelo:</td>
-                            <td>{{ $vehiculo->idmodelo }}</td>
+                            <td>Modelo:</td>
+                            <td>{{ $vehiculo->modelo->nombre }}</td>
                         </tr>
                         <tr>
                             <td>Año:</td>
@@ -48,8 +48,8 @@
                             <td>Color:</td>
                             <td>{{ $vehiculo->color }}</td>
                         </tr>
-                        <td>Combustión GAS:</td>
-                        <td>{{ $vehiculo->combustion_gas }}</td>
+                            <td>Combustión GAS:</td>
+                            <td>{{ $vehiculo->combustion_gas }}</td>
                         </tr>
                         <tr>
                             <td>Combustión GLP:</td>
@@ -76,16 +76,16 @@
                             <td>{{ $vehiculo->proxima_visita }}</td>
                         </tr>
                         <tr>
-                            <td>idcliente:</td>
-                            <td>{{ $vehiculo->idcliente }}</td>
+                            <td>Propietario:</td>
+                            <td>{{ $vehiculo->cliente->full_name }}</td>
                         </tr>
                         <tr>
                             <td>Creado por:</td>
-                            <td>{{ $vehiculo->idcliente }}</td>
+                            <td>{{ $vehiculo->createby->name }}</td>
                         </tr>
                         <tr>
                             <td>Actualizado por:</td>
-                            <td>{{ $vehiculo->idcliente }}</td>
+                            <td>{{ $vehiculo->user->name }}</td>
                         </tr>
                         </tbody>
                     </table>

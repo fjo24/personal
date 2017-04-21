@@ -25,5 +25,14 @@ class Vehiculo extends Model
     {
     return $this->belongsTo('App\Marca', 'idmarca', 'idmarca');
     }
+    public function user()
+    {
+    return $this->belongsTo('App\User', 'LAST_UPDATED_BY');
+    }
+    public function createby()
+    {
+    return $this->belongsTo('App\User', 'CREATED_BY');
+    }
+
 
 }

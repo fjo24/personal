@@ -120,5 +120,7 @@ $factory->define(App\Vehiculo::class, function (Faker\Generator $faker) use ($fa
         'no_atender' => array_rand(['atendido', 'no_atendido']),
         'idcliente' => $factory->create(App\Cliente::class)->idcliente,
         'motivo_no_atencion' => $faker->text,
+        'CREATED_BY' => $factory->create(App\User::class)->id,
+        'LAST_UPDATED_BY' => $factory->create(App\User::class)->id,
     ];
 });
