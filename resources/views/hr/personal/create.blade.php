@@ -22,7 +22,7 @@
                             @include('hr.partials.datospersonales')
                         </div>
                         @include('hr.partials.laboral')
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -33,7 +33,6 @@
             Cancelar
         </a>
     </div>
-
     {!! Form::close() !!}
 @endsection
 
