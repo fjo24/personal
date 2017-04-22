@@ -161,6 +161,9 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Styde\Html\HtmlServiceProvider::class,
+        App\Providers\MakeModelProvider::class,
+        
     ],
 
     /*

@@ -60,7 +60,7 @@
                             <td>{{ $vehiculo->combustion_gnv }}</td>
                         </tr>
                         <tr>
-                            <td>Combustión Petroleo:</td>
+                            <td>Combustión Petróleo:</td>
                             <td>{{ $vehiculo->combustion_petroleo }}</td>
                         </tr>
                         <tr>
@@ -72,7 +72,7 @@
                             <td>{{ $vehiculo->km }}</td>
                         </tr>
                         <tr>
-                            <td>Proxima Visita:</td>
+                            <td>Próxima Visita:</td>
                             <td>{{ $vehiculo->proxima_visita }}</td>
                         </tr>
                         <tr>
@@ -84,8 +84,16 @@
                             <td>{{ $vehiculo->createby->name }}</td>
                         </tr>
                         <tr>
+                            <td>Fecha de creación:</td>
+                            <td>{{ $vehiculo->created_at }}</td>
+                        </tr>
+                        <tr>
                             <td>Actualizado por:</td>
                             <td>{{ $vehiculo->user->name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha de actualización:</td>
+                            <td>{{ $vehiculo->updated_at }}</td>
                         </tr>
                         </tbody>
                     </table>

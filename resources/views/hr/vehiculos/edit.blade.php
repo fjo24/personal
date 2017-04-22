@@ -46,13 +46,27 @@
                                           <div class="form-group">
                                               {!! Form::label('combustion', 'Tipo de Combustión:') !!}
                                           <br>
-                                              {{ Form::checkbox('combustion_gas', 'si', false) }} Combustión GAS
-                                          <br>
-                                              {{ Form::checkbox('combustion_glp', 'si', false) }} Combustión GLP
-                                          <br>
-                                              {{ Form::checkbox('combustion_gnv', 'si', false) }} Combustión GNV
-                                          <br>
-                                              {{ Form::checkbox('combustion_petroleo', 'si', false) }} Combustión Petróleo
+                                          <div class="form-group">
+                                              {{ Form::hidden('combustion_gas', 0) }}
+                                              {{ Form::checkbox('combustion_gas', 1) }} Combustion GAS
+                                              {{ $errors->first('combustion_gas', '<p class="error">:message</p>') }}
+                                          </div>
+                                          
+                                          <div class="form-group">
+                                              {{ Form::hidden('combustion_glp', 0) }}
+                                              {{ Form::checkbox('combustion_glp', 1) }} Combustion GLP
+                                              {{ $errors->first('combustion_glp', '<p class="error">:message</p>') }}
+                                          </div>
+                                          <div class="form-group">
+                                              {{ Form::hidden('combustion_gnv', 0) }}
+                                              {{ Form::checkbox('combustion_gnv', 1) }} Combustion GNV
+                                              {{ $errors->first('combustion_gnv', '<p class="error">:message</p>') }}
+                                          </div>
+                                          
+                                          <div class="form-group">
+                                              {{ Form::hidden('combustion_petroleo', 0) }}
+                                              {{ Form::checkbox('combustion_petroleo', 1) }} Combustion petroleo
+                                              {{ $errors->first('combustion_petroleo', '<p class="error">:message</p>') }}
                                           </div>
                                           <div class="form-group">
                                               {!! Form::label('num_motor', 'Numero de Motor') !!}
@@ -73,19 +87,25 @@
                                           </div>
                                         </div>
                                         <div class="form-group">
-                                              No atender {{ Form::checkbox('no_atender', 'no_atendido', false) }}
-                                        </div>
-                                        <div class="form-group">
                                               {!! Form::label('idcliente', 'Propietario') !!}
                                               {!! Form::select('idcliente', $clientes, null, ['class' => 'form-control', 'placeholder' => 'Seleccione propietario', 'required'])!!}
                                         </div>
-                                        <div class="form-group">
-                                              {!! Form::label('motivo_no_atencion', 'Motivo de no atención') !!}
-                                              {!! Form::textarea('motivo_no_atencion', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                        <b>No atender</b>
+
+                                          <div class="form-group">
+                                              {{ Form::hidden('no_atender', 'atendido') }}
+                                            <input type="checkbox" name="no_atender" id="check" value="no_atendido" onchange="javascript:showContent()" /></body><br><br>
+                                              {{ $errors->first('no_atender', '<p class="error">:message</p>') }}  
+                                          </div>
+                                        <div id="content" style="display: none;">
+                                          <div class="form-group">
+                                                {!! Form::label('motivo_no_atencion', 'Motivo de no atención') !!}
+                                                {!! Form::textarea('motivo_no_atencion', null, ['class' => 'form-control', 'placeholder' => '']) !!}
+                                          </div>
                                         </div>
                                       </div>
 
-                        </div>
+                                </div>
 
                         </div>
                 </div>

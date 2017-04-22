@@ -5,7 +5,7 @@
 
 
 @section('contenido')
-    {!! Form::open(['route' => 'hr.vehiculos.store', 'method' => 'POST']) !!}
+    {!! Form::model($makeForm, ['route' => 'hr.vehiculos.store', 'class' => 'form', 'method' => 'POST', 'id' => 'form']) !!}
     <div class="row">
         <div class="col-md-12">
             <div class="box">
@@ -46,13 +46,13 @@
                                           <div class="form-group">
                                               {!! Form::label('combustion', 'Tipo de Combustión:') !!}
                                           <br>
-                                              {{ Form::checkbox('combustion_gas', 'si', false) }} Combustión GAS
+                                              {{ Form::checkbox('combustion_gas', '1', false) }} Combustión GAS
                                           <br>
-                                              {{ Form::checkbox('combustion_glp', 'si', false) }} Combustión GLP
+                                              {{ Form::checkbox('combustion_glp', '1', false) }} Combustión GLP
                                           <br>
-                                              {{ Form::checkbox('combustion_gnv', 'si', false) }} Combustión GNV
+                                              {{ Form::checkbox('combustion_gnv', '1', false) }} Combustión GNV
                                           <br>
-                                              {{ Form::checkbox('combustion_petroleo', 'si', false) }} Combustión Petróleo
+                                              {{ Form::checkbox('combustion_petroleo', '1', false) }} Combustión Petróleo
                                           </div>
                                           <div class="form-group">
                                               {!! Form::label('num_motor', 'Numero de Motor') !!}
@@ -73,15 +73,16 @@
                                           </div>
                                         </div>
                                         <div class="form-group">
-                                              No atender {{ Form::checkbox('no_atender', 'no_atendido', false) }}
-                                        </div>
-                                        <div class="form-group">
                                               {!! Form::label('idcliente', 'Propietario') !!}
                                               {!! Form::select('idcliente', $clientes, null, ['class' => 'form-control', 'placeholder' => 'Seleccione propietario', 'required'])!!}
                                         </div>
-                                        <div class="form-group">
-                                              {!! Form::label('motivo_no_atencion', 'Motivo de no atención') !!}
-                                              {!! Form::textarea('motivo_no_atencion', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                        <b>No atender</b>
+                                            <input type="checkbox" name="no_atender" id="check" value="no_atendido" onchange="javascript:showContent()" /></body><br><br>     
+                                        <div id="content" style="display: none;">
+                                          <div class="form-group">
+                                                {!! Form::label('motivo_no_atencion', 'Motivo de no atención') !!}
+                                                {!! Form::textarea('motivo_no_atencion', null, ['class' => 'form-control', 'placeholder' => '']) !!}
+                                          </div>
                                         </div>
                                       </div>
 
@@ -103,11 +104,21 @@
 @endsection
 
 @section('js')
-    <script>
+
+    <script type="text/javascript">
         $('.datepicker').datepicker({
             format: "dd-mm-yyyy",
             language: "es",
             autoclose: true
         });
-    </script>
+      //  $(document).ready(function() {
+        //    $('select').select2();
+           // $('#form select').change(function(){
+
+           //   $('#form').submit();  
+
+         //   });                   
+     //   });
+
+</script>
 @endsection

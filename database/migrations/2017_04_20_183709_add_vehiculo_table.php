@@ -19,12 +19,12 @@ class AddVehiculoTable extends Migration
             $table->integer('idmodelo')->unsigned();
             $table->date('año');
             $table->string('color');
-            $table->enum('combustion_gas', ['si', 'no'])->default('no');
-            $table->enum('combustion_glp', ['si', 'no'])->default('no');
-            $table->enum('combustion_gnv', ['si', 'no'])->default('no');
-            $table->enum('combustion_petroleo', ['si', 'no'])->default('no');
+            $table->boolean('combustion_gas')->default('0');
+            $table->boolean('combustion_glp')->default('0');
+            $table->boolean('combustion_gnv')->default('0');
+            $table->boolean('combustion_petroleo')->default('0');
             $table->string('num_motor');
-            $table->string('km');
+            $table->integer('km');
             $table->date('proxima_visita');
             $table->enum('no_atender', ['atendido', 'no_atendido'])->default('atendido');
             $table->integer('idcliente')->unsigned();

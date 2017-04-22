@@ -26,3 +26,4 @@ Route::get('excelvehiculos',  'VehiculosController@export')->name('exportvehicul
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+

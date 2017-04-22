@@ -36,21 +36,25 @@ class VehiculosController extends Controller
 
     public function create()
     {
-        $marcas = Marca::orderBy('nombre', 'ASC')->lists('nombre', 'idmarca');
-        $modelos = Modelo::orderBy('nombre', 'ASC')->lists('nombre', 'idmodelo');
-        $clientes = Cliente::orderBy('full_name', 'ASC')->lists('full_name', 'idcliente');
+
+        $date = Carbon::now()->format('Y-m-d');
+        $year = Carbon::now()->year;
+        $marcas = Marca::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmarca');
+        $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmodelo');
+        $clientes = Cliente::orderBy('full_name', 'ASC')->where('effective_end_date', '>=', $date)->lists('full_name', 'idcliente');
         return view('hr.vehiculos.create')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes);
     }
-
+ 
 
     public function store(VehiculosRequest $request)
     {
         $request = $request->all();
 
         $request['CREATED_BY'] = Auth()->user()->id;
-        $request['UPDATE_BY'] = Auth()->user()->id;
-
-
+        $request['LAST_UPDATED_BY'] = Auth()->user()->id;
+        $dt = Carbon::create($request['año']);
+        $dt->startOfYear();
+        $request['año'] = $dt;
         $vehiculos = new Vehiculo($request);
         $vehiculos->save();
 
@@ -82,8 +86,8 @@ class VehiculosController extends Controller
      */
     public function edit($id)
     {
-        $marcas = Marca::orderBy('nombre', 'ASC')->lists('nombre', 'idmarca');
-        $modelos = Modelo::orderBy('nombre', 'ASC')->lists('nombre', 'idmodelo');
+        $marcas = Marca::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmarca');
+        $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmodelo');
         $clientes = Cliente::orderBy('full_name', 'ASC')->lists('full_name', 'idcliente');
         $vehiculos = Vehiculo::find($id);
         return view('hr.vehiculos.edit')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes)->with('vehiculos', $vehiculos);
@@ -98,6 +102,7 @@ class VehiculosController extends Controller
      */
     public function update(VehiculosRequest $request, Vehiculo $vehiculos)
     {
+
         $request = $request->all();
         $request['LAST_UPDATED_BY'] = Auth()->user()->id;
         $vehiculos->update($request);
@@ -113,6 +118,7 @@ class VehiculosController extends Controller
             $excel->sheet('Listado', function ($sheet) {
 
                 //$personal = Personal::all();
+               // $request['año'] = Carbon::now()->format('Y');
                 $date = Carbon::now()->format('Y-m-d');
                 $vehiculos = Vehiculo::orderBy('placa', 'ASC')->get();
 

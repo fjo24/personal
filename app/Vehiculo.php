@@ -34,5 +34,14 @@ class Vehiculo extends Model
     return $this->belongsTo('App\User', 'CREATED_BY');
     }
 
+/*    public function getañoAttribute($date)
+    {
+        return $date = \Carbon\Carbon::parse($date)();
+    }
 
+    public function setañoAttribute($date)
+    {
+        $this->attributes['año'] = \Carbon\Carbon::parse($date)->startofyear();
+    }
+*/
 }
