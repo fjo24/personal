@@ -90,6 +90,7 @@
                                               {!! Form::label('idcliente', 'Propietario') !!}
                                               {!! Form::select('idcliente', $clientes, null, ['class' => 'form-control', 'placeholder' => 'Seleccione propietario', 'required'])!!}
                                         </div>
+                                        <label>
                                         <b>No atender</b>
 
                                           <div class="form-group">
@@ -141,12 +142,15 @@
             element.style.display='none';
         }
     }
-    $(document).ready(function(){
+//icheck
+$(document).ready(function(){
   $('input').iCheck({
-    checkboxClass: 'icheckbox_square-red',
-    radioClass: 'iradio_square-red',
+    checkboxClass: 'icheckbox_minimal',
+    radioClass: 'iradio_minimal',
     increaseArea: '20%' // optional
   });
 });
+
+
     </script>
 @endsection

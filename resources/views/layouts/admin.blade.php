@@ -25,15 +25,22 @@ folder instead of downloading all of them to reduce the load. -->
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
     <link href="{{ asset ('AdminLTE/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker3.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker.standalone.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset ('AdminLTE/plugins/iCheck/minimal/color-scheme.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset ('AdminLTE/plugins/iCheck/icheck.js') }}">
+    <link href="{{ asset ('AdminLTE/plugins/iCheck/icheck.min.js') }}">
 
-        <!-- icheck -->
+
+
+    
+        <!-- icheck 
     <link href="AdminLTE/plugins/iCheck/square/red.css" rel="stylesheet">
     <script src="AdminLTE/plugins/iCheck/icheck.js"></script>
 
-
+-->
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -644,6 +651,9 @@ folder instead of downloading all of them to reduce the load. -->
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <link href="{{ asset ('AdminLTE/plugins/iCheck/minimal/color-scheme.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset ('AdminLTE/plugins/iCheck/icheck.js') }}">
+    <link href="{{ asset ('AdminLTE/plugins/iCheck/icheck.min.js') }}">
 
 @yield('js')
 </body>
