@@ -92,12 +92,7 @@
                                         </div>
                                         <label>
                                         <b>No atender</b>
-
-                                          <div class="form-group">
-                                              {{ Form::hidden('no_atender', 'atendido') }}
-                                            <input type="checkbox" name="no_atender" id="check" value="no_atendido" onchange="javascript:showContent()" /><br>
-                                              {{ $errors->first('no_atender', '<p class="error">:message</p>') }}  
-                                          </div>
+                                            <input type="checkbox" name="no_atender" id="check" value="no_atendido" onchange="javascript:showContent()" /></body><br><br>     
                                         <div id="content" style="display: none;">
                                           <div class="form-group">
                                                 {!! Form::label('motivo_no_atencion', 'Motivo de no atención') !!}
