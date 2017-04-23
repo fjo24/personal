@@ -48,20 +48,21 @@
                             <td>Color:</td>
                             <td>{{ $vehiculo->color }}</td>
                         </tr>
-                            <td>Combustión GAS:</td>
-                            <td>{{ $vehiculo->combustion_gas }}</td>
-                        </tr>
-                        <tr>
-                            <td>Combustión GLP:</td>
-                            <td>{{ $vehiculo->combustion_glp }}</td>
-                        </tr>
-                        <tr>
-                            <td>combustión GNV:</td>
-                            <td>{{ $vehiculo->combustion_gnv }}</td>
-                        </tr>
-                        <tr>
-                            <td>Combustión Petróleo:</td>
-                            <td>{{ $vehiculo->combustion_petroleo }}</td>
+                            <td>Combustible:</td>
+                            <td>
+                                @if($vehiculo->combustion_gas != 0)
+                                Gasolina<br>
+                                @endif
+                                @if($vehiculo->combustion_glp != 0)
+                                GLP<br>
+                                @endif
+                                @if($vehiculo->combustion_gnv != 0)
+                                GNV<br>
+                                @endif
+                                @if($vehiculo->combustion_petroleo != 0)
+                                Petrolero<br>
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <td>Numero de Motor:</td>
@@ -92,7 +93,7 @@
                             <td>{{ $vehiculo->user->name }}</td>
                         </tr>
                         <tr>
-                            <td>Fecha de actualización:</td>
+                            <td>Ultima actualización:</td>
                             <td>{{ $vehiculo->updated_at }}</td>
                         </tr>
                         </tbody>

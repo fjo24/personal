@@ -46,13 +46,13 @@
                                           <div class="form-group">
                                               {!! Form::label('combustion', 'Tipo de Combustión:') !!}
                                           <br>
-                                              {{ Form::checkbox('combustion_gas', '1', false) }} Combustión GAS
+                                              {{ Form::checkbox('combustion_gas', '1', false) }} Gasolina
                                           <br>
-                                              {{ Form::checkbox('combustion_glp', '1', false) }} Combustión GLP
+                                              {{ Form::checkbox('combustion_glp', '1', false) }} GLP
                                           <br>
-                                              {{ Form::checkbox('combustion_gnv', '1', false) }} Combustión GNV
+                                              {{ Form::checkbox('combustion_gnv', '1', false) }} GNV
                                           <br>
-                                              {{ Form::checkbox('combustion_petroleo', '1', false) }} Combustión Petróleo
+                                              {{ Form::checkbox('combustion_petroleo', '1', false) }} Petrolero
                                           </div>
                                           <div class="form-group">
                                               {!! Form::label('num_motor', 'Numero de Motor') !!}
@@ -106,19 +106,22 @@
 @section('js')
 
     <script type="text/javascript">
+    //datepicker
         $('.datepicker').datepicker({
             format: "dd-mm-yyyy",
             language: "es",
             autoclose: true
         });
-      //  $(document).ready(function() {
-        //    $('select').select2();
-           // $('#form select').change(function(){
-
-           //   $('#form').submit();  
-
-         //   });                   
-     //   });
-
-</script>
+    //Para activacion de textarea mediante checkbox
+    function showContent() {
+        element = document.getElementById("content");
+        check = document.getElementById("check");
+        if (check.checked) {
+            element.style.display='block';
+        }
+        else {
+            element.style.display='none';
+        }
+    }
+    </script>
 @endsection

@@ -29,19 +29,7 @@ folder instead of downloading all of them to reduce the load. -->
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker3.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker.standalone.css') }}" rel="stylesheet" type="text/css">
 
-    </script>
-    <script type="text/javascript">
-    function showContent() {
-        element = document.getElementById("content");
-        check = document.getElementById("check");
-        if (check.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-    </script>
+
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">

@@ -42,7 +42,7 @@ class VehiculosController extends Controller
         $marcas = Marca::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmarca');
         $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmodelo');
         $clientes = Cliente::orderBy('full_name', 'ASC')->where('effective_end_date', '>=', $date)->lists('full_name', 'idcliente');
-        return view('hr.vehiculos.create')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes);
+        return view('hr.vehiculos.create')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes)->with('date', $date);
     }
  
 
@@ -70,11 +70,11 @@ class VehiculosController extends Controller
      */
     public function show($id)
     {
+
         $vehiculo = Vehiculo::findOrFail($id);
         $vehiculo->user;
         $vehiculo->marca;
         $vehiculo->modelo;
-        $vehiculo->createby;
         return view('hr.vehiculos.show', compact('vehiculo'));
     }
 
@@ -132,4 +132,6 @@ class VehiculosController extends Controller
     {
         //
     }
+
+
 }

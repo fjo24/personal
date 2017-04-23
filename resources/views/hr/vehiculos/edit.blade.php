@@ -48,24 +48,24 @@
                                           <br>
                                           <div class="form-group">
                                               {{ Form::hidden('combustion_gas', 0) }}
-                                              {{ Form::checkbox('combustion_gas', 1) }} Combustion GAS
+                                              {{ Form::checkbox('combustion_gas', 1) }} Gasolina
                                               {{ $errors->first('combustion_gas', '<p class="error">:message</p>') }}
                                           </div>
                                           
                                           <div class="form-group">
                                               {{ Form::hidden('combustion_glp', 0) }}
-                                              {{ Form::checkbox('combustion_glp', 1) }} Combustion GLP
+                                              {{ Form::checkbox('combustion_glp', 1) }} GLP
                                               {{ $errors->first('combustion_glp', '<p class="error">:message</p>') }}
                                           </div>
                                           <div class="form-group">
                                               {{ Form::hidden('combustion_gnv', 0) }}
-                                              {{ Form::checkbox('combustion_gnv', 1) }} Combustion GNV
+                                              {{ Form::checkbox('combustion_gnv', 1) }} GNV
                                               {{ $errors->first('combustion_gnv', '<p class="error">:message</p>') }}
                                           </div>
                                           
                                           <div class="form-group">
                                               {{ Form::hidden('combustion_petroleo', 0) }}
-                                              {{ Form::checkbox('combustion_petroleo', 1) }} Combustion petroleo
+                                              {{ Form::checkbox('combustion_petroleo', 1) }} Petrolero
                                               {{ $errors->first('combustion_petroleo', '<p class="error">:message</p>') }}
                                           </div>
                                           <div class="form-group">
@@ -123,11 +123,23 @@
 @endsection
 
 @section('js')
-    <script>
+    <script type="text/javascript">
+    //datepicker
         $('.datepicker').datepicker({
             format: "dd-mm-yyyy",
             language: "es",
             autoclose: true
         });
+    //Para activacion de textarea mediante checkbox
+    function showContent() {
+        element = document.getElementById("content");
+        check = document.getElementById("check");
+        if (check.checked) {
+            element.style.display='block';
+        }
+        else {
+            element.style.display='none';
+        }
+    }
     </script>
 @endsection
