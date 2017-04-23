@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@section('title', 'Crear usuario')
+@section('title', 'Ver vehiculo')
 
 @section('contenido')
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">
-                Detalles del empleado
+                Detalles del Vehiculo
             </h3>
             <div class="box-tools">
 

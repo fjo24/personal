@@ -26,7 +26,7 @@ class AddVehiculoTable extends Migration
             $table->string('num_motor');
             $table->integer('km');
             $table->date('proxima_visita');
-            $table->enum('no_atender', ['atendido', 'no_atendido'])->default('atendido');
+            $table->boolean('no_atender')->default('0');
             $table->integer('idcliente')->unsigned();
             $table->text('motivo_no_atencion')->nullable();
             $table->integer('LAST_UPDATED_BY')->unsigned();

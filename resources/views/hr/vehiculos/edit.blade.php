@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Editar Vehiculo')
+@section('title', 'Editar vehiculo')
 
 
 
@@ -11,7 +11,7 @@
             <div class="box">
                 <div class="box-header with-border">
                     @include('hr.partials.errors')
-                    <h3 class="box-title">Edición de Registro <del></del> Vehiculo</h3>
+                    <h3 class="box-title">Edición de Registro del Vehiculo</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -94,7 +94,7 @@
 
                                           <div class="form-group">
                                               {{ Form::hidden('no_atender', 'atendido') }}
-                                            <input type="checkbox" name="no_atender" id="check" value="no_atendido" onchange="javascript:showContent()" /></body><br><br>
+                                            <input type="checkbox" name="no_atender" id="check" value="no_atendido" onchange="javascript:showContent()" /><br>
                                               {{ $errors->first('no_atender', '<p class="error">:message</p>') }}  
                                           </div>
                                         <div id="content" style="display: none;">
@@ -141,5 +141,12 @@
             element.style.display='none';
         }
     }
+    $(document).ready(function(){
+  $('input').iCheck({
+    checkboxClass: 'icheckbox_square-red',
+    radioClass: 'iradio_square-red',
+    increaseArea: '20%' // optional
+  });
+});
     </script>
 @endsection

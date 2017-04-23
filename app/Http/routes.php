@@ -27,3 +27,11 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/ajax-model', function(){
+
+	$id_marca = input::get('id_marca');
+	$modelos = Modelo::Where('idmarca', '=', $id_marca)->get();
+	return Response::Json($modelos);
+
+
+});
