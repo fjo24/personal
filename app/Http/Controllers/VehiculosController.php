@@ -38,11 +38,11 @@ class VehiculosController extends Controller
     {
 
         $date = Carbon::now()->format('Y-m-d');
-        $year = Carbon::now()->year;
+       // $year = Carbon::now()->year;
         $marcas = Marca::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmarca');
         $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmodelo');
         $clientes = Cliente::orderBy('full_name', 'ASC')->where('effective_end_date', '>=', $date)->lists('full_name', 'idcliente');
-        return view('hr.vehiculos.create')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes)->with('date', $date);
+        return view('hr.vehiculos.create')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes);
     }
  
 
@@ -53,6 +53,7 @@ class VehiculosController extends Controller
         $request['CREATED_BY'] = Auth()->user()->id;
         $request['LAST_UPDATED_BY'] = Auth()->user()->id;
         $dt = Carbon::create($request['año']);
+        $dt->format('Y');
         $dt->startOfYear();
         $request['año'] = $dt;
         $vehiculos = new Vehiculo($request);
@@ -105,6 +106,10 @@ class VehiculosController extends Controller
 
         $request = $request->all();
         $request['LAST_UPDATED_BY'] = Auth()->user()->id;
+        $dt = Carbon::create($request['año']);
+        $dt->format('Y');
+        $dt->startOfYear();
+        $request['año'] = $dt;
         $vehiculos->update($request);
         Flash::success("El vehiculo ha sido editado con exito!")->important();
 

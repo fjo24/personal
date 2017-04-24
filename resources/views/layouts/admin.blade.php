@@ -29,12 +29,6 @@ folder instead of downloading all of them to reduce the load. -->
     <link href="{{ asset ('AdminLTE/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker3.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker.standalone.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset ('AdminLTE/plugins/iCheck/minimal/color-scheme.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset ('AdminLTE/plugins/iCheck/icheck.js') }}">
-    <link href="{{ asset ('AdminLTE/plugins/iCheck/icheck.min.js') }}">
-
-
-
     
         <!-- icheck 
     <link href="AdminLTE/plugins/iCheck/square/red.css" rel="stylesheet">
@@ -648,12 +642,6 @@ folder instead of downloading all of them to reduce the load. -->
 <script type="text/javascript" src="{{ asset('AdminLTE/plugins/input-mask/jquery.inputmask.js') }}"></script>
 <script type="text/javascript" src="{{ asset('AdminLTE/plugins/input-mask/jquery.inputmask.phone.extensions.js') }}"></script>
 <script type="text/javascript" src="{{ asset('AdminLTE/plugins/mask/jquery.mask.min.js') }}"></script>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <link href="{{ asset ('AdminLTE/plugins/iCheck/minimal/color-scheme.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset ('AdminLTE/plugins/iCheck/icheck.js') }}">
-    <link href="{{ asset ('AdminLTE/plugins/iCheck/icheck.min.js') }}">
 
 @yield('js')
 </body>
