@@ -14,7 +14,7 @@ class MakeModelProvider extends ServiceProvider
      */
     public function boot()
     {
-        view::composer(['hr.vehiculos.create', 'hr.vehiculos.edit'], 'App\Http\ViewComposers\MakeModelForm');
+       // view::composer(['hr.vehiculos.create', 'hr.vehiculos.edit'], 'App\Http\ViewComposers\MakeModelForm');
     }
 
     /**

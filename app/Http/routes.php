@@ -19,8 +19,7 @@ Route::group(['prefix' => 'hr'], function () {
     Route::post('/personal/{flag}', 'PersonalController@index')->name('all');
     Route::resource('personal', 'PersonalController');
     Route::resource('vehiculos', 'VehiculosController');
-    Route::post('/vehiculos/marcas', 'VehiculosController@brands')->name('web.vehicles.filters.brands');
-    Route::post('/vehiculos/modelos', 'VehiculosController@models')->name('web.vehicles.filters.models');
+    Route::post('/vehiculos/filter', 'VehiculosController@models')->name('vehicles.filters.models');
 });
 
 Route::get('excel',  'PersonalController@export')->name('export');

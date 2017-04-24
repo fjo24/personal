@@ -3,7 +3,7 @@
 @section('title', 'Registro de Vehiculo')
 
 @section('contenido')
-    {!! Form::model($makeForm, ['route' => 'hr.vehiculos.store', 'class' => 'form', 'method' => 'POST', 'id' => 'form']) !!}
+    {!! Form::open(['route' => 'hr.vehiculos.store', 'class' => 'form', 'method' => 'POST', 'id' => 'form']) !!}
     <div class="row">
         <div class="col-md-12">
             <div class="box">
@@ -125,17 +125,10 @@
 
     <script type="application/javascript">
         $(document).ready(function () {
-            $('#category_id').on('change', function () {
-                FilterBrands({
-                    'e': this,
-                    'url': '{{ route('panel-vehicles-filters', ['filter' => 'brands']) }}'
-                });
-            });
-
-            $('#brand_id').on('change', function () {
+            $('#idmarca').on('change', function () {
                 FilterModels({
                     'e': this,
-                    'url': '{{ route('panel-vehicles-filters', ['filter' => 'models']) }}'
+                    'url': '{{ route('vehicles.filters.models', ['id' => 'idmarca']) }}'
                 });
             });
         });

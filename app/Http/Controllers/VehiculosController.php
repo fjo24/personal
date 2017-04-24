@@ -14,7 +14,8 @@ use App\Cliente;
 use Laracasts\Flash\Flash;
 use App\Http\Requests;
 use Carbon\Carbon;
-use Maatwebsite\Excel\Facades\Excel; 
+use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\Tests\RequestTest;
 
 class VehiculosController extends Controller
 {
@@ -72,11 +73,7 @@ class VehiculosController extends Controller
      */
     public function show($id)
     {
-
         $vehiculo = Vehiculo::findOrFail($id);
-        $vehiculo->user;
-        $vehiculo->marca;
-        $vehiculo->modelo;
         return view('hr.vehiculos.show', compact('vehiculo'));
     }
 
@@ -141,51 +138,17 @@ class VehiculosController extends Controller
         })->export('xls');
     }
 
-    public function brands()
+    public function filter(Request $request)
     {
-        $repo = $this->vehicleBrandRepository;
-
-        $category_id = request()->get('category', -1);
-
-        $items = $repo->brands($category_id)->get();
-
-        $html = "<option value=\"\">- Seleccione</option>";
-
-        if(count($items) == 0)
-        {
-            return "{status:'empty', html: '$html'}";
-        }
-
-        foreach($items as $id => $item)
-        {
-            $html .= "<option value=\"{$item->id}\">{$item->title}</option>";
-        }
-
-        return "{status:'ok', html: '$html'}";
+        $marcaid = $request->get('marcaid');
+        $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->where('idmarca',$marcaid)->lists('nombre', 'idmodelo');
+        $date = Carbon::now()->format('Y-m-d');
+        // $year = Carbon::now()->year;
+        $marcas = Marca::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmarca');
+        $clientes = Cliente::orderBy('full_name', 'ASC')->where('effective_end_date', '>=', $date)->lists('full_name', 'idcliente');
+        return view('hr.vehiculos.create')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes);
     }
 
-    public function models()
-    {
-        $repo = $this->vehicleModelRepository;
-
-        $brand_id = request()->get('brand', -1);
-
-        $items = $repo->models($brand_id)->get();
-
-        $html = "<option value=\"\">- Seleccione</option>";
-
-        if(count($items) == 0)
-        {
-            return "{status:'empty', html: '$html'}";
-        }
-
-        foreach($items as $id => $item)
-        {
-            $html .= "<option value=\"{$item->id}\">{$item->title}</option>";
-        }
-
-        return "{status:'ok', html: '$html'}";
-    }
 
     public function destroy($id)
     {
