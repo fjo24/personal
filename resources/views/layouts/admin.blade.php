@@ -322,17 +322,17 @@ folder instead of downloading all of them to reduce the load. -->
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="../../index.html">
+                            <a href="{{route('hr.personal.index')}}">
                                 <i class="fa fa-circle-o">
                                 </i>
-                                Dashboard v1
+                                Personal v1
                             </a>
                         </li>
                         <li>
-                            <a href="../../index2.html">
+                            <a href="{{route('asesor.vehiculos.index')}}">
                                 <i class="fa fa-circle-o">
                                 </i>
-                                Dashboard v2
+                                Vehiculo  v2
                             </a>
                         </li>
                     </ul>
