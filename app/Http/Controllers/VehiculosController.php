@@ -50,6 +50,7 @@ class VehiculosController extends Controller
     {
         $request = $request->all();
 
+
         $request['CREATED_BY'] = Auth()->user()->id;
         $request['LAST_UPDATED_BY'] = Auth()->user()->id;
         $dt = Carbon::create($request['año']);
@@ -109,6 +110,13 @@ class VehiculosController extends Controller
         $dt = Carbon::create($request['año']);
         $dt->format('Y');
         $dt->startOfYear();
+        /*
+        $createdyear = Carbon::parse($request['proxima_visita'])->format('Y');
+        $this->validate($request, [
+        'año' => 'max:' . $createdyear,
+        ]);
+        */
+
         $request['año'] = $dt;
         $vehiculos->update($request);
         Flash::success("El vehiculo ha sido editado con exito!")->important();
