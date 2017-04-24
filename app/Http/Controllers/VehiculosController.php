@@ -138,17 +138,24 @@ class VehiculosController extends Controller
         })->export('xls');
     }
 
-    public function filter(Request $request)
+    public function filter()
     {
-        $marcaid = $request->get('marcaid');
-        $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->where('idmarca',$marcaid)->lists('nombre', 'idmodelo');
-        $date = Carbon::now()->format('Y-m-d');
-        // $year = Carbon::now()->year;
-        $marcas = Marca::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmarca');
-        $clientes = Cliente::orderBy('full_name', 'ASC')->where('effective_end_date', '>=', $date)->lists('full_name', 'idcliente');
-        return view('hr.vehiculos.create')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes);
-    }
+        $html = '';
+        $items = [];
 
+        $marcaid = request()->input('brand');
+        $items = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->where('idmarca', $marcaid)->get();
+
+        if (count($items) == 0) {
+            return ['status' => 'empty', 'html' => ''];
+        }
+
+        foreach ($items as $item) {
+            $html .= "<option value='{$item->id}'>{$item->title}</option>";
+        }
+
+        return json_encode(['status' => 'ok', 'html' => $html], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    }
 
     public function destroy($id)
     {

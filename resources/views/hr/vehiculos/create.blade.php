@@ -128,9 +128,40 @@
             $('#idmarca').on('change', function () {
                 FilterModels({
                     'e': this,
-                    'url': '{{ route('vehicles.filters.models', ['id' => 'idmarca']) }}'
+                    'url': '{{ route('vehicles.filters.models') }}'
                 });
             });
         });
+
+        function FilterModels(config){
+            var element = $(config.e);
+            var value = element.val();
+            var filterModel = $('#idmodelo');
+
+            filterModel.attr('disabled', 'disabled');
+
+            $.ajax ({
+                url: config.url,
+                type: "GET",
+                dataType: 'json',
+                data: {'brand': value},
+                cache: false,
+                beforeSend: function(){
+                    filterModel.html("<option value=''>- Seleccione el Modelo</option>");
+                },
+                success: function (result){
+                    if(typeof (result.status) != "undefined"){
+                        if(result.status == 'ok'){
+                            filterModel.html(result.html).removeAttr('disabled');
+                        }else if(result.status == 'empty'){
+                            filterModel.html(result.html);
+                        }
+                    }
+                },
+                error: function(){
+
+                }
+            });
+        }
     </script>
 @endsection
