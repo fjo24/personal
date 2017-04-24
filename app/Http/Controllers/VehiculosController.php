@@ -29,7 +29,7 @@ class VehiculosController extends Controller
         });
 
 
-        return view('hr.vehiculos.index')->with('vehiculos', $vehiculos);
+        return view('asesor.vehiculos.index')->with('vehiculos', $vehiculos);
 
     }
 
@@ -39,10 +39,10 @@ class VehiculosController extends Controller
 
         $date = Carbon::now()->format('Y-m-d');
        // $year = Carbon::now()->year;
-        $marcas = Marca::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmarca');
+        $marcas = Marca::where('condicion', 1)->orderBy('nombre', 'ASC')->lists('nombre', 'idmarca');
         $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmodelo');
         $clientes = Cliente::orderBy('full_name', 'ASC')->where('effective_end_date', '>=', $date)->lists('full_name', 'idcliente');
-        return view('hr.vehiculos.create')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes);
+        return view('asesor.vehiculos.create')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes);
     }
  
 
@@ -61,7 +61,7 @@ class VehiculosController extends Controller
         $vehiculos->save();
 
         Flash::success("Se ha registrado de manera exitosa!")->important();
-        return redirect()->route('hr.vehiculos.index');
+        return redirect()->route('asesor.vehiculos.index');
     }
 
     /**
@@ -72,12 +72,9 @@ class VehiculosController extends Controller
      */
     public function show($id)
     {
-
         $vehiculo = Vehiculo::findOrFail($id);
-        $vehiculo->user;
-        $vehiculo->marca;
-        $vehiculo->modelo;
-        return view('hr.vehiculos.show', compact('vehiculo'));
+
+        return view('asesor.vehiculos.show', compact('vehiculo'));
     }
 
     /**
@@ -92,7 +89,7 @@ class VehiculosController extends Controller
         $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmodelo');
         $clientes = Cliente::orderBy('full_name', 'ASC')->lists('full_name', 'idcliente');
         $vehiculos = Vehiculo::find($id);
-        return view('hr.vehiculos.edit')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes)->with('vehiculos', $vehiculos);
+        return view('asesor.vehiculos.edit')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes)->with('vehiculos', $vehiculos);
     }
 
     /**
@@ -121,7 +118,7 @@ class VehiculosController extends Controller
         $vehiculos->update($request);
         Flash::success("El vehiculo ha sido editado con exito!")->important();
 
-        return redirect()->route('hr.vehiculos.index');
+        return redirect()->route('asesor.vehiculos.index');
     }
 
     public function export(Request $request, Vehiculo $vehiculos)
@@ -139,6 +136,16 @@ class VehiculosController extends Controller
 
             });
         })->export('xls');
+    }
+
+    public function selectAjax(Request $request)
+    {
+        $idmarca = request()->get('idmarca');
+        if($request->ajax()){
+            $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->where('idmarca', $idmarca)->lists('nombre', 'idmodelo');
+            $data = view('asesor.vehiculos.partials.ajax-select',compact('modelos'))->render();
+            return response()->json(['options'=>$data]);
+        }
     }
 
     public function destroy($id)

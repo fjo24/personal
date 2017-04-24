@@ -4,7 +4,7 @@
 
 @section('contenido')
     <div class="box">
-        @include('hr.partials.success')
+        @include('asesor.vehiculos.partials.success')
         <div class="box-header with-border">
             <h3 class="box-title">
                 Listado de vehiculos
@@ -12,7 +12,7 @@
             <div class="box-tools">
 
                 <div class="text-center">
-                    <a class="btn btn-danger btn-sm" href="{{ route('hr.vehiculos.create') }}">
+                    <a class="btn btn-danger btn-sm" href="{{ route('asesor.vehiculos.create') }}">
                         NUEVO REGISTRO
                     </a>
                     <a class="btn btn-success btn-sm" href="{{route('exportvehiculos')}}">
@@ -56,10 +56,10 @@
                                         {{ $vehiculo->cliente->full_name }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('hr.vehiculos.show', $vehiculo) }}">
+                                        <a href="{{ route('asesor.vehiculos.show', $vehiculo) }}">
                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                         </a>
-                                        <a  href="{{ route('hr.vehiculos.edit', $vehiculo) }}">
+                                        <a  href="{{ route('asesor.vehiculos.edit', $vehiculo) }}">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
                                     </td>

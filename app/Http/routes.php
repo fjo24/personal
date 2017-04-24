@@ -15,15 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index');
+
+//Auth
+Route::auth();
+
+//Personal
 Route::group(['prefix' => 'hr'], function () {
     Route::post('/personal/{flag}', 'PersonalController@index')->name('all');
     Route::resource('personal', 'PersonalController');
-    Route::resource('vehiculos', 'VehiculosController');
 });
 
 Route::get('excel',  'PersonalController@export')->name('export');
+
+//Vehiculos
+Route::group(['prefix' => 'asesor'], function () {
+    Route::resource('vehiculos', 'VehiculosController');
+});
+Route::post('select-ajax', ['as'=>'select-ajax','uses'=>'VehiculosController@selectAjax']);
 Route::get('excelvehiculos',  'VehiculosController@export')->name('exportvehiculos');
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
-
