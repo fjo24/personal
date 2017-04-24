@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 use Illuminate\Routing\Route;
+use Carbon\Carbon;
 
 class VehiculosRequest extends Request
 {
@@ -25,17 +26,19 @@ class VehiculosRequest extends Request
     public function rules()
     {
         
-$id = Request::segment(3);
+        $id = Request::segment(3);
+        $td = Carbon::create()->format('Y');
+
 
         return [
             
             'placa'                => 'required|unique:vehiculo,placa,'. $id,
             'idmarca'              => 'required',
             'idmodelo'             => 'required',
-            'año'                  => 'required',
+            'año'                  => 'required|integer|max:'.$td,
             'color'                => 'required',
             'num_motor'            => 'required|unique:vehiculo,num_motor,' . $id,
-            'km'                   => 'required|numeric',
+            'km'                   => 'required|alpha_num',
             'proxima_visita'       => 'required|date',
             'idcliente'            => 'required',
 

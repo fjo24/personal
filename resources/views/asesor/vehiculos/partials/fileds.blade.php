@@ -29,7 +29,12 @@
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('año', 'Año') !!}
-                                    {!! Form::text('año', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                    <select id="año" name="año" class="form-control ">
+                                        @for ($i = 0; $i < 30; $i++)
+                                            {{$y = Carbon\Carbon::now()->subYear($i)->format('Y')}}
+                                            <option value="{{$y}}">{{$y}}</option>
+                                        @endfor
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('color', 'Color') !!}

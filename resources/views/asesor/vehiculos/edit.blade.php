@@ -9,7 +9,7 @@
     @include('asesor.vehiculos.partials.fileds')
     <div class="for text-center">
         {!! Form::submit('Editar', ['class'=> 'btn btn-primary']) !!}
-        <a class="btn btn-danger" href="{{ route('hr.vehiculos.index')}}">
+        <a class="btn btn-danger" href="{{ route('asesor.vehiculos.index')}}">
             Cancelar
         </a>
     </div>

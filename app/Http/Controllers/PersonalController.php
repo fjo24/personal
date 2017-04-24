@@ -82,8 +82,6 @@ class PersonalController extends Controller
 
             $excel->sheet('Listado', function ($sheet) {
 
-                //$personal = Personal::all();
-                $date = Carbon::now()->format('Y-m-d');
                 $personal = Personal::orderBy('first_LAST_NAME', 'ASC')->where('EFFECTIVE_END_DATE', '>=', $date)->get();
 
                 $sheet->fromArray($personal);
