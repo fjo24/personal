@@ -55,7 +55,7 @@
                                         <a href="{{ route('hr.personal.show', $person) }}">
                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                         </a>
-                                        <a  href="{{ route('hr.personal.edit', $person) }}">
+                                        <a href="{{ route('hr.personal.edit', $person) }}">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
                                     </td>

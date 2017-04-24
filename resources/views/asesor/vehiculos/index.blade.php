@@ -59,7 +59,7 @@
                                         <a href="{{ route('asesor.vehiculos.show', $vehiculo) }}">
                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                         </a>
-                                        <a  href="{{ route('asesor.vehiculos.edit', $vehiculo) }}">
+                                        <a href="{{ route('asesor.vehiculos.edit', $vehiculo) }}">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -68,8 +68,8 @@
                             </tbody>
                         </table>
                         <div class="text-center">
-  
-</div>
+
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>

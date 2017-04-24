@@ -16,7 +16,7 @@
 
         <div class="form-group">
             {{ Form::radio('SEX', 'M', false) }} Hombre
-        <br>
+            <br>
             {{ Form::radio('SEX', 'F', false) }} Mujer
         </div>
         <div class="form-group">

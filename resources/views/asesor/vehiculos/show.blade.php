@@ -37,8 +37,8 @@
                             <td>Marca:</td>
                             <td>{{ $vehiculo->marca->nombre }}</td>
                         </tr>
-                            <td>Modelo:</td>
-                            <td>{{ $vehiculo->modelo->nombre }}</td>
+                        <td>Modelo:</td>
+                        <td>{{ $vehiculo->modelo->nombre }}</td>
                         </tr>
                         <tr>
                             <td>Año:</td>
@@ -48,21 +48,21 @@
                             <td>Color:</td>
                             <td>{{ $vehiculo->color }}</td>
                         </tr>
-                            <td>Combustible:</td>
-                            <td>
-                                @if($vehiculo->combustion_gas != 0)
+                        <td>Combustible:</td>
+                        <td>
+                            @if($vehiculo->combustion_gas != 0)
                                 Gasolina<br>
-                                @endif
-                                @if($vehiculo->combustion_glp != 0)
+                            @endif
+                            @if($vehiculo->combustion_glp != 0)
                                 GLP<br>
-                                @endif
-                                @if($vehiculo->combustion_gnv != 0)
+                            @endif
+                            @if($vehiculo->combustion_gnv != 0)
                                 GNV<br>
-                                @endif
-                                @if($vehiculo->combustion_petroleo != 0)
+                            @endif
+                            @if($vehiculo->combustion_petroleo != 0)
                                 Petrolero<br>
-                                @endif
-                            </td>
+                            @endif
+                        </td>
                         </tr>
                         <tr>
                             <td>Numero de Motor:</td>
