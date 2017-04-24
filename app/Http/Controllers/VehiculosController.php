@@ -141,6 +141,52 @@ class VehiculosController extends Controller
         })->export('xls');
     }
 
+    public function brands()
+    {
+        $repo = $this->vehicleBrandRepository;
+
+        $category_id = request()->get('category', -1);
+
+        $items = $repo->brands($category_id)->get();
+
+        $html = "<option value=\"\">- Seleccione</option>";
+
+        if(count($items) == 0)
+        {
+            return "{status:'empty', html: '$html'}";
+        }
+
+        foreach($items as $id => $item)
+        {
+            $html .= "<option value=\"{$item->id}\">{$item->title}</option>";
+        }
+
+        return "{status:'ok', html: '$html'}";
+    }
+
+    public function models()
+    {
+        $repo = $this->vehicleModelRepository;
+
+        $brand_id = request()->get('brand', -1);
+
+        $items = $repo->models($brand_id)->get();
+
+        $html = "<option value=\"\">- Seleccione</option>";
+
+        if(count($items) == 0)
+        {
+            return "{status:'empty', html: '$html'}";
+        }
+
+        foreach($items as $id => $item)
+        {
+            $html .= "<option value=\"{$item->id}\">{$item->title}</option>";
+        }
+
+        return "{status:'ok', html: '$html'}";
+    }
+
     public function destroy($id)
     {
         //

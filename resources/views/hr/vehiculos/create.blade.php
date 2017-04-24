@@ -2,8 +2,6 @@
 
 @section('title', 'Registro de Vehiculo')
 
-
-
 @section('contenido')
     {!! Form::model($makeForm, ['route' => 'hr.vehiculos.store', 'class' => 'form', 'method' => 'POST', 'id' => 'form']) !!}
     <div class="row">
@@ -123,5 +121,23 @@
             element.style.display='none';
         }
     }
+    </script>
+
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $('#category_id').on('change', function () {
+                FilterBrands({
+                    'e': this,
+                    'url': '{{ route('panel-vehicles-filters', ['filter' => 'brands']) }}'
+                });
+            });
+
+            $('#brand_id').on('change', function () {
+                FilterModels({
+                    'e': this,
+                    'url': '{{ route('panel-vehicles-filters', ['filter' => 'models']) }}'
+                });
+            });
+        });
     </script>
 @endsection

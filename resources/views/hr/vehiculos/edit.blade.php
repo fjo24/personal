@@ -90,7 +90,6 @@
                                               {!! Form::label('idcliente', 'Propietario') !!}
                                               {!! Form::select('idcliente', $clientes, null, ['class' => 'form-control', 'placeholder' => 'Seleccione propietario', 'required'])!!}
                                         </div>
-                                        <label>
                                         <b>No atender</b>
                                             <input type="checkbox" name="no_atender" id="check" value="no_atendido" onchange="javascript:showContent()" /></body><br><br>     
                                         <div id="content" style="display: none;">
