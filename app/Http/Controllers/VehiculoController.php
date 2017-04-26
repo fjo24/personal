@@ -85,7 +85,6 @@ class VehiculoController extends Controller
         $request['año'] = $dt;
 
         $vehiculo->update($request);
-
         Flash::success("El vehiculo ha sido editado con exito!")->important();
         return redirect()->route('asesor.vehiculo.index');
     }
