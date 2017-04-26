@@ -75,7 +75,7 @@ class VehiculoController extends Controller
         return view('asesor.vehiculo.edit')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes)->with('vehiculos', $vehiculos);
     }
 
-    public function update(VehiculoFormRequest $request, Vehiculo $vehiculos)
+    public function update(VehiculoFormRequest $request, Vehiculo $vehiculo)
     {
         $request = $request->all();
         $request['last_updated_by'] = Auth()->user()->id;
@@ -83,7 +83,9 @@ class VehiculoController extends Controller
         $dt->format('Y');
         $dt->startOfYear();
         $request['año'] = $dt;
-        $vehiculos->update($request);
+
+        $vehiculo->update($request);
+
         Flash::success("El vehiculo ha sido editado con exito!")->important();
         return redirect()->route('asesor.vehiculo.index');
     }

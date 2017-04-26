@@ -26,12 +26,12 @@ class VehiculoFormRequest extends Request
 
         return [
 
-            'placa'                => 'required|unique:vehiculo,placa,'. $id,
+            'placa'                => 'required|unique:vehiculo,placa,'.$id,
             'idmarca'              => 'required',
             'idmodelo'             => 'required',
             'año'                  => 'required|integer|max:'.$td,
             'color'                => 'required',
-            'num_motor'            => 'required|alpha_num|unique:vehiculo,num_motor,' . $id,
+            'num_motor'            => 'required|alpha_num|unique:vehiculo,num_motor,'.$id,
             'km'                   => 'required|numeric',
             'proxima_visita'       => 'required|date',
             'idcliente'            => 'required',
