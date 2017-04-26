@@ -88,7 +88,7 @@
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('idcliente', 'Propietario') !!}
-                                        {!! Form::select('idcliente', $clientes, null, ['class' => 'form-control', 'placeholder' => 'Seleccione propietario', 'required'])!!}
+                                        {!! Form::select('idcliente', $clientes, null, ['class' => 'form-control', 'placeholder' => '', 'required'])!!}
                                     </div>
                                         <b>No atender</b>
                                     <input type="checkbox" name="no_atender" id="check" value="1"
