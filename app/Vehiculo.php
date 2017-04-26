@@ -9,7 +9,7 @@ class Vehiculo extends Model
 {
 
     protected $table = "vehiculo";
-    protected $fillable = ['placa', 'idmarca', 'idmodelo', 'año', 'color', 'combustion_gas', 'combustion_glp', 'combustion_gnv', 'combustion_petroleo', 'num_motor', 'km', 'proxima_visita', 'no_atender', 'idcliente', 'motivo_no_atencion', 'LAST_UPDATED_BY', 'CREATED_BY'];
+    protected $fillable = ['placa', 'idmarca', 'idmodelo', 'año', 'color', 'combustion_gas', 'combustion_glp', 'combustion_gnv', 'combustion_petroleo', 'num_motor', 'km', 'proxima_visita', 'no_atender', 'idcliente', 'motivo_no_atencion', 'last_updated_by', 'created_by'];
 
     public function cliente()
     {
@@ -28,12 +28,12 @@ class Vehiculo extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'LAST_UPDATED_BY');
+        return $this->belongsTo('App\User', 'last_updated_by');
     }
 
     public function createby()
     {
-        return $this->belongsTo('App\User', 'CREATED_BY');
+        return $this->belongsTo('App\User', 'created_by');
     }
 
     public function getproximavisitaAttribute($date)

@@ -29,14 +29,14 @@ class AddVehiculoTable extends Migration
             $table->boolean('no_atender')->default('0');
             $table->integer('idcliente')->unsigned();
             $table->text('motivo_no_atencion')->nullable();
-            $table->integer('LAST_UPDATED_BY')->unsigned();
-            $table->integer('CREATED_BY')->unsigned();
+            $table->integer('last_updated_by')->unsigned();
+            $table->integer('created_by')->unsigned();
 
             $table->foreign('idmarca')->references('idmarca')->on('marca');
             $table->foreign('idmodelo')->references('idmodelo')->on('modelo');
             $table->foreign('idcliente')->references('idcliente')->on('cliente');
-            $table->foreign('CREATED_BY')->references('id')->on('users');
-            $table->foreign('LAST_UPDATED_BY')->references('id')->on('users');
+            $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('last_updated_by')->references('id')->on('users');
 
             $table->timestamps();
         });

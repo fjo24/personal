@@ -329,7 +329,7 @@ folder instead of downloading all of them to reduce the load. -->
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('asesor.vehiculos.index')}}">
+                            <a href="{{route('asesor.vehiculo.index')}}">
                                 <i class="fa fa-circle-o">
                                 </i>
                                 Vehiculo  v2

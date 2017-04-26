@@ -11,7 +11,7 @@
             <div class="box-tools">
 
                 <div class="text-center">
-                    <a class="btn btn-success btn-sm" href="{{ route('hr.vehiculos.index') }}">
+                    <a class="btn btn-success btn-sm" href="{{ route('asesor.vehiculo.index') }}">
                         Volver
                     </a>
                 </div>
@@ -22,7 +22,6 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="box box-solid box-primary">
                     <div class="box-header with-border">
-                        @include('hr.partials.errors')
                         <h3 class="box-title">
                             DATOS DEL REGISTRO
                         </h3>
@@ -104,7 +103,7 @@
         </div>
     </div>
     <div class="for text-center">
-        <a class="btn btn-success btn-sm" href="{{ route('hr.vehiculos.index') }}">
+        <a class="btn btn-success btn-sm" href="{{ route('asesor.vehiculo.index') }}">
             Regresar
         </a>
     </div>

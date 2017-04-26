@@ -1,4 +1,4 @@
-<option>--- Select State ---</option>
+<option>--- Selección de modelo ---</option>
 @if(!empty($modelos))
     @foreach($modelos as $key => $value)
         <option value="{{ $key }}">{{ $value }}</option>

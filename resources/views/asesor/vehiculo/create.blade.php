@@ -3,11 +3,11 @@
 @section('title', 'Registro de Vehiculo')
 
 @section('contenido')
-    {!! Form::open(['route' => 'asesor.vehiculos.store', 'class' => 'form', 'method' => 'POST', 'id' => 'form']) !!}
-    @include('asesor.vehiculos.partials.fileds')
+    {!! Form::open(['route' => 'asesor.vehiculo.store', 'class' => 'form', 'method' => 'POST', 'id' => 'form']) !!}
+    @include('asesor.vehiculo.partials.fields')
     <div class="for text-center">
         {!! Form::submit('Registrar', ['class'=> 'btn btn-primary']) !!}
-        <a class="btn btn-danger" href="{{ route('asesor.vehiculos.index')}}">
+        <a class="btn btn-danger" href="{{ route('asesor.vehiculo.index')}}">
             Cancelar
         </a>
     </div>
@@ -35,9 +35,6 @@
                 element.style.display = 'none';
             }
         }
-    </script>
-
-    <script type="text/javascript">
         $("select[name='idmarca']").change(function () {
             var idmarca = $(this).val();
             var token = $("input[name='_token']").val();

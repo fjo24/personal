@@ -5,11 +5,11 @@
 
 
 @section('contenido')
-    {!! Form::model($vehiculos, ['route' => ['asesor.vehiculos.update', $vehiculos], 'method' => 'PUT']) !!}
-    @include('asesor.vehiculos.partials.fileds')
+    {!! Form::model($vehiculos, ['route' => ['asesor.vehiculo.update', $vehiculos], 'method' => 'PUT']) !!}
+    @include('asesor.vehiculo.partials.fields')
     <div class="for text-center">
         {!! Form::submit('Editar', ['class'=> 'btn btn-primary']) !!}
-        <a class="btn btn-danger" href="{{ route('asesor.vehiculos.index')}}">
+        <a class="btn btn-danger" href="{{ route('asesor.vehiculo.index')}}">
             Cancelar
         </a>
     </div>
@@ -36,15 +36,5 @@
                 element.style.display = 'none';
             }
         }
-        //icheck
-        $(document).ready(function () {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_minimal',
-                radioClass: 'iradio_minimal',
-                increaseArea: '20%' // optional
-            });
-        });
-
-
     </script>
 @endsection

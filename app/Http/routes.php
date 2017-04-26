@@ -30,7 +30,8 @@ Route::get('excel',  'PersonalController@export')->name('export');
 
 //Vehiculos
 Route::group(['prefix' => 'asesor'], function () {
-    Route::resource('vehiculos', 'VehiculosController');
+    Route::resource('vehiculo', 'VehiculoController');
 });
-Route::post('select-ajax', ['as'=>'select-ajax','uses'=>'VehiculosController@selectAjax']);
-Route::get('excelvehiculos',  'VehiculosController@export')->name('exportvehiculos');
+Route::post('select-ajax', ['as'=>'select-ajax','uses'=>'VehiculoController@selectAjax']);
+
+Route::get('excelvehiculos',  'VehiculoController@export')->name('exportvehiculos');

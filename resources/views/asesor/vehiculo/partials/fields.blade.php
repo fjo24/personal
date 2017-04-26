@@ -3,7 +3,7 @@
         <div class="box">
             <div class="box-header with-border">
                 @include('hr.partials.errors')
-                <h3 class="box-title">Nuevo Vehiculo</h3>
+                <h3 class="box-title">Vehiculo</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -21,11 +21,11 @@
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('idmarca', 'Marca') !!}
-                                    {!! Form::select('idmarca', $marcas, null, ['class' => 'form-control', 'placeholder' => 'Seleccione marca', 'required'])!!}
+                                    {!! Form::select('idmarca', $marcas, null, ['class' => 'form-control', 'placeholder' => '--- Selección de modelo ---', 'required'])!!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('idmodelo', 'Modelo') !!}
-                                    {!! Form::select('idmodelo', $modelos, null, ['class' => 'form-control', 'placeholder' => 'Seleccione modelo', 'required'])!!}
+                                    {!! Form::select('idmodelo', $modelos, null, ['class' => 'form-control', 'placeholder' => '--- Selección de modelo ---', 'required'])!!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('año', 'Año') !!}
@@ -43,13 +43,21 @@
                                 <div class="form-group">
                                     {!! Form::label('combustion', 'Tipo de Combustión:') !!}
                                     <br>
-                                    {{ Form::checkbox('combustion_gas', '1', false) }} Gasolina
+                                    {{ Form::hidden('combustion_gas', 0) }}
+                                    {{ Form::checkbox('combustion_gas', '1') }} Gasolina
+                                    {{ $errors->first('combustion_gas', '<p class="error">:message</p>') }}
                                     <br>
-                                    {{ Form::checkbox('combustion_glp', '1', false) }} GLP
+                                    {{ Form::hidden('combustion_glp', 0) }}
+                                    {{ Form::checkbox('combustion_glp', '1') }} GLP
+                                    {{ $errors->first('combustion_glp', '<p class="error">:message</p>') }}
                                     <br>
-                                    {{ Form::checkbox('combustion_gnv', '1', false) }} GNV
+                                    {{ Form::hidden('combustion_gnv', 0) }}
+                                    {{ Form::checkbox('combustion_gnv', '1') }} GNV
+                                    {{ $errors->first('combustion_gnv', '<p class="error">:message</p>') }}
                                     <br>
-                                    {{ Form::checkbox('combustion_petroleo', '1', false) }} Petrolero
+                                    {{ Form::hidden('combustion_petroleo', 0) }}
+                                    {{ Form::checkbox('combustion_petroleo', '1') }} Petrolero
+                                    {{ $errors->first('combustion_petroleo', '<p class="error">:message</p>') }}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('num_motor', 'Numero de Motor') !!}
@@ -74,7 +82,7 @@
                                 {!! Form::select('idcliente', $clientes, null, ['class' => 'form-control', 'placeholder' => 'Seleccione propietario', 'required'])!!}
                             </div>
                             <b>No atender</b>
-                            <input type="checkbox" name="no_atender" id="check" value="no_atendido"
+                            <input type="checkbox" name="no_atender" id="check" value="1"
                                    onchange="javascript:showContent()"/></body><br><br>
                             <div id="content" style="display: none;">
                                 <div class="form-group">
