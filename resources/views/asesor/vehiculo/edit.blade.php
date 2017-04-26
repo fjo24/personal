@@ -36,5 +36,18 @@
                 element.style.display = 'none';
             }
         }
+        $("select[name='idmarca']").change(function () {
+            var idmarca = $(this).val();
+            var token = $("input[name='_token']").val();
+            $.ajax({
+                url: "{{route('select-ajax')}}",
+                method: 'POST',
+                data: {idmarca: idmarca, _token: token},
+                success: function (data) {
+                    $("select[name='idmodelo'").html('');
+                    $("select[name='idmodelo'").html(data.options);
+                }
+            });
+        });
     </script>
 @endsection
