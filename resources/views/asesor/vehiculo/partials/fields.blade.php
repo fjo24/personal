@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!--Contenido-->
-                        <div class="col-md-8 col-md-offset-2">
+                        <div class="col-md-12">
                             <div class="box box-primary"> 
                                     <div class="box-header with-border">
                                         <h3 class="box-title">Datos generales</h3>
