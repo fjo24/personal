@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace sisVentas;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
@@ -13,27 +13,27 @@ class Vehiculo extends Model
 
     public function cliente()
     {
-        return $this->belongsTo('App\Cliente', 'idcliente', 'idcliente');
+        return $this->belongsTo('sisVentas\Cliente', 'idcliente', 'idcliente');
     }
 
     public function modelo()
     {
-        return $this->belongsTo('App\Modelo', 'idmodelo', 'idmodelo');
+        return $this->belongsTo('sisVentas\Modelo', 'idmodelo', 'idmodelo');
     }
 
     public function marca()
     {
-        return $this->belongsTo('App\Marca', 'idmarca', 'idmarca');
+        return $this->belongsTo('sisVentas\Marca', 'idmarca', 'idmarca');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'last_updated_by');
+        return $this->belongsTo('sisVentas\User', 'last_updated_by');
     }
 
     public function createby()
     {
-        return $this->belongsTo('App\User', 'created_by');
+        return $this->belongsTo('sisVentas\User', 'created_by');
     }
 
     public function getproximavisitaAttribute($date)

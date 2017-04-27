@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace sisVentas;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
@@ -13,12 +13,12 @@ class Marca extends Model
 
     public function modelos()
     {
-        return $this->hasMany('App\Modelo');
+        return $this->hasMany('sisVentas\Modelo');
     }
     
     public function vehiculos()
     {
-        return $this->hasMany('App\Vehiculo');
+        return $this->hasMany('sisVentas\Vehiculo');
     }
 
 }

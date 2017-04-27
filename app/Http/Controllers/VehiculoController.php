@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace sisVentas\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\VehiculoFormRequest;
-use App\Vehiculo;
-use App\Marca;
-use App\User;
-use App\createby;
-use App\Modelo;
-use App\Cliente;
+use sisVentas\Http\Requests\VehiculoFormRequest;
+use sisVentas\Vehiculo;
+use sisVentas\Marca;
+use sisVentas\User;
+use sisVentas\createby;
+use sisVentas\Modelo;
+use sisVentas\Cliente;
 use Laracasts\Flash\Flash;
-use App\Http\Requests;
+use sisVentas\Http\Requests;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 

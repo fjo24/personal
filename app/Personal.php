@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace sisVentas;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,17 +15,17 @@ class Personal extends Model
 
     public function tipo_doc()
     {
-        return $this->hasOne('App\Tipo_docs');
+        return $this->hasOne('sisVentas\Tipo_docs');
     }
 
     public function position()
     {
-        return $this->hasOne('App\Position');
+        return $this->hasOne('sisVentas\Position');
     }
 
     public function ventas()
     {
-        return $this->hasMany('App\Per_ventas');
+        return $this->hasMany('sisVentas\Per_ventas');
     }
 
     public function getAmountAttribute()

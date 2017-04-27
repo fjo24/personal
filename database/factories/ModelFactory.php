@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(sisVentas\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
@@ -20,21 +20,21 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Tipo_docs::class, function (Faker\Generator $faker) {
+$factory->define(sisVentas\Tipo_docs::class, function (Faker\Generator $faker) {
     return [
         'codigo' => $faker->word,
         'nombre' => $faker->word,
     ];
 });
 
-$factory->define(App\Position::class, function (Faker\Generator $faker) {
+$factory->define(sisVentas\Position::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
         'condicion' => rand(0, 1),
     ];
 });
 
-$factory->define(App\Personal::class, function (Faker\Generator $faker) use ($factory) {
+$factory->define(sisVentas\Personal::class, function (Faker\Generator $faker) use ($factory) {
     return [
         'FIRST_NAME' => $faker->firstName,
         'SECOND_NAME' => $faker->firstName,
@@ -53,24 +53,24 @@ $factory->define(App\Personal::class, function (Faker\Generator $faker) use ($fa
         'TELEF1' => $faker->phoneNumber,
         'TELEF2' => $faker->phoneNumber,
         'ADDRESS' => $faker->address,
-        'idtipo_doc' => $factory->create(App\Tipo_docs::class)->id,
-        'idposition' => $factory->create(App\Position::class)->id,
+        'idtipo_doc' => $factory->create(sisVentas\Tipo_docs::class)->id,
+        'idposition' => $factory->create(sisVentas\Position::class)->id,
     ];
 });
 
-$factory->define(App\Per_ventas::class, function (Faker\Generator $faker) use ($factory) {
+$factory->define(sisVentas\Per_ventas::class, function (Faker\Generator $faker) use ($factory) {
     return [
 
         'date' => $faker->date(),
         'amount' => $faker->randomDigit,
         'invoice_id' => $faker->randomDigit,
         'status' => $faker->randomElement(['v', 'c']),
-        'personal_id' => $factory->create(App\Personal::class)->PERSON_ID,
+        'personal_id' => $factory->create(sisVentas\Personal::class)->PERSON_ID,
 
     ];
 });
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(sisVentas\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
@@ -80,34 +80,34 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 //factories de vehiculo:
 
-$factory->define(App\Cliente::class, function (Faker\Generator $faker) {
+$factory->define(sisVentas\Cliente::class, function (Faker\Generator $faker) {
     return [
         'full_name' => $faker->name,
         'effective_end_date' => $faker->date,
     ];
 });
 
-$factory->define(App\Marca::class, function (Faker\Generator $faker) {
+$factory->define(sisVentas\Marca::class, function (Faker\Generator $faker) {
     return [
         'nombre' => $faker->name,
         'condicion' => rand(0, 1),
     ];
 });
 
-$factory->define(App\Modelo::class, function (Faker\Generator $faker) use ($factory) {
+$factory->define(sisVentas\Modelo::class, function (Faker\Generator $faker) use ($factory) {
     return [
 
-        'idmarca' => $factory->create(App\Marca::class)->idmarca,
+        'idmarca' => $factory->create(sisVentas\Marca::class)->idmarca,
         'nombre' => $faker->name,
         'condicion' => rand(0, 1),
     ];
 });
 
-$factory->define(App\Vehiculo::class, function (Faker\Generator $faker) use ($factory) {
+$factory->define(sisVentas\Vehiculo::class, function (Faker\Generator $faker) use ($factory) {
     return [
         'placa' => $faker->firstName,
-        'idmarca' => $factory->create(App\Marca::class)->idmarca,
-        'idmodelo' => $factory->create(App\Modelo::class)->idmodelo,
+        'idmarca' => $factory->create(sisVentas\Marca::class)->idmarca,
+        'idmodelo' => $factory->create(sisVentas\Modelo::class)->idmodelo,
         'año' => $faker->date(),
         'color' => $faker->firstName,
         'combustion_gas' => array_rand(['si', 'no']),
@@ -118,9 +118,9 @@ $factory->define(App\Vehiculo::class, function (Faker\Generator $faker) use ($fa
         'km' => random_int(1, 200000),
         'proxima_visita' => $faker->date(),
         'no_atender' => array_rand(['atendido', 'no_atendido']),
-        'idcliente' => $factory->create(App\Cliente::class)->idcliente,
+        'idcliente' => $factory->create(sisVentas\Cliente::class)->idcliente,
         'motivo_no_atencion' => $faker->text,
-        'CREATED_BY' => $factory->create(App\User::class)->id,
-        'LAST_UPDATED_BY' => $factory->create(App\User::class)->id,
+        'CREATED_BY' => $factory->create(sisVentas\User::class)->id,
+        'LAST_UPDATED_BY' => $factory->create(sisVentas\User::class)->id,
     ];
 });

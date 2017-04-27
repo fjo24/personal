@@ -151,10 +151,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        sisVentas\Providers\AppServiceProvider::class,
+        sisVentas\Providers\AuthServiceProvider::class,
+        sisVentas\Providers\EventServiceProvider::class,
+        sisVentas\Providers\RouteServiceProvider::class,
         /*
          * Personal Providers...
          */
@@ -162,7 +162,7 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Styde\Html\HtmlServiceProvider::class,
-        //App\Providers\MakeModelProvider::class,
+        //sisVentas\Providers\MakeModelProvider::class,
         
     ],
 

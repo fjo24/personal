@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace sisVentas\Http\Requests;
 
-use App\Http\Requests\Request;
+use sisVentas\Http\Requests\Request;
 use Illuminate\Routing\Route;
 
 class PersonalRequest extends Request

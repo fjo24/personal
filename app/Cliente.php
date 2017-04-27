@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace sisVentas;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
@@ -13,6 +13,6 @@ class Cliente extends Model
 
     public function vehiculos()
     {
-        return $this->hasMany('App\Vehiculo');
+        return $this->hasMany('sisVentas\Vehiculo');
     }
 }

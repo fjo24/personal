@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Providers;
+namespace sisVentas\Providers;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use App\Http\ViewComposers\MakeModelForm;
+use sisVentas\Http\ViewComposers\MakeModelForm;
 
 class MakeModelProvider extends ServiceProvider
 {
@@ -14,7 +14,7 @@ class MakeModelProvider extends ServiceProvider
      */
     public function boot()
     {
-        view::composer(['hr.vehiculos.create', 'hr.vehiculos.edit'], 'App\Http\ViewComposers\MakeModelForm');
+        view::composer(['hr.vehiculos.create', 'hr.vehiculos.edit'], 'sisVentas\Http\ViewComposers\MakeModelForm');
     }
 
     /**

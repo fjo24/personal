@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace sisVentas\Http\Controllers;
 
-use App\Http\Requests\PersonalRequest;
-use App\Personal;
-use App\Position;
+use sisVentas\Http\Requests\PersonalRequest;
+use sisVentas\Personal;
+use sisVentas\Position;
 use Carbon\Carbon;
-use App\Tipo_docs;
+use sisVentas\Tipo_docs;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use Maatwebsite\Excel\Facades\Excel; 

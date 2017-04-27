@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace sisVentas;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -17,6 +17,6 @@ class User extends Authenticatable
     ];
     public function vehiculos()
     {
-        return $this->hasMany('App\Vehiculo');
+        return $this->hasMany('sisVentas\Vehiculo');
     }
 }
