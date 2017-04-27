@@ -17,6 +17,7 @@
     {!! Form::close() !!}
 @endsection
 
+
 @section('js')
     <script type="text/javascript">
         //datepicker
