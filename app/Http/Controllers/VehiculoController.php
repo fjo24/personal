@@ -69,7 +69,7 @@ class VehiculoController extends Controller
         $vehiculos = Vehiculo::find($id);
         $date = Carbon::now()->format('Y-m-d');
         $marcas = Marca::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmarca');
-        $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmodelo');
+        $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->where('idmarca', $vehiculos->idmarca)->lists('nombre', 'idmodelo');
         $clientes = Cliente::orderBy('full_name', 'ASC')->where('effective_end_date', '>=', $date)->lists('full_name', 'idcliente');
 
         return view('asesor.vehiculo.edit')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes)->with('vehiculos', $vehiculos);
