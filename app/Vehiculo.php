@@ -48,12 +48,12 @@ class Vehiculo extends Model
 
     public function getupdatedatAttribute($date)
     {
-        return $date = \Carbon\Carbon::parse($date)->format('d-m-Y');
+        return $date = \Carbon\Carbon::parse($date)->format('d-m-Y - h:i:s A');
     }
 
     public function getcreatedatAttribute($date)
     {
-        return $date = \Carbon\Carbon::parse($date)->format('d-m-Y');
+        return $date = \Carbon\Carbon::parse($date)->format('d-m-Y - h:i:s A');
     }
 
     public function setproximavisitaAttribute($date)
@@ -66,14 +66,6 @@ class Vehiculo extends Model
         $this->attributes['año'] = \Carbon\Carbon::parse($date)->format('Y-m-d');
     }
 
-    public function setupdatedatAttribute($date)
-    {
-        $this->attributes['updated_at'] = \Carbon\Carbon::parse($date)->format('Y-m-d');
-    }
 
-    public function setcreatedatAttribute($date)
-    {
-        $this->attributes['created_at'] = \Carbon\Carbon::parse($date)->format('Y-m-d');
-    }
 
 }
