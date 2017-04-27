@@ -91,8 +91,12 @@
                                         {!! Form::select('idcliente', $clientes, null, ['class' => 'form-control', 'placeholder' => '-- Seleccione Propietario --', 'required'])!!}
                                     </div>
                                     <b>No atender</b>
-                                    {!! Form::checkbox('no_atender')!!}
-                                   </body><br><br>
+                                    {{Form::hidden('no_atender',0)}}
+                                    <input type="checkbox" name="no_atender" id="check" value="1"
+                                           onchange="javascript:showContent()"
+                                           @if($vehiculos->no_atender) checked @endif
+                                    />
+                                    </body><br><br>
                                     <div id="content" style="display: none;">
 
                                         <div class="form-group">

@@ -50,5 +50,9 @@
                 }
             });
         });
+
+        window.onload = function() {
+            this.showContent();
+        };
     </script>
 @endsection
