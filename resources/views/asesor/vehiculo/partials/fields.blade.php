@@ -94,7 +94,7 @@
                                     {{Form::hidden('no_atender',0)}}
                                     <input type="checkbox" name="no_atender" id="check" value="1"
                                            onchange="javascript:showContent()"
-                                           @if($vehiculos->no_atender) checked @endif
+                                           @if(isset($vehiculos->no_atender)&& $vehiculos->no_atender) checked @endif
                                     />
                                     </body><br><br>
                                     <div id="content" style="display: none;">
