@@ -11,6 +11,6 @@ class MarcaSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Marca::class, 5)->create();
+        factory(sisVentas\Marca::class, 5)->create();
     }
 }
