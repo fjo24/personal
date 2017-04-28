@@ -52,7 +52,7 @@ return [
     |
      */
 
-    'timezone'        => 'America/Lima',
+    'timezone'        =>  'America/Lima',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,7 +163,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Styde\Html\HtmlServiceProvider::class,
         //sisVentas\Providers\MakeModelProvider::class,
-        
+
     ],
 
     /*
