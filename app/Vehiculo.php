@@ -36,9 +36,12 @@ class Vehiculo extends Model
         return $this->belongsTo('sisVentas\User', 'created_by');
     }
 
-    public function getproximavisitaAttribute($date)
+    public function getProximaVisitaAttribute($date)
     {
+        if($date != '0000-00-00'){
         return $date = \Carbon\Carbon::parse($date)->format('d-m-Y');
+        }
+        return '';
     }
 
     public function getañoAttribute($date)
@@ -56,16 +59,18 @@ class Vehiculo extends Model
         return $date = \Carbon\Carbon::parse($date)->format('d-m-Y - h:i:s A');
     }
 
-    public function setproximavisitaAttribute($date)
+    public function setProximaVisitaAttribute($date)
     {
-        $this->attributes['proxima_visita'] = \Carbon\Carbon::parse($date)->format('Y-m-d');
+        if($date == ''){
+            $this->attributes['proxima_visita'] = \Carbon\Carbon::parse('0000-00-00')->format('Y-m-d');
+        }else{
+            $this->attributes['proxima_visita'] = \Carbon\Carbon::parse($date)->format('Y-m-d');
+        }
     }
 
     public function setañoAttribute($date)
     {
         $this->attributes['año'] = \Carbon\Carbon::parse($date)->format('Y-m-d');
     }
-
-
 
 }

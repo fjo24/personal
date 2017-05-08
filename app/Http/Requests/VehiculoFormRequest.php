@@ -33,7 +33,7 @@ class VehiculoFormRequest extends Request
             'color'                => 'required',
             'num_motor'            => 'required|alpha_num|unique:vehiculo,num_motor,'.$id,
             'km'                   => 'required|numeric',
-            'proxima_visita'       => 'required|date',
+            'proxima_visita'       => 'date',
             'idcliente'            => 'required',
         ];
     }
