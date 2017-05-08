@@ -33,7 +33,11 @@
                                         <select id="año" name="año" class="form-control ">
                                             @for ($i = 0; $i < 30; $i++)
                                                 {{$y = Carbon\Carbon::now()->subYear($i)->format('Y')}}
-                                                <option value="{{$y}}">{{$y}}</option>
+                                                <option value="{{$y}}"
+                                                        @if(isset($vehiculos->año)&& $vehiculos->año == $y)
+                                                        selected
+                                                        @endif>{{$y}}
+                                                </option>
                                             @endfor
                                         </select>
                                     </div>
