@@ -37,7 +37,7 @@ Route::group(['prefix' => 'asesor'], function () {
 		'as' => 'search'
 	]);
 
-	Route::get('query', [
+	Route::post('query', [
 		'uses' => 'VehiculoController@query',
 		'as' => 'query'
 	]);
@@ -46,4 +46,4 @@ Route::post('select-ajax', ['as'=>'select-ajax','uses'=>'VehiculoController@sele
 
 Route::get('excelvehiculos',  'VehiculoController@export')->name('exportvehiculos');
 
-Route::get('excelquery',  'VehiculoController@exportquery')->name('exportquery');
+Route::post('excelquery',  'VehiculoController@exportquery')->name('exportquery');

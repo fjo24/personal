@@ -22,7 +22,7 @@
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('idmarca', 'Marca') !!}
-                                        {!! Form::select('idmarca', $marcas, null, ['class' => 'form-control', 'placeholder' => '--- Selección de modelo ---', 'required'])!!}
+                                        {!! Form::select('idmarca', $marcas, null, ['class' => 'form-control', 'placeholder' => '--- Selección de marca ---', 'required'])!!}
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('idmodelo', 'Modelo') !!}
@@ -80,7 +80,6 @@
                                         {!! Form::label('km', 'Kilometraje') !!}
                                         {!! Form::text('km', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
                                     </div>
-
                                     <div class="form-group">
                                         {!! Form::label('proxima_visita', 'Próxima Visita') !!}
                                         <div class="input-group date">
@@ -102,7 +101,6 @@
                                     />
                                     </body><br><br>
                                     <div id="content" style="display: none;">
-
                                         <div class="form-group">
                                             {!! Form::label('motivo_no_atencion', 'Motivo de no atención') !!}
                                             {!! Form::textarea('motivo_no_atencion', null, ['class' => 'form-control', 'size' => '30x2', 'placeholder' => '']) !!}
