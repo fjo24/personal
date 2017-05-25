@@ -12,6 +12,9 @@
             <div class="box-tools">
 
                 <div class="text-center">
+                    <a class="btn btn-success btn-sm" href="{{route('search')}}">
+                        BUSQUEDA AVANZADA
+                    </a>
                     <a class="btn btn-danger btn-sm" href="{{ route('asesor.vehiculo.create') }}">
                         NUEVO REGISTRO
                     </a>

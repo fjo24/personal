@@ -112,5 +112,34 @@ class VehiculoController extends Controller
             return response()->json(['options' => $data]);
         }
     }
-    
+
+    public function search()
+    {
+        $dat = Carbon::now()->format('Y-m-d');
+        $marcas = Marca::where('condicion', 1)->orderBy('nombre', 'ASC')->lists('nombre', 'idmarca');
+        $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmodelo');
+        $clientes = Cliente::orderBy('full_name', 'ASC')->where('effective_end_date', '>=', $dat)->lists('full_name', 'idcliente');
+        return view('asesor.vehiculo.search')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes);
+    }
+
+    public function query(Request $request)
+    {
+        $vehiculos= Vehiculo::search($request)->orderBy('placa', 'ASC')->get();
+        //dd($vehiculos);
+        return view('asesor.vehiculo.query')->with('vehiculos', $vehiculos);
+    }
+
+    public function exportquery(Request $request, Vehiculo $vehiculos)
+    {
+        Excel::create('Lista de vehiculos consultados', function ($excel) {
+
+            $excel->sheet('Listado', function ($sheet) {
+
+                $vehiculos= Vehiculo::search($vehiculos)->orderBy('placa', 'ASC')->get();
+             
+                $sheet->fromArray($vehiculos);
+
+            });
+        })->store('xls');
+    }
 }

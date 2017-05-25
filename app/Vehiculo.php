@@ -4,6 +4,7 @@ namespace sisVentas;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Carbon\Carbon;
 
 class Vehiculo extends Model
 {
@@ -73,4 +74,91 @@ class Vehiculo extends Model
         $this->attributes['año'] = \Carbon\Carbon::parse($date)->format('Y-m-d');
     }
 
+    public function scopeSearch($query, $date){
+
+        $marca= $date->idmarca;
+        $modelo= $date->idmodelo;
+        $año1=$date->año1;
+        $año2=$date->año2;
+        $combustion_gas= $date->combustion_gas;
+        $combustion_glp= $date->combustion_glp;
+        $combustion_gnv= $date->combustion_gnv;
+        $combustion_petroleo= $date->combustion_petroleo;
+        $proxima_visita1=$date->proxima_visita1;
+        $proxima_visita2=$date->proxima_visita2;
+        $no_atender= $date->no_atender;
+
+        if($combustion_gas=='1'){
+            $gas=$combustion_gas;
+        }else{
+            $gas=null;
+        }
+
+        if($combustion_glp=='1'){
+            $glp=$combustion_glp;
+        }else{
+            $glp=null;
+        }
+
+        if($combustion_gnv=='1'){
+            $gnv=$combustion_gnv;
+        }else{
+            $gnv=null;
+        }
+
+        if($combustion_petroleo=='1'){
+            $petroleo=$combustion_petroleo;
+        }else{
+            $petroleo=null;
+        }
+
+        if($no_atender=='1'){
+            $atendido=$no_atender;
+        }else{
+            $atendido=null;
+        }
+
+        if ($año1=="") {
+            $año1=null;
+        } else {
+        $año1=\Carbon\Carbon::create($date['año1'])->startOfYear()->format('Y-m-d');
+        }
+        if ($año2=="") {
+            $año2=null;
+        } else {
+        $año2=\Carbon\Carbon::create($date['año2'])->endOfYear()->format('Y-m-d');
+        }
+
+        if ($proxima_visita1=='') {
+            $proxima_visita1=null;
+        } else {
+        $proxima_visita1=\Carbon\Carbon::parse($date['proxima_visita1'])->format('Y-m-d');
+        }
+
+        if ($proxima_visita2=='') {
+            $proxima_visita2=null;
+        } else {
+        $proxima_visita2=\Carbon\Carbon::parse($date['proxima_visita2'])->format('Y-m-d');
+        }
+
+        if (($año1 != "")&&($año2 != ""))
+        {
+            $query->whereBetween('año', [$año1, $año2]);
+        }elseif($año1 != ""){
+            $query->where('año', '>=', $año1);    
+        }elseif($año2 != ""){
+            $query->where('año', '<=', $año2);
+        }
+
+        if (($proxima_visita1 != "")&&($proxima_visita2 != ""))
+        {
+            $query->whereBetween('proxima_visita', [$proxima_visita1, $proxima_visita2]);
+        }elseif($proxima_visita1 != ""){
+            $query->where('proxima_visita', '>=', $proxima_visita1);    
+        }elseif($proxima_visita2 != ""){
+            $query->where('proxima_visita', '<=', $proxima_visita2);
+        }
+  
+        return $query->where('idmarca', 'LIKE', "%$marca%")->where('idmodelo', 'LIKE', "%$modelo%")->where('combustion_gas', 'LIKE', "%$gas%")->where('combustion_glp', 'LIKE', "%$glp%")->where('combustion_gnv', 'LIKE', "%$gnv%")->where('combustion_petroleo', 'LIKE', "%$petroleo%")->where('no_atender', 'LIKE', "%$atendido%");
+    }
 }

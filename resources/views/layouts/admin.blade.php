@@ -29,7 +29,7 @@ folder instead of downloading all of them to reduce the load. -->
     <link href="{{ asset ('AdminLTE/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker3.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker.standalone.css') }}" rel="stylesheet" type="text/css">
-    
+    <link rel="stylesheet" href="{{ asset ('chosen/chosen.css') }}">
         <!-- icheck 
     <link href="AdminLTE/plugins/iCheck/square/red.css" rel="stylesheet">
     <script src="AdminLTE/plugins/iCheck/icheck.js"></script>
@@ -635,6 +635,7 @@ folder instead of downloading all of them to reduce the load. -->
 <!-- AdminLTE App -->
 <script src="{{asset('AdminLTE/dist/js/app.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
+<script src="{{ asset('chosen/chosen.jquery.js') }} "></script>
 <script src="{{asset('AdminLTE/dist/js/demo.js')}}"></script>
 <script src="{{asset('AdminLTE/plugins/datepicker/bootstrap-datepicker.min.js')}}"></script>
 <script src="{{asset('AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.es.js')}}"></script>
