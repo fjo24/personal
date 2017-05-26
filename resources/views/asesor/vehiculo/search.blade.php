@@ -3,7 +3,7 @@
 @section('title', 'Busqueda de Vehiculo')
 
 @section('contenido')
-        <form action="{{ route('query') }}" class="form-group" method="get">
+    <form action="{{ route('query') }}" class="form-group" method="get">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="box">
@@ -145,18 +145,18 @@
             autoclose: true
         });
         /*$("select[name='idmarca']").change(function () {
-            var idmarca = $(this).val();
-            var token = $("input[name='_token']").val();
-            $.ajax({
-                url: "{{route('select-ajax')}}",
-                method: 'POST',
-                data: {idmarca: idmarca, _token: token},
-                success: function (data) {
-                    $("select[name='idmodelo'").html('');
-                    $("select[name='idmodelo'").html(data.options);
-                }
-            });
-        });*/
+         var idmarca = $(this).val();
+         var token = $("input[name='_token']").val();
+         $.ajax({
+         url: "{{route('select-ajax')}}",
+         method: 'POST',
+         data: {idmarca: idmarca, _token: token},
+         success: function (data) {
+         $("select[name='idmodelo'").html('');
+         $("select[name='idmodelo'").html(data.options);
+         }
+         });
+         });*/
 
     </script>
 @endsection

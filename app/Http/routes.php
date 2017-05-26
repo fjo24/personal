@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::get('/home', 'HomeController@index');
@@ -11,15 +11,15 @@ Route::auth();
 
 //Personal
 Route::group(['prefix' => 'hr'], function () {
-    Route::post('/personal/{flag}', 'PersonalController@index')->name('all');
-    Route::resource('personal', 'PersonalController');
+	Route::post('/personal/{flag}', 'PersonalController@index')->name('all');
+	Route::resource('personal', 'PersonalController');
 });
 
 Route::get('excel',  'PersonalController@export')->name('export');
 
 //Vehiculos
 Route::group(['prefix' => 'asesor'], function () {
-    Route::resource('vehiculo', 'VehiculoController');
+	Route::resource('vehiculo', 'VehiculoController');
 
 	Route::get('search', [
 		'uses' => 'VehiculoController@search',

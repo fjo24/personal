@@ -40,7 +40,7 @@ class Vehiculo extends Model
     public function getProximaVisitaAttribute($date)
     {
         if($date != '0000-00-00'){
-        return $date = \Carbon\Carbon::parse($date)->format('d-m-Y');
+            return $date = \Carbon\Carbon::parse($date)->format('d-m-Y');
         }
         return '';
     }
@@ -123,31 +123,31 @@ class Vehiculo extends Model
         if ($año1=="") {
             $año1=null;
         } else {
-        $año1=\Carbon\Carbon::create($date['año1'])->startOfYear()->format('Y-m-d');
+            $año1=\Carbon\Carbon::create($date['año1'])->startOfYear()->format('Y-m-d');
         }
         if ($año2=="") {
             $año2=null;
         } else {
-        $año2=\Carbon\Carbon::create($date['año2'])->endOfYear()->format('Y-m-d');
+            $año2=\Carbon\Carbon::create($date['año2'])->endOfYear()->format('Y-m-d');
         }
 
         if ($proxima_visita1=='') {
             $proxima_visita1=null;
         } else {
-        $proxima_visita1=\Carbon\Carbon::parse($date['proxima_visita1'])->format('Y-m-d');
+            $proxima_visita1=\Carbon\Carbon::parse($date['proxima_visita1'])->format('Y-m-d');
         }
 
         if ($proxima_visita2=='') {
             $proxima_visita2=null;
         } else {
-        $proxima_visita2=\Carbon\Carbon::parse($date['proxima_visita2'])->format('Y-m-d');
+            $proxima_visita2=\Carbon\Carbon::parse($date['proxima_visita2'])->format('Y-m-d');
         }
 
         if (($año1 != "")&&($año2 != ""))
         {
             $query->whereBetween('año', [$año1, $año2]);
         }elseif($año1 != ""){
-            $query->where('año', '>=', $año1);    
+            $query->where('año', '>=', $año1);
         }elseif($año2 != ""){
             $query->where('año', '<=', $año2);
         }
@@ -156,21 +156,21 @@ class Vehiculo extends Model
         {
             $query->whereBetween('proxima_visita', [$proxima_visita1, $proxima_visita2]);
         }elseif($proxima_visita1 != ""){
-            $query->where('proxima_visita', '>=', $proxima_visita1);    
+            $query->where('proxima_visita', '>=', $proxima_visita1);
         }elseif($proxima_visita2 != ""){
             $query->where('proxima_visita', '<=', $proxima_visita2);
         }
 
         return $query
-        ->join('marca', 'marca.idmarca', '=', 'vehiculo.idmarca')
-        ->join('modelo', 'modelo.idmodelo', '=', 'vehiculo.idmodelo')
-        ->select('vehiculo.id', 'vehiculo.placa','vehiculo.idmarca', 'marca.nombre as Marca', 'vehiculo.idmodelo', 'modelo.nombre as Modelo', 'vehiculo.combustion_gas', 'vehiculo.combustion_glp', 'vehiculo.combustion_gnv', 'vehiculo.combustion_petroleo', 'vehiculo.num_motor', 'vehiculo.km', 'vehiculo.proxima_visita', 'vehiculo.no_atender', 'vehiculo.motivo_no_atencion')
-        ->where('vehiculo.idmarca', 'LIKE', "%$marca%")
-        ->where('vehiculo.idmodelo', 'LIKE', "%$modelo%")
-        ->where('vehiculo.combustion_gas', 'LIKE', "%$gas%")
-        ->where('vehiculo.combustion_glp', 'LIKE', "%$glp%")
-        ->where('vehiculo.combustion_gnv', 'LIKE', "%$gnv%")
-        ->where('vehiculo.combustion_petroleo', 'LIKE', "%$petroleo%")->where('vehiculo.no_atender', 'LIKE', "%$atendido%");
-       
+            ->join('marca', 'marca.idmarca', '=', 'vehiculo.idmarca')
+            ->join('modelo', 'modelo.idmodelo', '=', 'vehiculo.idmodelo')
+            ->select('vehiculo.id', 'vehiculo.placa','vehiculo.idmarca', 'marca.nombre as Marca', 'vehiculo.idmodelo', 'modelo.nombre as Modelo', 'vehiculo.combustion_gas', 'vehiculo.combustion_glp', 'vehiculo.combustion_gnv', 'vehiculo.combustion_petroleo', 'vehiculo.num_motor', 'vehiculo.km', 'vehiculo.proxima_visita', 'vehiculo.no_atender', 'vehiculo.motivo_no_atencion')
+            ->where('vehiculo.idmarca', 'LIKE', "%$marca%")
+            ->where('vehiculo.idmodelo', 'LIKE', "%$modelo%")
+            ->where('vehiculo.combustion_gas', 'LIKE', "%$gas%")
+            ->where('vehiculo.combustion_glp', 'LIKE', "%$glp%")
+            ->where('vehiculo.combustion_gnv', 'LIKE', "%$gnv%")
+            ->where('vehiculo.combustion_petroleo', 'LIKE', "%$petroleo%")->where('vehiculo.no_atender', 'LIKE', "%$atendido%");
+
     }
 }

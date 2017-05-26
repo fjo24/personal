@@ -124,7 +124,7 @@ class VehiculoController extends Controller
 
     public function query(Request $request)
     {
-       $vehiculos = Vehiculo::search($request)->orderBy('placa', 'ASC')->get('id');
+        $vehiculos = Vehiculo::search($request)->orderBy('placa', 'ASC')->get('id');
 
         Excel::create('Lista de vehiculos consultados', function ($excel) use($vehiculos) {
 

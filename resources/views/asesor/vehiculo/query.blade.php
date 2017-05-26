@@ -29,14 +29,14 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover display table-responsive table-condensed" id="table">
                             <thead>
-	                            <tr>
-	                                <th>PLACA</th>
-	                                <th>MARCA</th>
-	                                <th>MODELO</th>
-	                                <th>KM</th>
-	                                <th>CONDICION</th>
-	                                <th>ACCIONES</th>
-	                            </tr>
+                            <tr>
+                                <th>PLACA</th>
+                                <th>MARCA</th>
+                                <th>MODELO</th>
+                                <th>KM</th>
+                                <th>CONDICION</th>
+                                <th>ACCIONES</th>
+                            </tr>
                             </thead>
                             <tbody>
                             @foreach($vehiculos as $vehiculo)
