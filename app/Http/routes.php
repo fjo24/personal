@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
- */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -37,7 +26,7 @@ Route::group(['prefix' => 'asesor'], function () {
 		'as' => 'search'
 	]);
 
-	Route::post('query', [
+	Route::get('query', [
 		'uses' => 'VehiculoController@query',
 		'as' => 'query'
 	]);
@@ -46,4 +35,4 @@ Route::post('select-ajax', ['as'=>'select-ajax','uses'=>'VehiculoController@sele
 
 Route::get('excelvehiculos',  'VehiculoController@export')->name('exportvehiculos');
 
-Route::post('excelquery',  'VehiculoController@exportquery')->name('exportquery');
+Route::get('excelquery',  'VehiculoController@exportquery')->name('exportquery');

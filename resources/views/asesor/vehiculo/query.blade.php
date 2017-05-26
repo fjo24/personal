@@ -30,15 +30,11 @@
                         <table class="table table-hover display table-responsive table-condensed" id="table">
                             <thead>
 	                            <tr>
-	                                <th>Placa</th>
-	                                <th>Marca</th>
-	                                <th>Modelo</th>
-	                                <th>Tipo de combustión</th>
-	                                <th>Numero de motor</th>
-	                                <th>Kilometraje</th>
-	                                <th>Proxima visita</th>
-	                                <th>No atender</th>
-	                                <th>Motivo de no atención</th>
+	                                <th>PLACA</th>
+	                                <th>MARCA</th>
+	                                <th>MODELO</th>
+	                                <th>KM</th>
+	                                <th>CONDICION</th>
 	                                <th>ACCIONES</th>
 	                            </tr>
                             </thead>
@@ -55,33 +51,15 @@
                                         {{ $vehiculo->modelo->nombre }}
                                     </td>
                                     <td>
-                                        @if($vehiculo->combustion_gas != 0)
-                                            Gasolina
-                                        @endif
-                                        @if($vehiculo->combustion_glp != 0)
-                                            GLP
-                                        @endif
-                                        @if($vehiculo->combustion_gnv != 0)
-                                            GNV
-                                        @endif
-                                        @if($vehiculo->combustion_petroleo != 0)
-                                            Petrolero
-                                        @endif
-                                    </td>
-                                    <td>
-                                        {{ $vehiculo->num_motor }}
-                                    </td>
-                                    <td>
                                         {{ $vehiculo->km }}
                                     </td>
                                     <td>
-                                        {{ $vehiculo->proxima_visita }}
-                                    </td>
-                                    <td>
-                                        {{ $vehiculo->no_atender }}
-                                    </td>
-                                    <td>
-                                        {{ $vehiculo->motivo_no_atencion }}
+                                        @if($vehiculo->no_atender != 0)
+                                            No Atender
+                                        @else
+                                            Atendido
+                                        @endif
+
                                     </td>
                                     <td>
                                         <a href="{{ route('asesor.vehiculo.show', $vehiculo) }}">
@@ -122,6 +100,5 @@
                 }
             });
         });
-
     </script>
 @endsection

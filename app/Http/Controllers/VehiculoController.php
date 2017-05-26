@@ -124,11 +124,12 @@ class VehiculoController extends Controller
 
     public function query(Request $request)
     {
-        $vehiculos = Vehiculo::search($request)->orderBy('placa', 'ASC')->get();
+       $vehiculos = Vehiculo::search($request)->orderBy('placa', 'ASC')->get('id');
 
         Excel::create('Lista de vehiculos consultados', function ($excel) use($vehiculos) {
 
-            $excel->sheet('Listado', function ($sheet) use($vehiculos) {
+            $excel->sheet('Listado', function ($sheet) use ($vehiculos) {
+
 
                 $sheet->fromArray($vehiculos);
 
@@ -138,8 +139,10 @@ class VehiculoController extends Controller
         return view('asesor.vehiculo.query')->with('vehiculos', $vehiculos);
     }
 
+
     public function exportquery()
     {
         return response()->download(storage_path('excel/exports/'.Auth()->user()->id.'/Lista de vehiculos consultados.xls'));
     }
+
 }

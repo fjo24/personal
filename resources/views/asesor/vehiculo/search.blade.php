@@ -3,7 +3,7 @@
 @section('title', 'Busqueda de Vehiculo')
 
 @section('contenido')
-    {!! Form::open(['route' => 'query', 'class' => 'form', 'method' => 'POST', 'id' => 'form']) !!}
+        <form action="{{ route('query') }}" class="form-group" method="get">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="box">
@@ -144,7 +144,7 @@
             language: "es",
             autoclose: true
         });
-        $("select[name='idmarca']").change(function () {
+        /*$("select[name='idmarca']").change(function () {
             var idmarca = $(this).val();
             var token = $("input[name='_token']").val();
             $.ajax({
@@ -156,7 +156,7 @@
                     $("select[name='idmodelo'").html(data.options);
                 }
             });
-        });
+        });*/
 
     </script>
 @endsection

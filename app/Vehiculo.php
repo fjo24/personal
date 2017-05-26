@@ -10,7 +10,7 @@ class Vehiculo extends Model
 {
 
     protected $table = "vehiculo";
-    protected $fillable = ['placa', 'idmarca', 'idmodelo', 'año', 'color', 'combustion_gas', 'combustion_glp', 'combustion_gnv', 'combustion_petroleo', 'num_motor', 'km', 'proxima_visita', 'no_atender', 'idcliente', 'motivo_no_atencion', 'last_updated_by', 'created_by'];
+    protected $fillable = ['id', 'placa', 'idmarca', 'idmodelo', 'año', 'color', 'combustion_gas', 'combustion_glp', 'combustion_gnv', 'combustion_petroleo', 'num_motor', 'km', 'proxima_visita', 'no_atender', 'idcliente', 'motivo_no_atencion', 'last_updated_by', 'created_by'];
 
     public function cliente()
     {
@@ -77,6 +77,7 @@ class Vehiculo extends Model
     public function scopeSearch($query, $date){
 
         $marca= $date->idmarca;
+        $placa= $date->placa;
         $modelo= $date->idmodelo;
         $año1=$date->año1;
         $año2=$date->año2;
@@ -87,6 +88,7 @@ class Vehiculo extends Model
         $proxima_visita1=$date->proxima_visita1;
         $proxima_visita2=$date->proxima_visita2;
         $no_atender= $date->no_atender;
+
 
         if($combustion_gas=='1'){
             $gas=$combustion_gas;
@@ -158,7 +160,17 @@ class Vehiculo extends Model
         }elseif($proxima_visita2 != ""){
             $query->where('proxima_visita', '<=', $proxima_visita2);
         }
-  
-        return $query->where('idmarca', 'LIKE', "%$marca%")->where('idmodelo', 'LIKE', "%$modelo%")->where('combustion_gas', 'LIKE', "%$gas%")->where('combustion_glp', 'LIKE', "%$glp%")->where('combustion_gnv', 'LIKE', "%$gnv%")->where('combustion_petroleo', 'LIKE', "%$petroleo%")->where('no_atender', 'LIKE', "%$atendido%");
+
+        return $query
+        ->join('marca', 'marca.idmarca', '=', 'vehiculo.idmarca')
+        ->join('modelo', 'modelo.idmodelo', '=', 'vehiculo.idmodelo')
+        ->select('vehiculo.placa','vehiculo.idmarca', 'marca.nombre', 'vehiculo.idmodelo', 'modelo.nombre as Modelo', 'vehiculo.combustion_gas', 'vehiculo.combustion_glp', 'vehiculo.combustion_gnv', 'vehiculo.combustion_petroleo', 'vehiculo.num_motor', 'vehiculo.km', 'vehiculo.proxima_visita', 'vehiculo.no_atender', 'vehiculo.motivo_no_atencion')
+        ->where('vehiculo.idmarca', 'LIKE', "%$marca%")
+        ->where('vehiculo.idmodelo', 'LIKE', "%$modelo%")
+        ->where('vehiculo.combustion_gas', 'LIKE', "%$gas%")
+        ->where('vehiculo.combustion_glp', 'LIKE', "%$glp%")
+        ->where('vehiculo.combustion_gnv', 'LIKE', "%$gnv%")
+        ->where('vehiculo.combustion_petroleo', 'LIKE', "%$petroleo%")->where('vehiculo.no_atender', 'LIKE', "%$atendido%");
+       
     }
 }
