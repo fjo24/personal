@@ -17,6 +17,8 @@ Route::group(['prefix' => 'hr'], function () {
 
 Route::get('excel',  'PersonalController@export')->name('export');
 
+Route::post('select-ajax', ['as'=>'select-ajax','uses'=>'VehiculoController@selectAjax']);
+
 //Vehiculos
 Route::group(['prefix' => 'asesor'], function () {
 	Route::resource('vehiculo', 'VehiculoController');
@@ -30,8 +32,9 @@ Route::group(['prefix' => 'asesor'], function () {
 		'uses' => 'VehiculoController@query',
 		'as' => 'query'
 	]);
+
 });
-Route::post('select-ajax', ['as'=>'select-ajax','uses'=>'VehiculoController@selectAjax']);
+
 
 Route::get('excelvehiculos',  'VehiculoController@export')->name('exportvehiculos');
 
