@@ -153,7 +153,6 @@
                 });
 
                 $("select[name='idmarca']").change(function () {
-                    alert('cambio');
 
                     var idmarca = $(this).val();
                     var token = $("input[name='_token']").val();
