@@ -25,11 +25,11 @@
                                         {!! Form::open(['route' => 'asesor.vehiculo.store', 'method' => 'POST']) !!}
                                         <div class="form-group">
                                             {!! Form::label('idmarca', 'MARCA') !!}
-                                            {!! Form::select('idmarca', $marcas, null, ['class' => 'form-control', 'aria-describedby'=>'buscador', 'placeholder' => ''])!!}
+                                            {!! Form::select('idmarca', $marcas, null, ['class' => 'form-control', 'aria-describedby'=>'buscador', 'placeholder' => '--- Selección de marca ---'])!!}
                                         </div>
                                         <div class="form-group">
                                             {!! Form::label('idmodelo', 'MODELO')!!}
-                                            {!! Form::select('idmodelo', $modelos, null, ['class' => 'form-control', 'aria-describedby'=>'buscador', 'placeholder' => ''])!!}
+                                            {!! Form::select('idmodelo', $modelos, null, ['class' => 'form-control', 'aria-describedby'=>'buscador', 'placeholder' => '--- Selección de modelo ---'])!!}
                                         </div>
                                         {!! Form::close() !!}
 
@@ -153,6 +153,7 @@
                 });
 
                 $("select[name='idmarca']").change(function () {
+                    alert('cambio');
 
                     var idmarca = $(this).val();
                     var token = $("input[name='_token']").val();
