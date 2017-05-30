@@ -19,10 +19,10 @@ class AddVehiculoTable extends Migration
             $table->integer('idmodelo')->unsigned();
             $table->date('año');
             $table->string('color');
-            $table->boolean('combustion_gas')->default('0');
+           /* $table->boolean('combustion_gas')->default('0');
             $table->boolean('combustion_glp')->default('0');
             $table->boolean('combustion_gnv')->default('0');
-            $table->boolean('combustion_petroleo')->default('0');
+            $table->boolean('combustion_petroleo')->default('0');*/
             $table->string('num_motor');
             $table->integer('km');
             $table->date('proxima_visita');

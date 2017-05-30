@@ -48,5 +48,10 @@
                 }
             });
         });
+        $('.select-combustions').chosen({
+                placeholder_text_multiple:"SELECCIONE TIPO DE COMBUSTION",
+                max_selected_options    : 4,
+                no_results_text         : "TIPO DE COMBUSTION NO ENCONTRADA"
+                            });
     </script>
 @endsection

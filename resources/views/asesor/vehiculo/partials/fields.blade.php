@@ -46,29 +46,8 @@
                                         {!! Form::text('color', null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::label('combustion', 'Tipo de Combustión:') !!}
-                                        <br>
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                {{ Form::hidden('combustion_gas', 0) }}
-                                                {{ Form::checkbox('combustion_gas', '1') }} Gasolina
-                                                {{ $errors->first('combustion_gas', '<p class="error">:message</p>') }}
-                                                <br>
-                                                {{ Form::hidden('combustion_glp', 0) }}
-                                                {{ Form::checkbox('combustion_glp', '1') }} GLP
-                                                {{ $errors->first('combustion_glp', '<p class="error">:message</p>') }}
-                                                <br>
-                                            </div>
-                                            <div class="col-md-6">
-                                                {{ Form::hidden('combustion_gnv', 0) }}
-                                                {{ Form::checkbox('combustion_gnv', '1') }} GNV
-                                                {{ $errors->first('combustion_gnv', '<p class="error">:message</p>') }}
-                                                <br>
-                                                {{ Form::hidden('combustion_petroleo', 0) }}
-                                                {{ Form::checkbox('combustion_petroleo', '1') }} Petrolero
-                                                {{ $errors->first('combustion_petroleo', '<p class="error">:message</p>') }}
-                                            </div>
-                                        </div>
+                                        {!! Form::label('combustions', 'Seleccione tipo de combustión') !!}
+                                        {!! Form::select('combustions[]', $combustions, null, ['class' => 'form-control select-combustions', 'multiple', 'required']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-6">

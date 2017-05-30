@@ -15,7 +15,7 @@
                     <a class="btn btn-info btn-sm" href="{{route('search')}}">
                         ATRAS
                     </a>
-                    <a class="btn btn-success btn-sm" href="{{route('exportquery')}}">
+                    <a class="btn btn-success btn-sm" href="{{route('exportquery', '$vehiculos')}}">
                         EXPORTAR
                     </a>
                 </div>
@@ -45,10 +45,10 @@
                                         {{ $vehiculo->placa }}
                                     </td>
                                     <td>
-                                        {{ $vehiculo->marca->nombre }}
+                                        {{ $vehiculo->marca }}
                                     </td>
                                     <td>
-                                        {{ $vehiculo->modelo->nombre }}
+                                        {{ $vehiculo->modelo }}
                                     </td>
                                     <td>
                                         {{ $vehiculo->km }}
@@ -62,10 +62,10 @@
 
                                     </td>
                                     <td>
-                                        <a href="{{ route('asesor.vehiculo.show', $vehiculo) }}">
+                                        <a href="{{ route('asesor.vehiculo.show', $vehiculo->id) }}">
                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                         </a>
-                                        <a href="{{ route('asesor.vehiculo.edit', $vehiculo) }}">
+                                        <a href="">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
                                     </td>

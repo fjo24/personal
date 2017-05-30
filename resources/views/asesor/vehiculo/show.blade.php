@@ -46,20 +46,12 @@
                             <td>Color:</td>
                             <td>{{ $vehiculo->color }}</td>
                         </tr>
+                        <tr>
                         <td>Combustible:</td>
                         <td>
-                            @if($vehiculo->combustion_gas != 0)
-                                Gasolina<br>
-                            @endif
-                            @if($vehiculo->combustion_glp != 0)
-                                GLP<br>
-                            @endif
-                            @if($vehiculo->combustion_gnv != 0)
-                                GNV<br>
-                            @endif
-                            @if($vehiculo->combustion_petroleo != 0)
-                                Petrolero<br>
-                            @endif
+                            @foreach($vehiculo->manyCombustions as $combustion)
+                                {{ $combustion->nombre }}
+                            @endforeach
                         </td>
                         </tr>
                         <tr>

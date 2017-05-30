@@ -37,6 +37,16 @@ class Vehiculo extends Model
         return $this->belongsTo('sisVentas\User', 'created_by');
     }
 
+    public function manyCombustions()
+    {
+        return $this->belongsToMany('sisVentas\Combustion');
+    }
+
+    public function getCombustionsAttribute()
+    {
+        return $this->manyCombustions()->lists('combustion_id')->toArray();
+    }
+
     public function getProximaVisitaAttribute($date)
     {
         if($date != '0000-00-00'){
@@ -74,7 +84,7 @@ class Vehiculo extends Model
         $this->attributes['año'] = \Carbon\Carbon::parse($date)->format('Y-m-d');
     }
 
-    public function scopeSearch($query, $date){
+        public function scopeSearch($query, $date){
 
         $marca= $date->idmarca;
         $placa= $date->placa;
@@ -164,7 +174,7 @@ class Vehiculo extends Model
         return $query
             ->join('marca', 'marca.idmarca', '=', 'vehiculo.idmarca')
             ->join('modelo', 'modelo.idmodelo', '=', 'vehiculo.idmodelo')
-            ->select('vehiculo.id', 'vehiculo.placa','vehiculo.idmarca', 'marca.nombre as Marca', 'vehiculo.idmodelo', 'modelo.nombre as Modelo', 'vehiculo.combustion_gas', 'vehiculo.combustion_glp', 'vehiculo.combustion_gnv', 'vehiculo.combustion_petroleo', 'vehiculo.num_motor', 'vehiculo.km', 'vehiculo.proxima_visita', 'vehiculo.no_atender', 'vehiculo.motivo_no_atencion')
+            ->select('vehiculo.id', 'vehiculo.placa','vehiculo.idmarca', 'marca.nombre as marca', 'vehiculo.idmodelo', 'modelo.nombre as modelo', 'vehiculo.combustion_gas', 'vehiculo.combustion_glp', 'vehiculo.combustion_gnv', 'vehiculo.combustion_petroleo', 'vehiculo.num_motor', 'vehiculo.km', 'vehiculo.proxima_visita', 'vehiculo.no_atender', 'vehiculo.motivo_no_atencion')
             ->where('vehiculo.idmarca', 'LIKE', "%$marca%")
             ->where('vehiculo.idmodelo', 'LIKE', "%$modelo%")
             ->where('vehiculo.combustion_gas', 'LIKE', "%$gas%")

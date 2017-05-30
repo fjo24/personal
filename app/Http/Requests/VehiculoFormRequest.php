@@ -35,6 +35,7 @@ class VehiculoFormRequest extends Request
             'km'                   => 'required|numeric',
             'proxima_visita'       => 'date',
             'idcliente'            => 'required',
+            //'combustion'           => 'required',
         ];
     }
 }

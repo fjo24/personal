@@ -73,21 +73,21 @@
                                                     {!! Form::label('combustion', 'TIPO DE COMBUSTION:') !!}
                                                     <br>
                                                     <div class="col-md-6">
-                                                        {{ Form::hidden('combustion_gas', 0) }}
+                                                        {{ Form::hidden('combustion_gas', null) }}
                                                         {{ Form::checkbox('combustion_gas', '1') }} GASOLINA
                                                         {{ $errors->first('combustion_gas', '<p class="error">:message</p>') }}
                                                         <br>
-                                                        {{ Form::hidden('combustion_glp', 0) }}
-                                                        {{ Form::checkbox('combustion_glp', '1') }} GLP
+                                                        {{ Form::hidden('combustion_glp', null) }}
+                                                        {{ Form::checkbox('combustion_glp', '1'), null }} GLP
                                                         {{ $errors->first('combustion_glp', '<p class="error">:message</p>') }}
                                                         <br>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        {{ Form::hidden('combustion_gnv', 0) }}
+                                                        {{ Form::hidden('combustion_gnv', null) }}
                                                         {{ Form::checkbox('combustion_gnv', '1') }} GNV
                                                         {{ $errors->first('combustion_gnv', '<p class="error">:message</p>') }}
                                                         <br>
-                                                        {{ Form::hidden('combustion_petroleo', 0) }}
+                                                        {{ Form::hidden('combustion_petroleo', null) }}
                                                         {{ Form::checkbox('combustion_petroleo', '1') }} PETROLEO
                                                         {{ $errors->first('combustion_petroleo', '<p class="error">:message</p>') }}
                                                     </div>
@@ -153,8 +153,7 @@
                 });
 
                 $("select[name='idmarca']").change(function () {
-                    alert('cambio');
-
+       
                     var idmarca = $(this).val();
                     var token = $("input[name='_token']").val();
                     $.ajax({
