@@ -4,23 +4,6 @@
 
 @section('contenido')
     <div class="box">
-        @include('asesor.vehiculo.partials.success')
-        <div class="box-header with-border">
-            <h3 class="box-title">
-                Listado de vehiculos
-            </h3>
-            <div class="box-tools">
-
-                <div class="text-center">
-                    <a class="btn btn-info btn-sm" href="{{route('search')}}">
-                        ATRAS
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
         <div class="box-body">
             <div class="row">
                 <div class="col-xs-12">
@@ -71,9 +54,7 @@
                             </tbody>
                         </table>
                         <div class="text-center">
-                    <a class="btn btn-success btn-sm" href="{{route('exportquery')}}">
-                        EXPORTAR
-                    </a>
+
                         </div>
                     </div>
                     <!-- /.box-body -->

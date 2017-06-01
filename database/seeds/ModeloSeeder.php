@@ -11,6 +11,6 @@ class ModeloSeeder extends Seeder
      */
     public function run()
     {
-        factory(sisVentas\Modelo::class, 25)->create();
+        factory(sisVentas\Modelo::class, 15)->create();
     }
 }

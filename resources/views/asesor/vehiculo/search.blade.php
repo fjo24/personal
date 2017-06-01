@@ -70,27 +70,8 @@
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    {!! Form::label('combustion', 'TIPO DE COMBUSTION:') !!}
-                                                    <br>
-                                                    <div class="col-md-6">
-                                                        {{ Form::hidden('combustion_gas', null) }}
-                                                        {{ Form::checkbox('combustion_gas', '1') }} GASOLINA
-                                                        {{ $errors->first('combustion_gas', '<p class="error">:message</p>') }}
-                                                        <br>
-                                                        {{ Form::hidden('combustion_glp', null) }}
-                                                        {{ Form::checkbox('combustion_glp', '1'), null }} GLP
-                                                        {{ $errors->first('combustion_glp', '<p class="error">:message</p>') }}
-                                                        <br>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        {{ Form::hidden('combustion_gnv', null) }}
-                                                        {{ Form::checkbox('combustion_gnv', '1') }} GNV
-                                                        {{ $errors->first('combustion_gnv', '<p class="error">:message</p>') }}
-                                                        <br>
-                                                        {{ Form::hidden('combustion_petroleo', null) }}
-                                                        {{ Form::checkbox('combustion_petroleo', '1') }} PETROLEO
-                                                        {{ $errors->first('combustion_petroleo', '<p class="error">:message</p>') }}
-                                                    </div>
+                                                    {!! Form::label('combustions', 'Seleccione tipo de combustión') !!}
+                                                    {!! Form::select('combustions[]', $combustions, null, ['class' => 'form-control select-combustions', 'multiple']) !!}
                                                 </div>
                                             </div>
                                         </div>
@@ -166,6 +147,10 @@
                         }
                     });
                 });
-
+                $('.select-combustions').chosen({
+                        placeholder_text_multiple:"SELECCIONE TIPO DE COMBUSTION",
+                        max_selected_options    : 4,
+                        no_results_text         : "TIPO DE COMBUSTION NO ENCONTRADA"
+                                    });
             </script>
 @endsection

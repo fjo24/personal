@@ -11,6 +11,6 @@ class EmpleadosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(sisVentas\Personal::class, 20)->create();
+        factory(sisVentas\Personal::class, 10)->create();
     }
 }

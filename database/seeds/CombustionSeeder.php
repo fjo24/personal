@@ -14,7 +14,7 @@ class CombustionSeeder extends Seeder
         DB::table('combustion')->insert([
             'nombre' => 'GAS',
 ]);
-                DB::table('combustion')->insert([
+        DB::table('combustion')->insert([
             'nombre' => 'GLP',
 ]);
         DB::table('combustion')->insert([
