@@ -52,7 +52,7 @@ class VehiculoController extends Controller
 
         $vehiculos = new Vehiculo($request);
         $vehiculos->save();
-        $vehiculos->combustions()->sync($request['combustions']);
+        $vehiculos->manyCombustions()->sync($request['combustions']);
 
         Flash::success("Se ha registrado de manera exitosa!")->important();
 
@@ -94,15 +94,10 @@ class VehiculoController extends Controller
 
     public function export(Request $request, Vehiculo $vehiculos)
     {
-
         Excel::create('Lista de vehiculos', function ($excel) {
-
             $excel->sheet('Listado', function ($sheet) {
-
                 $vehiculos = Vehiculo::orderBy('placa', 'ASC')->get();
-
                 $sheet->fromArray($vehiculos);
-
             });
         })->export('xls');
     }
@@ -120,6 +115,7 @@ class VehiculoController extends Controller
     public function search()
     {
         $dat = Carbon::now()->format('Y-m-d');
+        
         $marcas = Marca::where('condicion', 1)->orderBy('nombre', 'ASC')->lists('nombre', 'idmarca');
         $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmodelo');
         $clientes = Cliente::orderBy('full_name', 'ASC')->where('effective_end_date', '>=', $dat)->lists('full_name', 'idcliente');
@@ -130,24 +126,26 @@ class VehiculoController extends Controller
     public function query(Request $request)
     {
         $vehiculos = Vehiculo::search($request)->orderBy('placa', 'ASC')->get('');
+        $placa=1;
         //dd($request->combustions);
         Excel::create('Lista de vehiculos consultados', function ($excel) use($vehiculos) {
             $excel->sheet('Listado', function ($sheet) use ($vehiculos) {
                 $sheet->fromArray($vehiculos);
             });
         })->store('xls', storage_path('excel/exports/'.Auth()->user()->id.'/'));
-        return view('asesor.vehiculo.query')->with('vehiculos', $vehiculos);
+        return view('asesor.vehiculo.query')->with('vehiculos', $vehiculos)->with('placa', $placa);
     }
     public function exportquery()
     {
-       // $vehiculos = Vehiculo::orderBy('placa', 'ASC')->get('');
-        //$vehiculos = Vehiculo::with('marca', 'modelo', 'cliente')->orderBy('placa', 'DESC')->get();
+        $vehiculos = Vehiculo::orderBy('placa', 'ASC')->get('');
+        $vehiculos = Vehiculo::with('marca', 'modelo', 'cliente')->orderBy('placa', 'DESC')->get();
        Excel::create('New file', function($excel) {
             $excel->sheet('New sheet', function($sheet) {
                 $sheet->loadView('asesor.vehiculo.query')->with('vehiculos', $vehiculos);
             });
         })->export('xls');
-        /*return response()->download(storage_path('excel/exports/'.Auth()->user()->id.'/Lista de vehiculos consultados.xls'));*/
+        return response()->download(storage_path('excel/exports/'.Auth()->user()->id.'/Lista de vehiculos consultados.xls'));
+    
     }
 
 }

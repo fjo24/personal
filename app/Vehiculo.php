@@ -93,19 +93,18 @@ class Vehiculo extends Model
         $proxima_visita2=array_get($date, 'proxima_visita2', false);
         $no_atender=array_get($date, 'no_atender', false);
         $combustions=array_get($date, 'combustions', false);
-      //  $collection=Collection::
-        //dd($combustion);
+        //$collections=Collection::make($combustions);
+       //dd($combustions);
 
+       // $collections=Collection::make($combustions);
+        //dd($collections);
         return $query
         ->join('marca', 'marca.idmarca', '=', 'vehiculo.idmarca')
         ->join('modelo', 'modelo.idmodelo', '=', 'vehiculo.idmodelo')
         ->join('combustion_vehiculo', 'combustion_vehiculo.vehiculo_id', '=', 'vehiculo.id')
         //->join('combustion', 'combustion.id', '=', 'combustion_vehiculo.combustion_id')
-
         ->when($combustions, function ($query) use ($combustions) {
-       // foreach ($combustions as $combustion) {
-        return $query->whereIn('combustion_vehiculo.combustion_id', $combustions);
-        //}
+        return $query->WhereIn('combustion_vehiculo.combustion_id', $combustions);
         })
         ->when($marca, function ($query) use ($marca) {
         return $query->where('marca.idmarca', $marca);
@@ -133,6 +132,5 @@ class Vehiculo extends Model
         return $query->where('vehiculo.no_atender', $no_atender);
         })
         ->select('vehiculo.id', 'vehiculo.placa', 'modelo.nombre as modelo', 'marca.nombre as marca', 'vehiculo.num_motor', 'vehiculo.km', 'vehiculo.proxima_visita', 'vehiculo.no_atender', 'vehiculo.motivo_no_atencion');
-
     }
 }

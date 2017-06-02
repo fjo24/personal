@@ -37,36 +37,39 @@
                             </tr>
                             </thead>
                             <tbody>
+                            
                             @foreach($vehiculos as $vehiculo)
-                                <tr>
-                                    <td>
-                                        {{ $vehiculo->placa }}
-                                    </td>
-                                    <td>
-                                        {{ $vehiculo->marca }}
-                                    </td>
-                                    <td>
-                                        {{ $vehiculo->modelo }}
-                                    </td>
-                                    <td>
-                                        {{ $vehiculo->km }}
-                                    </td>
-                                    <td>
-                                        @if($vehiculo->no_atender != 0)
-                                            No Atender
-                                        @else
-                                            Atendido
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('asesor.vehiculo.show', $vehiculo->id) }}">
-                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                        </a>
-                                        <a href="{{ route('asesor.vehiculo.edit', $vehiculo->id) }}">
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                                @if($vehiculo->placa!=$placa && $placa=$vehiculo->placa)
+                                    <tr>
+                                        <td>                                            
+                                            {{ $vehiculo->placa }}
+                                        </td>
+                                        <td>
+                                            {{ $vehiculo->marca }}
+                                        </td>
+                                        <td>
+                                            {{ $vehiculo->modelo }}
+                                        </td>
+                                        <td>
+                                            {{ $vehiculo->km }}
+                                        </td>
+                                        <td>
+                                            @if($vehiculo->no_atender != 0)
+                                                No Atender
+                                            @else
+                                                Atendido
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('asesor.vehiculo.show', $vehiculo->id) }}">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="{{ route('asesor.vehiculo.edit', $vehiculo->id) }}">
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
                             </tbody>
                         </table>
