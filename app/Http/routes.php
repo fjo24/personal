@@ -38,4 +38,4 @@ Route::group(['prefix' => 'asesor'], function () {
 
 Route::get('excelvehiculos',  'VehiculoController@export')->name('exportvehiculos');
 
-Route::get('excelquery',  'VehiculoController@exportquery')->name('exportquery');
+Route::get('exportquery',  'VehiculoController@exportquery')->name('exportquery');

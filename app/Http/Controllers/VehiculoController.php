@@ -135,17 +135,66 @@ class VehiculoController extends Controller
         })->store('xls', storage_path('excel/exports/'.Auth()->user()->id.'/'));
         return view('asesor.vehiculo.query')->with('vehiculos', $vehiculos)->with('placa', $placa);
     }
+
     public function exportquery()
     {
-        $vehiculos = Vehiculo::orderBy('placa', 'ASC')->get('');
-        $vehiculos = Vehiculo::with('marca', 'modelo', 'cliente')->orderBy('placa', 'DESC')->get();
+       
+       // dd($vehiculos);
+       // $vehiculos = Vehiculo::with('marca', 'modelo', 'cliente')->orderBy('placa', 'DESC')->get();
        Excel::create('New file', function($excel) {
             $excel->sheet('New sheet', function($sheet) {
-                $sheet->loadView('asesor.vehiculo.query')->with('vehiculos', $vehiculos);
+                 $vehiculos = Vehiculo::orderBy('placa', 'ASC')->get();
+                $sheet->loadView('asesor.vehiculo.exportquery')->with('vehiculos', $vehiculos);
             });
         })->export('xls');
-        return response()->download(storage_path('excel/exports/'.Auth()->user()->id.'/Lista de vehiculos consultados.xls'));
-    
+       //  return view('asesor.vehiculo.exportquery')->with('vehiculos', $vehiculos);
     }
-
 }
+
+/*
+
+
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>PLACA</th>
+                                <th>NOMBRE MARCA</th>
+                                <th>NOMBRE MODELO</th>
+                                <th>TIPO  DE COMBUSTION</th>
+                                <th>NUMERO DE MOTOR</th>
+                                <th>KILOMETRAJE</th>
+                                <th>PROXIMA VISITA</th>
+                                <th>NO ATENDER</th>
+                                <th>MOTIVO DE NO ATENCION</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($vehiculos as $vehiculo)
+                        <tbody>
+                        <tr>
+                            <td>
+                                {{ $vehiculo->placa }}
+                            </td>
+                            <td>{{ $vehiculo->marca->nombre }}</td>
+                            <td>{{ $vehiculo->modelo->nombre }}</td>
+                            <td>
+                            @foreach($vehiculo->manyCombustions as $combustion)
+                                {{ $combustion->nombre }}
+                            @endforeach
+                            </td>
+                            <td>{{ $vehiculo->num_motor }}</td>
+                            <td>{{ $vehiculo->km }}</td>
+                            <td>{{ $vehiculo->proxima_visita }}</td>
+                            <td>
+                                @if($vehiculo->no_atender != 0)
+                                    No Atender
+                                @else
+                                    Atendido
+                                @endif
+                            </td>
+                            <td>{{ $vehiculo->motivo_no_atencion }}</td>
+                        </tr>
+                        </tbody>
+                            @endforeach
+                            </tbody>
+                        </table>*/
