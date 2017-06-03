@@ -10,7 +10,6 @@
                 Listado de vehiculos
             </h3>
             <div class="box-tools">
-
                 <div class="text-center">
                     <a class="btn btn-success btn-sm" href="{{route('search')}}">
                         BUSQUEDA AVANZADA
@@ -22,9 +21,7 @@
                         IMPRIMIR REPORTE
                     </a>
                 </div>
-
             </div>
-
         </div>
         <div class="box-body">
             <div class="row">
@@ -72,7 +69,6 @@
                             </tbody>
                         </table>
                         <div class="text-center">
-
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -86,7 +82,6 @@
         </div>
         <!-- /.box -->
     </div>
-
 @endsection
 
 @section('js')

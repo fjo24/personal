@@ -115,7 +115,6 @@ class VehiculoController extends Controller
     public function search()
     {
         $dat = Carbon::now()->format('Y-m-d');
-        
         $marcas = Marca::where('condicion', 1)->orderBy('nombre', 'ASC')->lists('nombre', 'idmarca');
         $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmodelo');
         $clientes = Cliente::orderBy('full_name', 'ASC')->where('effective_end_date', '>=', $dat)->lists('full_name', 'idcliente');
@@ -127,15 +126,10 @@ class VehiculoController extends Controller
     {
         $vehiculos = Vehiculo::search($request)->orderBy('placa', 'ASC')->get();
         $placa=1;
-        //dd($vehiculos);
-
         Excel::create('Lista de vehiculos consultados', function($excel) use ($vehiculos){
             $excel->sheet('Listado', function($sheet) use ($vehiculos){
-               // $vehiculo = Vehiculo::search($request)->orderBy('placa', 'ASC')->get('');
-               // $sheet->fromArray($vehiculos);
                 $placa=1;
                 $sheet->loadView('asesor.vehiculo.excel.exportquery')->with('placa', $placa)->with('vehiculos', $vehiculos);
-                
             });
         })->store('xls', storage_path('excel/exports/'.Auth()->user()->id.'/'));
         return view('asesor.vehiculo.query.query')->with('vehiculos', $vehiculos)->with('placa', $placa);

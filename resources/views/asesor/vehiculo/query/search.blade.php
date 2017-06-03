@@ -32,7 +32,6 @@
                                             {!! Form::select('idmodelo', $modelos, null, ['class' => 'form-control', 'aria-describedby'=>'buscador', 'placeholder' => '--- Selección de modelo ---'])!!}
                                         </div>
                                         {!! Form::close() !!}
-
                                         <div class="col-md-12">
                                             <div class="col-md-6">
                                                 {!! Form::label('año', 'DESDE AÑO') !!}
@@ -71,7 +70,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     {!! Form::label('combustions', 'Seleccione tipo de combustión') !!}
-                                                    {!! Form::select('combustions[]', $combustions, null, ['class' => 'form-control select-combustions', 'multiple']) !!}
+                                                    {!! Form::select('combustions[]', $combustions, null, ['id'=>'chosen', 'class' => 'form-control select-combustions', 'multiple']) !!}
                                                 </div>
                                             </div>
                                         </div>
@@ -106,7 +105,6 @@
                                                 {{ $errors->first('no_atender', '<p class="error">:message</p>') }}
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="for text-center">
                                         {!! Form::submit('ENCONTRAR', ['class'=> 'btn btn-primary']) !!}
@@ -119,12 +117,10 @@
                 </div>
             </div>
         </div>
-
         {!! Form::close() !!}
         @endsection
 
         @section('js')
-
             <script type="text/javascript">
                 //datepicker
                 $('.datepicker').datepicker({
@@ -132,9 +128,8 @@
                     language: "es",
                     autoclose: true
                 });
-
+                //DINAMIC SELECT
                 $("select[name='idmarca']").change(function () {
-       
                     var idmarca = $(this).val();
                     var token = $("input[name='_token']").val();
                     $.ajax({
@@ -147,10 +142,19 @@
                         }
                     });
                 });
+                //CHOSEN
                 $('.select-combustions').chosen({
-                        placeholder_text_multiple:"SELECCIONE TIPO DE COMBUSTION",
-                        max_selected_options    : 4,
-                        no_results_text         : "TIPO DE COMBUSTION NO ENCONTRADA"
-                                    });
+                    placeholder_text_multiple:"SELECCIONE TIPO DE COMBUSTION",
+                    max_selected_options    : 4,
+                    no_results_text         : "TIPO DE COMBUSTION NO ENCONTRADA"
+                });
+                $('#form').click(function (e) {
+                    setTimeout(function () {
+                        clearChosen()
+                    }, 200);
+                });
+                function clearChosen() {
+                    $('select#chosen').trigger('chosen:updated');
+                }
             </script>
 @endsection

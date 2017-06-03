@@ -31,6 +31,7 @@
                                     <div class="form-group">
                                         {!! Form::label('año', 'Año') !!}
                                         <select id="año" name="año" class="form-control ">
+                                            <option value=""></option>
                                             @for ($i = 0; $i < 30; $i++)
                                                 {{$y = Carbon\Carbon::now()->subYear($i)->format('Y')}}
                                                 <option value="{{$y}}"

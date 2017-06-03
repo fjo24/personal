@@ -10,7 +10,6 @@
                 Listado de vehiculos
             </h3>
             <div class="box-tools">
-
                 <div class="text-center">
                     <a class="btn btn-info btn-sm" href="{{route('search')}}">
                         ATRAS
@@ -19,9 +18,7 @@
                         EXPORTAR
                     </a>
                 </div>
-
             </div>
-
         </div>
         <div class="box-body">
             <div class="row">
@@ -39,11 +36,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                            
                             @foreach($vehiculos as $vehiculo)
                                 @if($vehiculo->placa!=$placa && $placa=$vehiculo->placa)
                                     <tr>
-                                        <td>                                            
+                                        <td>
                                             {{ $vehiculo->placa }}
                                         </td>
                                         <td>
@@ -75,7 +71,6 @@
                             @endforeach
                             </tbody>
                         </table>
-
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -88,7 +83,6 @@
         </div>
         <!-- /.box -->
     </div>
-
 @endsection
 
 @section('js')

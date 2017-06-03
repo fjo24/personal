@@ -47,12 +47,12 @@
                             <td>{{ $vehiculo->color }}</td>
                         </tr>
                         <tr>
-                        <td>Combustible:</td>
-                        <td>
-                            @foreach($vehiculo->manyCombustions as $combustion)
-                                {{ $combustion->nombre }}
-                            @endforeach
-                        </td>
+                            <td>Combustible:</td>
+                            <td>
+                                @foreach($vehiculo->manyCombustions as $combustion)
+                                    {{ $combustion->nombre }}
+                                @endforeach
+                            </td>
                         </tr>
                         <tr>
                             <td>Numero de Motor:</td>

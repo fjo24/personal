@@ -2,8 +2,6 @@
 
 @section('title', 'Editar vehiculo')
 
-
-
 @section('contenido')
     {!! Form::model($vehiculos, ['route' => ['asesor.vehiculo.update', $vehiculos], 'method' => 'PUT']) !!}
     @include('asesor.vehiculo.partials.fields')
@@ -16,7 +14,6 @@
 
     {!! Form::close() !!}
 @endsection
-
 
 @section('js')
     <script type="text/javascript">
@@ -50,14 +47,13 @@
                 }
             });
         });
-
         window.onload = function() {
             this.showContent();
         };
         $('.select-combustions').chosen({
-                placeholder_text_multiple:"SELECCIONE TIPO DE COMBUSTION",
-                max_selected_options    : 4,
-                no_results_text         : "TIPO DE COMBUSTION NO ENCONTRADA"
-                            });
+            placeholder_text_multiple:"SELECCIONE TIPO DE COMBUSTION",
+            max_selected_options    : 4,
+            no_results_text         : "TIPO DE COMBUSTION NO ENCONTRADA"
+        });
     </script>
 @endsection
