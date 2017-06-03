@@ -94,10 +94,10 @@ class VehiculoController extends Controller
 
     public function export(Request $request, Vehiculo $vehiculos)
     {
-        Excel::create('Lista de vehiculos', function ($excel) {
-            $excel->sheet('Listado', function ($sheet) {
-                $vehiculos = Vehiculo::orderBy('placa', 'ASC')->get();
-                $sheet->fromArray($vehiculos);
+       Excel::create('Listado de vehiculos', function($excel) {
+            $excel->sheet('listado', function($sheet) {
+                 $vehiculos = Vehiculo::orderBy('placa', 'ASC')->get();
+                $sheet->loadView('asesor.vehiculo.excel.export')->with('vehiculos', $vehiculos);
             });
         })->export('xls');
     }
@@ -120,81 +120,29 @@ class VehiculoController extends Controller
         $modelos = Modelo::orderBy('nombre', 'ASC')->where('condicion', 1)->lists('nombre', 'idmodelo');
         $clientes = Cliente::orderBy('full_name', 'ASC')->where('effective_end_date', '>=', $dat)->lists('full_name', 'idcliente');
         $combustions = Combustion::orderBy('nombre', 'ASC')->lists('nombre', 'id');
-        return view('asesor.vehiculo.search')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes)->with('combustions', $combustions);
+        return view('asesor.vehiculo.query.search')->with('marcas', $marcas)->with('modelos', $modelos)->with('clientes', $clientes)->with('combustions', $combustions);
     }
 
     public function query(Request $request)
     {
-        $vehiculos = Vehiculo::search($request)->orderBy('placa', 'ASC')->get('');
+        $vehiculos = Vehiculo::search($request)->orderBy('placa', 'ASC')->get();
         $placa=1;
-        //dd($request->combustions);
-        Excel::create('Lista de vehiculos consultados', function ($excel) use($vehiculos) {
-            $excel->sheet('Listado', function ($sheet) use ($vehiculos) {
-                $sheet->fromArray($vehiculos);
+        //dd($vehiculos);
+
+        Excel::create('Lista de vehiculos consultados', function($excel) use ($vehiculos){
+            $excel->sheet('Listado', function($sheet) use ($vehiculos){
+               // $vehiculo = Vehiculo::search($request)->orderBy('placa', 'ASC')->get('');
+               // $sheet->fromArray($vehiculos);
+                $placa=1;
+                $sheet->loadView('asesor.vehiculo.excel.exportquery')->with('placa', $placa)->with('vehiculos', $vehiculos);
+                
             });
         })->store('xls', storage_path('excel/exports/'.Auth()->user()->id.'/'));
-        return view('asesor.vehiculo.query')->with('vehiculos', $vehiculos)->with('placa', $placa);
+        return view('asesor.vehiculo.query.query')->with('vehiculos', $vehiculos)->with('placa', $placa);
     }
 
     public function exportquery()
     {
-       
-       // dd($vehiculos);
-       // $vehiculos = Vehiculo::with('marca', 'modelo', 'cliente')->orderBy('placa', 'DESC')->get();
-       Excel::create('New file', function($excel) {
-            $excel->sheet('New sheet', function($sheet) {
-                 $vehiculos = Vehiculo::orderBy('placa', 'ASC')->get();
-                $sheet->loadView('asesor.vehiculo.exportquery')->with('vehiculos', $vehiculos);
-            });
-        })->export('xls');
-       //  return view('asesor.vehiculo.exportquery')->with('vehiculos', $vehiculos);
+        return response()->download(storage_path('excel/exports/'.Auth()->user()->id.'/Lista de vehiculos consultados.xls'));
     }
 }
-
-/*
-
-
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>PLACA</th>
-                                <th>NOMBRE MARCA</th>
-                                <th>NOMBRE MODELO</th>
-                                <th>TIPO  DE COMBUSTION</th>
-                                <th>NUMERO DE MOTOR</th>
-                                <th>KILOMETRAJE</th>
-                                <th>PROXIMA VISITA</th>
-                                <th>NO ATENDER</th>
-                                <th>MOTIVO DE NO ATENCION</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($vehiculos as $vehiculo)
-                        <tbody>
-                        <tr>
-                            <td>
-                                {{ $vehiculo->placa }}
-                            </td>
-                            <td>{{ $vehiculo->marca->nombre }}</td>
-                            <td>{{ $vehiculo->modelo->nombre }}</td>
-                            <td>
-                            @foreach($vehiculo->manyCombustions as $combustion)
-                                {{ $combustion->nombre }}
-                            @endforeach
-                            </td>
-                            <td>{{ $vehiculo->num_motor }}</td>
-                            <td>{{ $vehiculo->km }}</td>
-                            <td>{{ $vehiculo->proxima_visita }}</td>
-                            <td>
-                                @if($vehiculo->no_atender != 0)
-                                    No Atender
-                                @else
-                                    Atendido
-                                @endif
-                            </td>
-                            <td>{{ $vehiculo->motivo_no_atencion }}</td>
-                        </tr>
-                        </tbody>
-                            @endforeach
-                            </tbody>
-                        </table>*/

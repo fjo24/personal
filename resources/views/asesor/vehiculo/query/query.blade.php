@@ -15,7 +15,9 @@
                     <a class="btn btn-info btn-sm" href="{{route('search')}}">
                         ATRAS
                     </a>
-
+                    <a class="btn btn-success btn-sm" href="{{route('exportquery')}}">
+                        EXPORTAR
+                    </a>
                 </div>
 
             </div>
@@ -73,11 +75,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        <div class="text-center">
-                    <a class="btn btn-success btn-sm" href="{{route('exportquery')}}">
-                        EXPORTAR
-                    </a>
-                        </div>
+
                     </div>
                     <!-- /.box-body -->
                 </div>

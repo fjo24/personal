@@ -28,7 +28,7 @@ Route::group(['prefix' => 'asesor'], function () {
 		'as' => 'search'
 	]);
 
-	Route::get('query', [
+	Route::get('query/query', [
 		'uses' => 'VehiculoController@query',
 		'as' => 'query'
 	]);
