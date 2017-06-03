@@ -37,8 +37,8 @@
                             <td>Fecha de nacimiento:</td>
                             <td>{{ $persona->DATE_OF_BIRTH }}</td>
                         </tr>
-                        <td>Tipo de documento:</td>
-                        <td>{{ $persona->idtipo_doc }}</td>
+                            <td>Tipo de documento:</td>
+                            <td>{{ $persona->idtipo_doc }}</td>
                         </tr>
                         <tr>
                             <td>Número de documento:</td>
@@ -48,8 +48,8 @@
                             <td>Fecha de Ingreso:</td>
                             <td>{{ $persona->EFFECTIVE_START_DATE }}</td>
                         </tr>
-                        <td>Fecha de cese:</td>
-                        <td>{{ $persona->EFFECTIVE_END_DATE }}</td>
+                            <td>Fecha de cese:</td>
+                            <td>{{ $persona->EFFECTIVE_END_DATE }}</td>
                         </tr>
                         <tr>
                             <td>ID Puesto:</td>

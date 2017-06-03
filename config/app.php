@@ -52,7 +52,7 @@ return [
     |
      */
 
-    'timezone'        => 'UTC',
+    'timezone'        =>  'America/Lima',
 
     /*
     |--------------------------------------------------------------------------
@@ -151,16 +151,22 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        sisVentas\Providers\AppServiceProvider::class,
+        sisVentas\Providers\AuthServiceProvider::class,
+        sisVentas\Providers\EventServiceProvider::class,
+        sisVentas\Providers\RouteServiceProvider::class,
         /*
          * Personal Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Styde\Html\HtmlServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+
+
+        //sisVentas\Providers\MakeModelProvider::class,
+
     ],
 
     /*
@@ -213,7 +219,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
         'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
-
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

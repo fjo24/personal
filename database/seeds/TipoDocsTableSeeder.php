@@ -11,6 +11,6 @@ class TipoDocsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Tipo_docs::class, 5)->create();
+        factory(sisVentas\Tipo_docs::class, 5)->create();
 }
 }

@@ -11,6 +11,6 @@ class PerVentaTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Per_ventas::class, 100)->create();
+        factory(sisVentas\Per_ventas::class, 10)->create();
     }
 }

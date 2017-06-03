@@ -131,6 +131,10 @@ return [
         'COUNTRY'              => 'distrito',
         'ADDRESS'              => 'direccion',
 
+        'num_motor'            => 'numero del motor',
+        'proxima_visita'       => 'proxima visita',
+        'created_at'           => 'fecha de creación',
+
     ],
 
 ];

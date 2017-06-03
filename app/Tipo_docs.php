@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace sisVentas;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,7 @@ class Tipo_docs extends Model
 
     public function personal()
     {
-        return $this->belongsTo('App\Personal');
+        return $this->belongsTo('sisVentas\Personal');
     }
 
 }

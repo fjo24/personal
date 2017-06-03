@@ -25,9 +25,16 @@ folder instead of downloading all of them to reduce the load. -->
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
     <link href="{{ asset ('AdminLTE/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker3.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker.standalone.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset ('chosen/chosen.css') }}">
+        <!-- icheck 
+    <link href="AdminLTE/plugins/iCheck/square/red.css" rel="stylesheet">
+    <script src="AdminLTE/plugins/iCheck/icheck.js"></script>
+
+-->
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -315,17 +322,17 @@ folder instead of downloading all of them to reduce the load. -->
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="../../index.html">
+                            <a href="{{route('hr.personal.index')}}">
                                 <i class="fa fa-circle-o">
                                 </i>
-                                Dashboard v1
+                                Personal v1
                             </a>
                         </li>
                         <li>
-                            <a href="../../index2.html">
+                            <a href="{{route('asesor.vehiculo.index')}}">
                                 <i class="fa fa-circle-o">
                                 </i>
-                                Dashboard v2
+                                Vehiculo  v2
                             </a>
                         </li>
                     </ul>
@@ -628,6 +635,7 @@ folder instead of downloading all of them to reduce the load. -->
 <!-- AdminLTE App -->
 <script src="{{asset('AdminLTE/dist/js/app.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
+<script src="{{ asset('chosen/chosen.jquery.js') }} "></script>
 <script src="{{asset('AdminLTE/dist/js/demo.js')}}"></script>
 <script src="{{asset('AdminLTE/plugins/datepicker/bootstrap-datepicker.min.js')}}"></script>
 <script src="{{asset('AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.es.js')}}"></script>
