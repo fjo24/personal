@@ -25,17 +25,18 @@
                                         {!! Form::open(['route' => 'asesor.vehiculo.store', 'method' => 'POST']) !!}
                                         <div class="form-group">
                                             {!! Form::label('idmarca', 'MARCA') !!}
-                                            {!! Form::select('idmarca', $marcas, null, ['class' => 'form-control', 'aria-describedby'=>'buscador', 'placeholder' => '--- Selección de marca ---'])!!}
+                                            {!! Form::select('idmarca', $marcas, null, ['class' => 'form-control select2', 'aria-describedby'=>'buscador', 'placeholder' => '--- Selección de marca ---'])!!}
                                         </div>
                                         <div class="form-group">
                                             {!! Form::label('idmodelo', 'MODELO')!!}
-                                            {!! Form::select('idmodelo', $modelos, null, ['class' => 'form-control', 'aria-describedby'=>'buscador', 'placeholder' => '--- Selección de modelo ---'])!!}
+                                            {!! Form::select('idmodelo', $modelos, null, ['class' => 'form-control select2', 'aria-describedby'=>'buscador', 'placeholder' => '--- Selección de modelo ---'])!!}
                                         </div>
                                         {!! Form::close() !!}
+                                    <div class="form-group">
                                         <div class="col-md-12">
                                             <div class="col-md-6">
                                                 {!! Form::label('año', 'DESDE AÑO') !!}
-                                                <select id="año1" name="año1" class="form-control"
+                                                <select id="año1" name="año1" class="form-control select2" data-placeholder="Seleccione año"
                                                         aria-describedby="buscador" placeholder="">
                                                     <option value="">
                                                     </option>
@@ -51,7 +52,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 {!! Form::label('año', 'HASTA AÑO') !!}
-                                                <select id="año2" name="año2" class="form-control"
+                                                <select id="año2" name="año2" class="form-control select2" data-placeholder="Seleccione año"
                                                         aria-describedby="buscador">
                                                     <option value="">
                                                     </option>
@@ -66,10 +67,11 @@
                                                 </select>
                                             </div>
                                         </div>
+                                    </div><br><br><br>
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    {!! Form::label('combustions', 'Seleccione tipo de combustión') !!}
+                                                    {!! Form::label('combustions', 'TIPO DE COMBUSTION') !!}
                                                     {!! Form::select('combustions[]', $combustions, null, ['id'=>'chosen', 'class' => 'form-control select-combustions', 'multiple']) !!}
                                                 </div>
                                             </div>
@@ -122,12 +124,22 @@
 
         @section('js')
             <script type="text/javascript">
+                $(document).ready(function() {
+                $(".select2").select2();
+                });
                 //datepicker
                 $('.datepicker').datepicker({
                     format: "dd-mm-yyyy",
                     language: "es",
                     autoclose: true
                 });
+                //CHOSEN
+                $('.select-combustions').chosen({
+                    placeholder_text_multiple:"SELECCIONE TIPO DE COMBUSTION",
+                    max_selected_options    : 4,
+                    no_results_text         : "TIPO DE COMBUSTION NO ENCONTRADA"
+                });
+            
                 //DINAMIC SELECT
                 $("select[name='idmarca']").change(function () {
                     var idmarca = $(this).val();
@@ -142,12 +154,7 @@
                         }
                     });
                 });
-                //CHOSEN
-                $('.select-combustions').chosen({
-                    placeholder_text_multiple:"SELECCIONE TIPO DE COMBUSTION",
-                    max_selected_options    : 4,
-                    no_results_text         : "TIPO DE COMBUSTION NO ENCONTRADA"
-                });
+                
                 $('#form').click(function (e) {
                     setTimeout(function () {
                         clearChosen()

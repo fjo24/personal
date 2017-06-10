@@ -23,7 +23,7 @@
             </td>
             <td>{{ $vehiculo->marca->nombre }}</td>
             <td>{{ $vehiculo->modelo->nombre }}</td>
-            <td>{{ $vehiculo->AÑO }}</td>
+            <td>{{ $vehiculo->año }}</td>
             <td>
                 @foreach($vehiculo->manyCombustions as $combustion)
                     {{ $combustion->nombre }}

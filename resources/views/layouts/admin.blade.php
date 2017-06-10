@@ -25,7 +25,7 @@ folder instead of downloading all of them to reduce the load. -->
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <link href="{{ asset ('AdminLTE/plugins/select2/select2.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker3.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('AdminLTE/plugins/datepicker/bootstrap-datepicker.standalone.css') }}" rel="stylesheet" type="text/css">
@@ -643,6 +643,7 @@ folder instead of downloading all of them to reduce the load. -->
 <script type="text/javascript" src="{{ asset('AdminLTE/plugins/input-mask/jquery.inputmask.js') }}"></script>
 <script type="text/javascript" src="{{ asset('AdminLTE/plugins/input-mask/jquery.inputmask.phone.extensions.js') }}"></script>
 <script type="text/javascript" src="{{ asset('AdminLTE/plugins/mask/jquery.mask.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('AdminLTE/plugins/select2/select2.min.js') }}"></script>
 
 @yield('js')
 </body>
