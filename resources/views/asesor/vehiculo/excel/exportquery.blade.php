@@ -4,11 +4,13 @@
         <th>PLACA</th>
         <th>MARCA</th>
         <th>MODELO</th>
+        <th>AÑO</th>
         <th>TIPO  DE COMBUSTION</th>
         <th>NUMERO DE MOTOR</th>
         <th>KILOMETRAJE</th>
         <th>PROXIMA VISITA</th>
         <th>NO ATENDER</th>
+        <th>CLIENTE</th>
         <th>MOTIVO DE NO ATENCION</th>
     </tr>
     </thead>
@@ -22,6 +24,7 @@
                 </td>
                 <td>{{ $vehiculo->marca }}</td>
                 <td>{{ $vehiculo->modelo }}</td>
+                <td>{{ $vehiculo->año }}</td>
                 <td>
                     @foreach($vehiculo->manyCombustions as $combustion)
                         {{ $combustion->nombre }}
@@ -37,11 +40,12 @@
                         Atendido
                     @endif
                 </td>
+                <td>{{ $vehiculo->cliente }}</td>
                 <td>{{ $vehiculo->motivo_no_atencion }}</td>
             </tr>
             </tbody>
-            @endif
-            @endforeach
+        @endif
+    @endforeach
             </tbody>
 </table>
  

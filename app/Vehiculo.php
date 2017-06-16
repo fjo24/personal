@@ -96,6 +96,7 @@ class Vehiculo extends Model
         return $query
             ->join('marca', 'marca.idmarca', '=', 'vehiculo.idmarca')
             ->join('modelo', 'modelo.idmodelo', '=', 'vehiculo.idmodelo')
+            ->join('cliente', 'cliente.idcliente', '=', 'vehiculo.idcliente')
             ->join('combustion_vehiculo', 'combustion_vehiculo.vehiculo_id', '=', 'vehiculo.id')
             ->when($combustions, function ($query) use ($combustions) {
                 return $query->WhereIn('combustion_vehiculo.combustion_id', $combustions);
@@ -125,6 +126,6 @@ class Vehiculo extends Model
             ->when($no_atender, function ($query) use ($no_atender) {
                 return $query->where('vehiculo.no_atender', $no_atender);
             })
-            ->select('vehiculo.id', 'vehiculo.placa', 'modelo.nombre as modelo', 'marca.nombre as marca', 'vehiculo.num_motor', 'vehiculo.km', 'vehiculo.proxima_visita', 'vehiculo.no_atender', 'vehiculo.motivo_no_atencion');
+            ->select('vehiculo.id', 'vehiculo.placa', 'modelo.nombre as modelo', 'marca.nombre as marca', 'vehiculo.num_motor', 'vehiculo.km', 'vehiculo.proxima_visita', 'vehiculo.no_atender', 'vehiculo.motivo_no_atencion', 'cliente.full_name as cliente');
     }
 }
